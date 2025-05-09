@@ -2804,10 +2804,12 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         .cookie-consent-content p {
             font-size: 0.85rem;
             margin-bottom: 15px;
+            text-align: justify;
         }
         
         .privacy-policy-link {
-            margin-bottom: 15px;
+            margin-bottom: 13px;
+            margin-left: -281px;
         }
         
         .cookie-btn {
