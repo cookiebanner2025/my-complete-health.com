@@ -233,6 +233,7 @@ const config = {
         size: '50px',
         height: '26px',
         sliderSize: '20px'
+        
     },
     
     // Cookie category styling
@@ -2176,6 +2177,7 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         display: inline-block;
         width: ${config.toggleStyle.size};
         height: ${config.toggleStyle.height};
+        margin-left: 150px;
     }
 
     .toggle-switch input {
@@ -2809,7 +2811,7 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         
         .privacy-policy-link {
             margin-bottom: 13px;
-            margin-left: -281px;
+            margin-left: -277px;
         }
         
         .cookie-btn {
