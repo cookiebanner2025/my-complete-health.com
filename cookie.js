@@ -1,17 +1,21 @@
+// Generate a unique prefix for all our classes to avoid conflicts
+const uniquePrefix = 'ccb_' + Math.random().toString(36).substring(2, 8) + '_';
+
+// Configuration object with all settings
 const config = {
     // Domain restriction
     allowedDomains: ['dev-rpractice.pantheonsite.io', 'my-complete-health.com'],
     
     // Privacy policy URL (configurable)
-    privacyPolicyUrl: 'https://yourdomain.com/privacy-policy', // Add your full privacy policy URL here
+    privacyPolicyUrl: 'https://yourdomain.com/privacy-policy',
     
     // Microsoft UET Configuration
     uetConfig: {
         enabled: true,
-        defaultTagId: '137027166', // Fallback if auto-detection fails
-        autoDetectTagId: true,     // Try to detect UET tag ID automatically
-        defaultConsent: 'denied',  // 'denied' or 'granted'
-        enforceInEEA: true         // Enforce consent mode in EEA countries
+        defaultTagId: '137027166',
+        autoDetectTagId: true,
+        defaultConsent: 'denied',
+        enforceInEEA: true
     },
     
     // Behavior configuration
@@ -44,24 +48,22 @@ const config = {
             enterEffect: 'fadeIn',
             exitEffect: 'fadeOut'
         },
-        
-        // New timeline configuration for banner visibility
         bannerSchedule: {
-            enabled: false, // Set to true to enable scheduling
-            startDate: '2023-01-01', // Start date (YYYY-MM-DD)
-            endDate: '2023-12-31',   // End date (YYYY-MM-DD)
-            startTime: '00:00',      // Start time (24-hour format)
-            endTime: '23:59',        // End time (24-hour format)
-            daysOfWeek: [1,2,3,4,5], // 0=Sunday, 1=Monday, etc.
-            durationDays: 365,       // Alternative: show banner for X days from first visit
-            durationMinutes: 2       // Alternative: show banner for X minutes per session
+            enabled: false,
+            startDate: '2023-01-01',
+            endDate: '2023-12-31',
+            startTime: '00:00',
+            endTime: '23:59',
+            daysOfWeek: [1,2,3,4,5],
+            durationDays: 365,
+            durationMinutes: 2
         }
     },
     
     // Language configuration
     languageConfig: {
         defaultLanguage: 'en',
-        availableLanguages: ['en'], // Only en and fr as requested
+        availableLanguages: ['en', 'fr'],
         showLanguageSelector: false,
         autoDetectLanguage: true
     },
@@ -92,198 +94,198 @@ const config = {
     // UI Theme selection
     uiTheme: 'default',
     
-    // Banner styling
+    // Banner styling (now with !important flags)
     bannerStyle: {
-        background: '#ffffff',
-        borderRadius: '12px',
-        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.12)',
-        width: '465px',
-        padding: '24px',
-        textColor: '#2c3e50',
-        linkColor: '#3498db',
-        linkHoverColor: '#1d6fa5',
+        background: '#ffffff !important',
+        borderRadius: '12px !important',
+        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.12) !important',
+        width: '465px !important',
+        padding: '24px !important',
+        textColor: '#2c3e50 !important',
+        linkColor: '#3498db !important',
+        linkHoverColor: '#1d6fa5 !important',
         border: {
             enabled: false,
-            width: '1px',
-            style: 'solid',
-            color: '#e0e0e0'
+            width: '1px !important',
+            style: 'solid !important',
+            color: '#e0e0e0 !important'
         },
         title: {
-            fontSize: '18px',
-            fontWeight: '600',
-            color: '#2c3e50'
+            fontSize: '18px !important',
+            fontWeight: '600 !important',
+            color: '#2c3e50 !important'
         },
         description: {
-            fontSize: '14px',
-            lineHeight: '1.5',
-            color: '#7f8c8d'
+            fontSize: '14px !important',
+            lineHeight: '1.5 !important',
+            color: '#7f8c8d !important'
         }
     },
     
-    // Button styling
+    // Button styling with !important
     buttonStyle: {
-        borderRadius: '8px',
-        padding: '12px 20px',
-        fontWeight: '600',
-        fontSize: '14px',
-        transition: 'all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)',
+        borderRadius: '8px !important',
+        padding: '12px 20px !important',
+        fontWeight: '600 !important',
+        fontSize: '14px !important',
+        transition: 'all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important',
         
         accept: {
-            background: '#2ecc71',
-            color: '#ffffff',
-            border: '1px solid #2ecc71',
+            background: '#2ecc71 !important',
+            color: '#ffffff !important',
+            border: '1px solid #2ecc71 !important',
             hover: {
-                background: '#27ae60',
-                color: '#ffffff',
-                transform: 'translateY(-1px)'
+                background: '#27ae60 !important',
+                color: '#ffffff !important',
+                transform: 'translateY(-1px) !important'
             }
         },
         
         reject: {
-            background: '#ffffff',
-            color: '#e74c3c',
-            border: '1px solid #e74c3c',
+            background: '#ffffff !important',
+            color: '#e74c3c !important',
+            border: '1px solid #e74c3c !important',
             hover: {
-                background: '#ffeeed',
-                color: '#e74c3c',
-                transform: 'translateY(-1px)'
+                background: '#ffeeed !important',
+                color: '#e74c3c !important',
+                transform: 'translateY(-1px) !important'
             }
         },
         
         adjust: {
-            background: '#f8f9fa',
-            color: '#333333',
-            border: '1px solid #e0e0e0',
+            background: '#f8f9fa !important',
+            color: '#333333 !important',
+            border: '1px solid #e0e0e0 !important',
             hover: {
-                background: '#f0f2f5',
-                color: '#333333',
-                transform: 'translateY(-1px)'
+                background: '#f0f2f5 !important',
+                color: '#333333 !important',
+                transform: 'translateY(-1px) !important'
             }
         },
         
         save: {
-            background: '#3498db',
-            color: '#ffffff',
-            border: '1px solid #3498db',
+            background: '#3498db !important',
+            color: '#ffffff !important',
+            border: '1px solid #3498db !important',
             hover: {
-                background: '#2980b9',
-                color: '#ffffff',
-                transform: 'translateY(-1px)'
+                background: '#2980b9 !important',
+                color: '#ffffff !important',
+                transform: 'translateY(-1px) !important'
             }
         }
     },
     
-    // Floating button styling
+    // Floating button styling with !important
     floatingButtonStyle: {
-        size: '50px',
-        background: '#2ecc71',
-        iconColor: '#ffffff',
-        border: '2px solid #ffffff',
-        borderRadius: '50%',
-        boxShadow: '0 6px 20px rgba(0, 0, 0, 0.2)',
+        size: '50px !important',
+        background: '#2ecc71 !important',
+        iconColor: '#ffffff !important',
+        border: '2px solid #ffffff !important',
+        borderRadius: '50% !important',
+        boxShadow: '0 6px 20px rgba(0, 0, 0, 0.2) !important',
         hover: {
-            background: '#27ae60',
-            transform: 'translateY(-3px) scale(1.05)',
-            boxShadow: '0 8px 25px rgba(0, 0, 0, 0.3)'
+            background: '#27ae60 !important',
+            transform: 'translateY(-3px) scale(1.05) !important',
+            boxShadow: '0 8px 25px rgba(0, 0, 0, 0.3) !important'
         }
     },
     
-    // Admin button styling
+    // Admin button styling with !important
     adminButtonStyle: {
-        size: '60px',
-        background: '#2ecc71',
-        iconColor: '#ffffff',
-        border: '2px solid #ffffff',
-        borderRadius: '50%',
-        boxShadow: '0 6px 20px rgba(0, 0, 0, 0.2)',
+        size: '60px !important',
+        background: '#2ecc71 !important',
+        iconColor: '#ffffff !important',
+        border: '2px solid #ffffff !important',
+        borderRadius: '50% !important',
+        boxShadow: '0 6px 20px rgba(0, 0, 0, 0.2) !important',
         hover: {
-            background: '#2980b9',
-            transform: 'translateY(-3px) scale(1.05)',
-            boxShadow: '0 8px 25px rgba(0, 0, 0, 0.3)'
+            background: '#2980b9 !important',
+            transform: 'translateY(-3px) scale(1.05) !important',
+            boxShadow: '0 8px 25px rgba(0, 0, 0, 0.3) !important'
         }
     },
     
-    // Modal styling
+    // Modal styling with !important
     modalStyle: {
-        background: '#ffffff',
-        borderRadius: '12px',
-        width: '845px',
-        maxHeight: '470px',
+        background: '#ffffff !important',
+        borderRadius: '12px !important',
+        width: '845px !important',
+        maxHeight: '470px !important',
         header: {
-            background: '#f8f9fa',
-            textColor: '#2c3e50',
-            fontSize: '1.5rem',
-            fontWeight: '600'
+            background: '#f8f9fa !important',
+            textColor: '#2c3e50 !important',
+            fontSize: '1.5rem !important',
+            fontWeight: '600 !important'
         },
         body: {
-            background: '#fefefe',
-            textColor: '#2c3e50'
+            background: '#fefefe !important',
+            textColor: '#2c3e50 !important'
         },
         footer: {
-            background: '#f8f9fa',
-            borderTop: '1px solid #ecf0f1'
+            background: '#f8f9fa !important',
+            borderTop: '1px solid #ecf0f1 !important'
         },
         closeButton: {
-            color: '#7f8c8d',
-            hoverColor: '#e74c3c'
+            color: '#7f8c8d !important',
+            hoverColor: '#e74c3c !important'
         }
     },
     
-    // Toggle switch styling
+    // Toggle switch styling with !important
     toggleStyle: {
-        activeColor: '#2ecc71',
-        inactiveColor: '#bdc3c7',
-        size: '50px',
-        height: '26px',
-        sliderSize: '20px'
+        activeColor: '#2ecc71 !important',
+        inactiveColor: '#bdc3c7 !important',
+        size: '50px !important',
+        height: '26px !important',
+        sliderSize: '20px !important'
     },
     
-    // Cookie category styling
+    // Cookie category styling with !important
     categoryStyle: {
-        background: '#f8f9fa',
-        borderRadius: '8px',
-        border: '1px solid #ecf0f1',
+        background: '#f8f9fa !important',
+        borderRadius: '8px !important',
+        border: '1px solid #ecf0f1 !important',
         title: {
-            fontSize: '1.1rem',
-            fontWeight: '600',
-            color: '#2c3e50'
+            fontSize: '1.1rem !important',
+            fontWeight: '600 !important',
+            color: '#2c3e50 !important'
         },
         description: {
-            fontSize: '14px',
-            color: '#7f8c8d'
+            fontSize: '14px !important',
+            color: '#7f8c8d !important'
         }
     },
     
-    // Dashboard styling
+    // Dashboard styling with !important
     dashboardStyle: {
-        background: '#ffffff',
-        borderRadius: '12px',
-        width: '900px',
-        maxHeight: '600px',
+        background: '#ffffff !important',
+        borderRadius: '12px !important',
+        width: '900px !important',
+        maxHeight: '600px !important',
         header: {
-            background: '#f8f9fa',
-            textColor: '#2c3e50',
-            fontSize: '1.5rem',
-            fontWeight: '600'
+            background: '#f8f9fa !important',
+            textColor: '#2c3e50 !important',
+            fontSize: '1.5rem !important',
+            fontWeight: '600 !important'
         },
         body: {
-            background: '#fefefe'
+            background: '#fefefe !important'
         },
         statCards: {
-            background: '#f8f9fa',
-            borderRadius: '8px',
-            acceptedColor: '#2ecc71',
-            rejectedColor: '#e74c3c',
-            customColor: '#3498db',
-            totalColor: '#9b59b6'
+            background: '#f8f9fa !important',
+            borderRadius: '8px !important',
+            acceptedColor: '#2ecc71 !important',
+            rejectedColor: '#e74c3c !important',
+            customColor: '#3498db !important',
+            totalColor: '#9b59b6 !important'
         },
         barChart: {
-            height: '20px',
-            borderRadius: '10px',
-            background: '#ecf0f1',
-            acceptedColor: '#2ecc71',
-            rejectedColor: '#e74c3c',
-            customColor: '#3498db'
+            height: '20px !important',
+            borderRadius: '10px !important',
+            background: '#ecf0f1 !important',
+            acceptedColor: '#2ecc71 !important',
+            rejectedColor: '#e74c3c !important',
+            customColor: '#3498db !important'
         }
     }
 };
@@ -292,11 +294,8 @@ const config = {
 // Initialize dataLayer for Google Tag Manager
 window.dataLayer = window.dataLayer || [];
 // Initialize UET queue if not already exists (Microsoft Consent Mode)
-if (typeof window.uetq === 'undefined') window.uetq = [];  // <-- ADD THIS LINE
+if (typeof window.uetq === 'undefined') window.uetq = [];
 function gtag() { dataLayer.push(arguments); }
-
-// Initialize UET queue if not already exists
-window.uetq = window.uetq || [];
 
 // Set default consent (deny all except security)
 gtag('consent', 'default', {
@@ -312,15 +311,12 @@ gtag('consent', 'default', {
 // Set default UET consent
 function setDefaultUetConsent() {
     if (!config.uetConfig.enabled) return;
-     // Redundant safeguard
-  if (typeof window.uetq === 'undefined') window.uetq = [];  // <-- ADD THIS LINE
     const consentState = config.uetConfig.defaultConsent === 'granted' ? 'granted' : 'denied';
     
     window.uetq.push('consent', 'default', {
         'ad_storage': consentState
     });
     
-    // Push to dataLayer
     window.dataLayer.push({
         'event': 'uet_consent_default',
         'consent_mode': {
@@ -332,7 +328,6 @@ function setDefaultUetConsent() {
 
 // Enhanced cookie database with detailed descriptions
 const cookieDatabase = {
-    // Existing cookies
     '_gcl': { category: 'advertising', duration: '90 days', description: 'Google Click Identifier - Tracks ad clicks and conversions' },
     '_gcl_au': { category: 'advertising', duration: '90 days', description: 'Google Ads conversion tracking' },
     'gclid': { category: 'advertising', duration: '30 days', description: 'Google Click ID - Tracks PPC ad clicks' },
@@ -385,8 +380,6 @@ const cookieDatabase = {
     '_gat': { category: 'analytics', duration: '1 minute', description: 'Google Analytics throttle' },
     'PHPSESSID': { category: 'functional', duration: 'Session', description: 'PHP session' },
     'cookie_consent': { category: 'functional', duration: '365 days', description: 'Consent preferences' },
-
-    // New Facebook cookies from your list
     'lu': { category: 'advertising', duration: '2 years', description: 'Used to record whether the person chose to remain logged in (User ID and miscellaneous log in information)' },
     'xs': { category: 'advertising', duration: '90 days', description: 'Used with c_user cookie to authenticate identity to Facebook (Session ID, creation time, authentication value)' },
     'c_user': { category: 'advertising', duration: '90 days', description: 'Used with xs cookie to authenticate identity to Facebook (User ID)' },
@@ -408,13 +401,11 @@ const cookieDatabase = {
     'rc': { category: 'advertising', duration: '7 days', description: 'Used to optimize site performance for advertisers' },
     'campaign_click_url': { category: 'advertising', duration: '30 days', description: 'Records Facebook URL landed on after clicking an ad' },
     'usida': { category: 'advertising', duration: 'Session', description: 'Collects browser and unique identifier for targeted advertising' },
-    
-    // Facebook functional cookies
     'wd': { category: 'functional', duration: 'Session', description: 'Stores browser window dimensions for page rendering optimization' },
     'presence': { category: 'functional', duration: 'Session', description: 'Contains user chat state' }
 };
 
-// Language translations (keeping only en and fr as requested)
+// Language translations
 const translations = {
     en: {
         title: "We value your privacy",
@@ -450,72 +441,53 @@ const translations = {
         dashboardTitle: "Consent Analytics Dashboard",
         seeAnalytics: "See Consent Analytics"
     },
-    
- // ... (keep all other language translations the same)
+    fr: {
+        title: "Nous respectons votre vie privée",
+        description: "Nous utilisons des cookies pour améliorer votre expérience de navigation, fournir des publicités ou du contenu personnalisé et analyser notre trafic. En cliquant sur \"Tout accepter\", vous consentez à l'utilisation de cookies.",
+        privacy: "Politique de confidentialité",
+        customize: "Ajuster",
+        reject: "Tout refuser",
+        accept: "Tout accepter",
+        essential: "Cookies essentiels",
+        essentialDesc: "Nécessaires au fonctionnement du site",
+        analytics: "Cookies d'analyse",
+        analyticsDesc: "Aident à comprendre les interactions des visiteurs",
+        performance: "Cookies de performance",
+        performanceDesc: "Améliorent les performances du site",
+        advertising: "Cookies publicitaires",
+        advertisingDesc: "Diffusent des publicités pertinentes",
+        other: "Autres cookies",
+        otherDesc: "Cookies non catégorisés",
+        save: "Enregistrer les préférences",
+        language: "Français",
+        statsTitle: "Statistiques de consentement",
+        statsAccepted: "Accepté",
+        statsRejected: "Rejeté",
+        statsCustom: "Personnalisé",
+        statsTotal: "Total",
+        statsPercentage: "Pourcentage",
+        statsLast1Day: "Dernier jour",
+        statsLast7Days: "7 derniers jours",
+        statsLast30Days: "30 derniers jours",
+        passwordPrompt: "Entrez le mot de passe pour voir les analyses",
+        passwordSubmit: "Soumettre",
+        passwordIncorrect: "Mot de passe incorrect",
+        dashboardTitle: "Tableau de bord des analyses de consentement",
+        seeAnalytics: "Voir les analyses de consentement"
+    }
 };
 
-// Country to language mapping for auto-translation (keeping all mappings)
+// Country to language mapping
 const countryLanguageMap = {
-    // EU Countries
-    'AT': 'de',     // Austria
-    'BE': 'nl',     // Belgium (Dutch)
-    'BE': 'fr',     // Belgium (French)
-    'BG': 'bg',     // Bulgaria
-    'HR': 'hr',     // Croatia
-    'CY': 'el',     // Cyprus
-    'CZ': 'cs',     // Czech Republic
-    'DK': 'da',     // Denmark
-    'EE': 'et',     // Estonia
-    'FI': 'fi',     // Finland
-    'FR': 'fr',     // France
-    'DE': 'de',     // Germany
-    'GR': 'el',     // Greece
-    'HU': 'hu',     // Hungary
-    'IE': 'en',     // Ireland
-    'IT': 'it',     // Italy
-    'LV': 'lv',     // Latvia
-    'LT': 'lt',     // Lithuania
-    'LU': 'fr',     // Luxembourg
-    'LU': 'de',     // Luxembourg
-    'MT': 'mt',     // Malta
-    'NL': 'nl',     // Netherlands
-    'PL': 'pl',     // Poland
-    'PT': 'pt',     // Portugal
-    'RO': 'ro',     // Romania
-    'SK': 'sk',     // Slovakia
-    'SI': 'sl',     // Slovenia
-    'ES': 'es',     // Spain
-    'SE': 'sv',     // Sweden
-    
-    // Other European countries
-    'AL': 'en',     // Albania
-    'BA': 'en',     // Bosnia and Herzegovina
-    'IS': 'en',     // Iceland
-    'LI': 'de',     // Liechtenstein
-    'MK': 'en',     // North Macedonia
-    'NO': 'en',     // Norway
-    'RS': 'en',     // Serbia
-    'CH': 'de',     // Switzerland
-    'CH': 'fr',     // Switzerland
-    'CH': 'it',     // Switzerland
-    'UA': 'uk',     // Ukraine
-    'GB': 'en',     // United Kingdom
-    
-    // Rest of the world
-    'US': 'en',     // United States
-    'CA': 'en',     // Canada
-    'CA': 'fr',     // Canada (French)
-    'AU': 'en',     // Australia
-    'NZ': 'en',     // New Zealand
-    'ZA': 'en',     // South Africa
-    'IN': 'en',     // India
-    'CN': 'zh',     // China
-    'JP': 'ja',     // Japan
-    'KR': 'ko',     // South Korea
-    'BR': 'pt',     // Brazil
-    'MX': 'es',     // Mexico
-    'AR': 'es',     // Argentina
-    'RU': 'ru'      // Russia
+    'AT': 'de', 'BE': 'nl', 'BG': 'bg', 'HR': 'hr', 'CY': 'el', 'CZ': 'cs',
+    'DK': 'da', 'EE': 'et', 'FI': 'fi', 'FR': 'fr', 'DE': 'de', 'GR': 'el',
+    'HU': 'hu', 'IE': 'en', 'IT': 'it', 'LV': 'lv', 'LT': 'lt', 'LU': 'fr',
+    'MT': 'mt', 'NL': 'nl', 'PL': 'pl', 'PT': 'pt', 'RO': 'ro', 'SK': 'sk',
+    'SI': 'sl', 'ES': 'es', 'SE': 'sv', 'AL': 'en', 'BA': 'en', 'IS': 'en',
+    'LI': 'de', 'MK': 'en', 'NO': 'en', 'RS': 'en', 'CH': 'de', 'UA': 'uk',
+    'GB': 'en', 'US': 'en', 'CA': 'en', 'AU': 'en', 'NZ': 'en', 'ZA': 'en',
+    'IN': 'en', 'CN': 'zh', 'JP': 'ja', 'KR': 'ko', 'BR': 'pt', 'MX': 'es',
+    'AR': 'es', 'RU': 'ru'
 };
 
 // Analytics data storage
@@ -536,7 +508,6 @@ let bannerTimer = null;
 let bannerShown = false;
 
 // Location data storage
-// Location data storage with immediate initialization
 let locationData = {
     continent: 'Unknown',
     country: 'Unknown',
@@ -571,21 +542,17 @@ if (savedLocation) {
 
 // Function to fetch location data
 async function fetchLocationData() {
-    // Skip if we already have valid location data
     if (locationData.country !== 'Unknown' && locationData.country !== '') {
         return;
     }
 
-    var apiKey = '4c1e5d00e0ac93'; // Your API key
+    var apiKey = '4c1e5d00e0ac93';
     
     try {
         const response = await fetch('https://ipinfo.io/json?token=' + apiKey);
-        if (!response.ok) {
-            throw new Error('Failed to fetch location data');
-        }
+        if (!response.ok) throw new Error('Failed to fetch location data');
         const payload = await response.json();
 
-        // Update locationData
         locationData = {
             continent: getContinentFromCountry(payload.country) || "Unknown",
             country: payload.country || "Unknown",
@@ -599,10 +566,8 @@ async function fetchLocationData() {
             language: (navigator.language || "Unknown").split("-")[0]
         };
 
-        // Save to session storage
         sessionStorage.setItem('locationData', JSON.stringify(locationData));
 
-        // Push to dataLayer
         window.dataLayer.push({
             'event': 'locationRetrieved',
             'location_data': locationData,
@@ -650,7 +615,6 @@ function loadAnalyticsData() {
         consentAnalytics = JSON.parse(savedData);
     }
     
-    // Initialize today's data if not exists
     const today = new Date().toISOString().split('T')[0];
     if (!consentAnalytics.daily[today]) {
         consentAnalytics.daily[today] = {
@@ -660,7 +624,6 @@ function loadAnalyticsData() {
         };
     }
     
-    // Check if dashboard is authenticated
     if (config.analytics.passwordProtect) {
         isDashboardAuthenticated = getCookie('dashboard_auth') === 'true';
     } else {
@@ -677,7 +640,6 @@ function saveAnalyticsData() {
 function updateConsentStats(status) {
     const today = new Date().toISOString().split('T')[0];
     
-    // Update totals
     if (status === 'accepted') {
         consentAnalytics.total.accepted++;
         consentAnalytics.daily[today].accepted++;
@@ -692,11 +654,10 @@ function updateConsentStats(status) {
     saveAnalyticsData();
 }
 
-// Generate analytics dashboard HTML with 1 day, 7 days, and 30 days sections
+// Generate analytics dashboard HTML
 function generateAnalyticsDashboard(language = 'en') {
     const lang = translations[language] || translations.en;
     
-    // Calculate totals
     const total = consentAnalytics.total.accepted + 
                  consentAnalytics.total.rejected + 
                  consentAnalytics.total.custom;
@@ -705,19 +666,16 @@ function generateAnalyticsDashboard(language = 'en') {
     const rejectedPercent = total > 0 ? Math.round((consentAnalytics.total.rejected / total) * 100) : 0;
     const customPercent = total > 0 ? Math.round((consentAnalytics.total.custom / total) * 100) : 0;
     
-    // Get last 1 day data
     const today = new Date().toISOString().split('T')[0];
     const last1Day = {};
     last1Day[today] = consentAnalytics.daily[today] || { accepted: 0, rejected: 0, custom: 0 };
     
-    // Get last 7 days data
     const last7Days = {};
     const dates = Object.keys(consentAnalytics.daily).sort().reverse().slice(0, 7);
     dates.forEach(date => {
         last7Days[date] = consentAnalytics.daily[date];
     });
     
-    // Get last 30 days data
     const last30Days = {};
     const monthlyDates = Object.keys(consentAnalytics.daily).sort().reverse().slice(0, 30);
     monthlyDates.forEach(date => {
@@ -725,39 +683,39 @@ function generateAnalyticsDashboard(language = 'en') {
     });
     
     return `
-    <div class="ccb-analytics-dashboard">
-        <h3 class="ccb-dashboard-title">${lang.dashboardTitle}</h3>
+    <div class="${uniquePrefix}analytics-dashboard">
+        <h3>${lang.dashboardTitle}</h3>
         
-        <div class="ccb-stats-summary">
-            <div class="ccb-stat-card ccb-accepted">
-                <h4 class="ccb-stat-title">${lang.statsAccepted}</h4>
-                <div class="ccb-stat-value">${consentAnalytics.total.accepted}</div>
-                <div class="ccb-stat-percentage">${acceptedPercent}%</div>
+        <div class="${uniquePrefix}stats-summary">
+            <div class="${uniquePrefix}stat-card ${uniquePrefix}accepted">
+                <h4>${lang.statsAccepted}</h4>
+                <div class="${uniquePrefix}stat-value">${consentAnalytics.total.accepted}</div>
+                <div class="${uniquePrefix}stat-percentage">${acceptedPercent}%</div>
             </div>
             
-            <div class="ccb-stat-card ccb-rejected">
-                <h4 class="ccb-stat-title">${lang.statsRejected}</h4>
-                <div class="ccb-stat-value">${consentAnalytics.total.rejected}</div>
-                <div class="ccb-stat-percentage">${rejectedPercent}%</div>
+            <div class="${uniquePrefix}stat-card ${uniquePrefix}rejected">
+                <h4>${lang.statsRejected}</h4>
+                <div class="${uniquePrefix}stat-value">${consentAnalytics.total.rejected}</div>
+                <div class="${uniquePrefix}stat-percentage">${rejectedPercent}%</div>
             </div>
             
-            <div class="ccb-stat-card ccb-custom">
-                <h4 class="ccb-stat-title">${lang.statsCustom}</h4>
-                <div class="ccb-stat-value">${consentAnalytics.total.custom}</div>
-                <div class="ccb-stat-percentage">${customPercent}%</div>
+            <div class="${uniquePrefix}stat-card ${uniquePrefix}custom">
+                <h4>${lang.statsCustom}</h4>
+                <div class="${uniquePrefix}stat-value">${consentAnalytics.total.custom}</div>
+                <div class="${uniquePrefix}stat-percentage">${customPercent}%</div>
             </div>
             
-            <div class="ccb-stat-card ccb-total">
-                <h4 class="ccb-stat-title">${lang.statsTotal}</h4>
-                <div class="ccb-stat-value">${total}</div>
-                <div class="ccb-stat-percentage">100%</div>
+            <div class="${uniquePrefix}stat-card ${uniquePrefix}total">
+                <h4>${lang.statsTotal}</h4>
+                <div class="${uniquePrefix}stat-value">${total}</div>
+                <div class="${uniquePrefix}stat-percentage">100%</div>
             </div>
         </div>
         
-        <div class="ccb-time-based-stats">
-            <div class="ccb-time-stat">
-                <h4 class="ccb-time-title">${lang.statsLast1Day}</h4>
-                <div class="ccb-stat-bars">
+        <div class="${uniquePrefix}time-based-stats">
+            <div class="${uniquePrefix}time-stat">
+                <h4>${lang.statsLast1Day}</h4>
+                <div class="${uniquePrefix}stat-bars">
                     ${Object.entries(last1Day).map(([date, data]) => {
                         const dayTotal = data.accepted + data.rejected + data.custom;
                         const dayAcceptedPercent = dayTotal > 0 ? (data.accepted / dayTotal) * 100 : 0;
@@ -765,14 +723,14 @@ function generateAnalyticsDashboard(language = 'en') {
                         const dayCustomPercent = dayTotal > 0 ? (data.custom / dayTotal) * 100 : 0;
                         
                         return `
-                        <div class="ccb-stat-bar-container">
-                            <div class="ccb-stat-bar-label">${date}</div>
-                            <div class="ccb-stat-bar">
-                                <div class="ccb-stat-bar-segment ccb-accepted" style="width: ${dayAcceptedPercent}%"></div>
-                                <div class="ccb-stat-bar-segment ccb-custom" style="width: ${dayCustomPercent}%"></div>
-                                <div class="ccb-stat-bar-segment ccb-rejected" style="width: ${dayRejectedPercent}%"></div>
+                        <div class="${uniquePrefix}stat-bar-container">
+                            <div class="${uniquePrefix}stat-bar-label">${date}</div>
+                            <div class="${uniquePrefix}stat-bar">
+                                <div class="${uniquePrefix}stat-bar-segment ${uniquePrefix}accepted" style="width: ${dayAcceptedPercent}%"></div>
+                                <div class="${uniquePrefix}stat-bar-segment ${uniquePrefix}custom" style="width: ${dayCustomPercent}%"></div>
+                                <div class="${uniquePrefix}stat-bar-segment ${uniquePrefix}rejected" style="width: ${dayRejectedPercent}%"></div>
                             </div>
-                            <div class="ccb-stat-bar-legend">
+                            <div class="${uniquePrefix}stat-bar-legend">
                                 <span>${data.accepted} ${lang.statsAccepted}</span>
                                 <span>${data.custom} ${lang.statsCustom}</span>
                                 <span>${data.rejected} ${lang.statsRejected}</span>
@@ -782,9 +740,9 @@ function generateAnalyticsDashboard(language = 'en') {
                 </div>
             </div>
             
-            <div class="ccb-time-stat">
-                <h4 class="ccb-time-title">${lang.statsLast7Days}</h4>
-                <div class="ccb-stat-bars">
+            <div class="${uniquePrefix}time-stat">
+                <h4>${lang.statsLast7Days}</h4>
+                <div class="${uniquePrefix}stat-bars">
                     ${Object.entries(last7Days).map(([date, data]) => {
                         const dayTotal = data.accepted + data.rejected + data.custom;
                         const dayAcceptedPercent = dayTotal > 0 ? (data.accepted / dayTotal) * 100 : 0;
@@ -792,14 +750,14 @@ function generateAnalyticsDashboard(language = 'en') {
                         const dayCustomPercent = dayTotal > 0 ? (data.custom / dayTotal) * 100 : 0;
                         
                         return `
-                        <div class="ccb-stat-bar-container">
-                            <div class="ccb-stat-bar-label">${date}</div>
-                            <div class="ccb-stat-bar">
-                                <div class="ccb-stat-bar-segment ccb-accepted" style="width: ${dayAcceptedPercent}%"></div>
-                                <div class="ccb-stat-bar-segment ccb-custom" style="width: ${dayCustomPercent}%"></div>
-                                <div class="ccb-stat-bar-segment ccb-rejected" style="width: ${dayRejectedPercent}%"></div>
+                        <div class="${uniquePrefix}stat-bar-container">
+                            <div class="${uniquePrefix}stat-bar-label">${date}</div>
+                            <div class="${uniquePrefix}stat-bar">
+                                <div class="${uniquePrefix}stat-bar-segment ${uniquePrefix}accepted" style="width: ${dayAcceptedPercent}%"></div>
+                                <div class="${uniquePrefix}stat-bar-segment ${uniquePrefix}custom" style="width: ${dayCustomPercent}%"></div>
+                                <div class="${uniquePrefix}stat-bar-segment ${uniquePrefix}rejected" style="width: ${dayRejectedPercent}%"></div>
                             </div>
-                            <div class="ccb-stat-bar-legend">
+                            <div class="${uniquePrefix}stat-bar-legend">
                                 <span>${data.accepted} ${lang.statsAccepted}</span>
                                 <span>${data.custom} ${lang.statsCustom}</span>
                                 <span>${data.rejected} ${lang.statsRejected}</span>
@@ -809,9 +767,9 @@ function generateAnalyticsDashboard(language = 'en') {
                 </div>
             </div>
             
-            <div class="ccb-time-stat">
-                <h4 class="ccb-time-title">${lang.statsLast30Days}</h4>
-                <div class="ccb-stat-bars">
+            <div class="${uniquePrefix}time-stat">
+                <h4>${lang.statsLast30Days}</h4>
+                <div class="${uniquePrefix}stat-bars">
                     ${Object.entries(last30Days).map(([date, data]) => {
                         const dayTotal = data.accepted + data.rejected + data.custom;
                         const dayAcceptedPercent = dayTotal > 0 ? (data.accepted / dayTotal) * 100 : 0;
@@ -819,14 +777,14 @@ function generateAnalyticsDashboard(language = 'en') {
                         const dayCustomPercent = dayTotal > 0 ? (data.custom / dayTotal) * 100 : 0;
                         
                         return `
-                        <div class="ccb-stat-bar-container">
-                            <div class="ccb-stat-bar-label">${date}</div>
-                            <div class="ccb-stat-bar">
-                                <div class="ccb-stat-bar-segment ccb-accepted" style="width: ${dayAcceptedPercent}%"></div>
-                                <div class="ccb-stat-bar-segment ccb-custom" style="width: ${dayCustomPercent}%"></div>
-                                <div class="ccb-stat-bar-segment ccb-rejected" style="width: ${dayRejectedPercent}%"></div>
+                        <div class="${uniquePrefix}stat-bar-container">
+                            <div class="${uniquePrefix}stat-bar-label">${date}</div>
+                            <div class="${uniquePrefix}stat-bar">
+                                <div class="${uniquePrefix}stat-bar-segment ${uniquePrefix}accepted" style="width: ${dayAcceptedPercent}%"></div>
+                                <div class="${uniquePrefix}stat-bar-segment ${uniquePrefix}custom" style="width: ${dayCustomPercent}%"></div>
+                                <div class="${uniquePrefix}stat-bar-segment ${uniquePrefix}rejected" style="width: ${dayRejectedPercent}%"></div>
                             </div>
-                            <div class="ccb-stat-bar-legend">
+                            <div class="${uniquePrefix}stat-bar-legend">
                                 <span>${data.accepted} ${lang.statsAccepted}</span>
                                 <span>${data.custom} ${lang.statsCustom}</span>
                                 <span>${data.rejected} ${lang.statsRejected}</span>
@@ -844,11 +802,11 @@ function generatePasswordPrompt(language = 'en') {
     const lang = translations[language] || translations.en;
     
     return `
-    <div class="ccb-password-prompt">
-        <h3 class="ccb-prompt-title">${lang.passwordPrompt}</h3>
-        <input type="password" id="ccbDashboardPasswordInput" class="ccb-password-input" placeholder="Password">
-        <button id="ccbDashboardPasswordSubmit" class="ccb-password-submit">${lang.passwordSubmit}</button>
-        <p id="ccbPasswordError" class="ccb-error-message"></p>
+    <div class="${uniquePrefix}password-prompt">
+        <h3>${lang.passwordPrompt}</h3>
+        <input type="password" id="${uniquePrefix}dashboardPasswordInput" placeholder="Password">
+        <button id="${uniquePrefix}dashboardPasswordSubmit">${lang.passwordSubmit}</button>
+        <p id="${uniquePrefix}passwordError" class="${uniquePrefix}error-message"></p>
     </div>`;
 }
 
@@ -867,7 +825,6 @@ function isDomainAllowed() {
 
 // Check geo-targeting restrictions
 function checkGeoTargeting(geoData) {
-    // Check blocked locations first
     if (config.geoConfig.blockedCountries.length > 0 && 
         config.geoConfig.blockedCountries.includes(geoData.country)) {
         return false;
@@ -883,7 +840,6 @@ function checkGeoTargeting(geoData) {
         return false;
     }
     
-    // Check allowed locations (if any restrictions are set)
     if (config.geoConfig.allowedCountries.length > 0 && 
         !config.geoConfig.allowedCountries.includes(geoData.country)) {
         return false;
@@ -904,7 +860,6 @@ function checkGeoTargeting(geoData) {
 
 // Detect user language based on country and browser settings
 function detectUserLanguage(geoData) {
-    // First check if language is stored in cookie
     if (config.behavior.rememberLanguage) {
         const preferredLanguage = getCookie('preferred_language');
         if (preferredLanguage && translations[preferredLanguage]) {
@@ -912,7 +867,6 @@ function detectUserLanguage(geoData) {
         }
     }
     
-    // Then try to get language from country if auto-detection is enabled
     if (config.languageConfig.autoDetectLanguage && geoData && geoData.country) {
         const countryLang = countryLanguageMap[geoData.country];
         if (countryLang && translations[countryLang]) {
@@ -920,13 +874,11 @@ function detectUserLanguage(geoData) {
         }
     }
     
-    // Fallback to browser language
     const browserLang = (navigator.language || 'en').split('-')[0];
     if (translations[browserLang]) {
         return browserLang;
     }
     
-    // Final fallback to configured default language
     return config.languageConfig.defaultLanguage || 'en';
 }
 
@@ -942,19 +894,17 @@ function getAvailableLanguages() {
 function changeLanguage(languageCode) {
     const lang = translations[languageCode] || translations.en;
     
-    // Update banner text
-    const banner = document.getElementById('ccbConsentBanner');
+    const banner = document.getElementById(uniquePrefix + 'cookieConsentBanner');
     if (banner) {
         banner.querySelector('h2').textContent = lang.title;
         banner.querySelector('p').textContent = lang.description;
-        banner.querySelector('.ccb-privacy-policy-link').textContent = lang.privacy;
-        banner.querySelector('#ccbAcceptAllBtn').textContent = lang.accept;
-        banner.querySelector('#ccbAdjustConsentBtn').textContent = lang.customize;
-        banner.querySelector('#ccbRejectAllBtn').textContent = lang.reject;
+        banner.querySelector('.' + uniquePrefix + 'privacy-policy-link').textContent = lang.privacy;
+        banner.querySelector('#' + uniquePrefix + 'acceptAllBtn').textContent = lang.accept;
+        banner.querySelector('#' + uniquePrefix + 'adjustConsentBtn').textContent = lang.customize;
+        banner.querySelector('#' + uniquePrefix + 'rejectAllBtn').textContent = lang.reject;
     }
     
-    // Update modal text
-    const modal = document.getElementById('ccbSettingsModal');
+    const modal = document.getElementById(uniquePrefix + 'cookieSettingsModal');
     if (modal) {
         modal.querySelector('h2').textContent = lang.title;
         
@@ -969,63 +919,57 @@ function changeLanguage(languageCode) {
         for (const [category, key] of Object.entries(categories)) {
             const categoryElement = document.querySelector(`input[data-category="${category}"]`);
             if (categoryElement) {
-                const container = categoryElement.closest('.ccb-cookie-category');
+                const container = categoryElement.closest('.' + uniquePrefix + 'cookie-category');
                 container.querySelector('h3').textContent = lang[key];
                 container.querySelector('p').textContent = lang[`${key}Desc`];
             }
         }
         
-        modal.querySelector('#ccbRejectAllSettingsBtn').textContent = lang.reject;
-        modal.querySelector('#ccbSaveSettingsBtn').textContent = lang.save;
-        modal.querySelector('#ccbAcceptAllSettingsBtn').textContent = lang.accept;
+        modal.querySelector('#' + uniquePrefix + 'rejectAllSettingsBtn').textContent = lang.reject;
+        modal.querySelector('#' + uniquePrefix + 'saveSettingsBtn').textContent = lang.save;
+        modal.querySelector('#' + uniquePrefix + 'acceptAllSettingsBtn').textContent = lang.accept;
         
-        // Update "See Consent Analytics" link
-        const seeAnalyticsLink = modal.querySelector('.ccb-see-analytics-link');
+        const seeAnalyticsLink = modal.querySelector('.' + uniquePrefix + 'see-analytics-link');
         if (seeAnalyticsLink) {
             seeAnalyticsLink.textContent = lang.seeAnalytics;
         }
     }
     
-    // Update floating button title
-    const floatingButton = document.getElementById('ccbFloatingButton');
+    const floatingButton = document.getElementById(uniquePrefix + 'cookieFloatingButton');
     if (floatingButton) {
         floatingButton.title = lang.title;
     }
     
-    // Update analytics dashboard if visible
-    const dashboardModal = document.getElementById('ccbAnalyticsModal');
+    const dashboardModal = document.getElementById(uniquePrefix + 'cookieAnalyticsModal');
     if (dashboardModal && dashboardModal.style.display === 'flex') {
         if (config.analytics.passwordProtect && !isDashboardAuthenticated) {
-            dashboardModal.querySelector('.ccb-analytics-body').innerHTML = generatePasswordPrompt(languageCode);
+            dashboardModal.querySelector('.' + uniquePrefix + 'cookie-analytics-body').innerHTML = generatePasswordPrompt(languageCode);
             setupPasswordPromptEvents();
         } else {
-            dashboardModal.querySelector('.ccb-analytics-body').innerHTML = generateAnalyticsDashboard(languageCode);
+            dashboardModal.querySelector('.' + uniquePrefix + 'cookie-analytics-body').innerHTML = generateAnalyticsDashboard(languageCode);
         }
     }
 
-    // Update analytics dashboard title if visible
-    const dashboardTitle = document.querySelector('.ccb-analytics-header h2');
+    const dashboardTitle = document.querySelector('.' + uniquePrefix + 'cookie-analytics-header h2');
     if (dashboardTitle) {
         dashboardTitle.textContent = lang.dashboardTitle;
     }
 
-    // Update password prompt if visible
-    const passwordPrompt = document.querySelector('.ccb-password-prompt h3');
-    const passwordSubmit = document.getElementById('ccbDashboardPasswordSubmit');
-    const passwordError = document.getElementById('ccbPasswordError');
+    const passwordPrompt = document.querySelector('.' + uniquePrefix + 'password-prompt h3');
+    const passwordSubmit = document.getElementById(uniquePrefix + 'dashboardPasswordSubmit');
+    const passwordError = document.getElementById(uniquePrefix + 'passwordError');
     if (passwordPrompt) passwordPrompt.textContent = lang.passwordPrompt;
     if (passwordSubmit) passwordSubmit.textContent = lang.passwordSubmit;
     if (passwordError && passwordError.textContent) {
         passwordError.textContent = translations[languageCode].passwordIncorrect;
     }
     
-    // Store selected language in cookie
     if (config.behavior.rememberLanguage) {
         setCookie('preferred_language', languageCode, 365);
     }
 }
 
-// Enhanced cookie scanning function with better matching
+// Enhanced cookie scanning function
 function scanAndCategorizeCookies() {
     const cookies = document.cookie.split(';');
     const result = {
@@ -1037,18 +981,18 @@ function scanAndCategorizeCookies() {
     };
 
     cookies.forEach(cookie => {
-        const [name, value] = cookie.trim().split('=');
+        const [nameValue] = cookie.trim().split('=');
+        const name = nameValue.trim();
         if (!name) return;
         
         let categorized = false;
         
-        // Check against known cookie patterns
         for (const pattern in cookieDatabase) {
             if (name.startsWith(pattern) || name === pattern) {
                 const cookieInfo = cookieDatabase[pattern];
                 result[cookieInfo.category].push({
                     name: name,
-                    value: value || '',
+                    value: nameValue.substring(name.length + 1) || '',
                     duration: cookieInfo.duration || getCookieDuration(name),
                     description: cookieInfo.description || 'Unknown purpose'
                 });
@@ -1060,7 +1004,7 @@ function scanAndCategorizeCookies() {
         if (!categorized && name !== 'cookie_consent') {
             result.uncategorized.push({
                 name: name,
-                value: value || '',
+                value: nameValue.substring(name.length + 1) || '',
                 duration: getCookieDuration(name),
                 description: 'Unknown cookie purpose'
             });
@@ -1088,32 +1032,32 @@ function getCookieDuration(name) {
 // Generate cookie table with mobile-friendly display
 function generateCookieTable(cookies) {
     return `
-    <table class="ccb-cookie-details-table">
+    <table class="${uniquePrefix}cookie-details-table">
         <thead>
             <tr>
-                <th class="ccb-table-header">Cookie Name</th>
-                <th class="ccb-table-header">Value</th>
-                <th class="ccb-table-header">Duration</th>
-                <th class="ccb-table-header">Description</th>
+                <th>Cookie Name</th>
+                <th>Value</th>
+                <th>Duration</th>
+                <th>Description</th>
             </tr>
         </thead>
         <tbody>
             ${cookies.map(cookie => `
-            <tr class="ccb-table-row">
-                <td class="ccb-table-cell"><code class="ccb-code">${cookie.name}</code></td>
-                <td class="ccb-table-cell ccb-cookie-value-cell">
-                    <span class="ccb-cookie-value-full" style="display:none;">${cookie.value}</span>
-                    <span class="ccb-cookie-value-truncated">${cookie.value.substring(0, 20)}${cookie.value.length > 20 ? '...' : ''}</span>
-                    ${cookie.value.length > 20 ? '<button class="ccb-toggle-cookie-value" data-state="truncated">Show full</button>' : ''}
+            <tr>
+                <td><code>${cookie.name}</code></td>
+                <td class="${uniquePrefix}cookie-value-cell">
+                    <span class="${uniquePrefix}cookie-value-full" style="display:none;">${cookie.value}</span>
+                    <span class="${uniquePrefix}cookie-value-truncated">${cookie.value.substring(0, 20)}${cookie.value.length > 20 ? '...' : ''}</span>
+                    ${cookie.value.length > 20 ? `<button class="${uniquePrefix}toggle-cookie-value" data-state="truncated">Show full</button>` : ''}
                 </td>
-                <td class="ccb-table-cell">${cookie.duration}</td>
-                <td class="ccb-table-cell">${cookie.description}</td>
+                <td>${cookie.duration}</td>
+                <td>${cookie.description}</td>
             </tr>`).join('')}
         </tbody>
     </table>`;
 }
 
-// Inject all HTML elements into the page with shadow DOM where possible
+// Inject all HTML elements into the page with shadow DOM for isolation
 function injectConsentHTML(detectedCookies, language = 'en') {
     const lang = translations[language] || translations.en;
     const availableLanguages = getAvailableLanguages();
@@ -1125,24 +1069,24 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         const isEssential = category === 'functional';
         
         return `
-        <div class="ccb-cookie-category">
-            <div class="ccb-toggle-container">
-                <h3 class="ccb-category-title">${lang[categoryKey]}</h3>
-                <label class="ccb-toggle-switch" data-ms-consent="ad_storage">
-                    <input type="checkbox" data-category="${category}" ${isEssential ? 'checked disabled' : ''} class="ccb-toggle-input">
-                    <span class="ccb-toggle-slider"></span>
+        <div class="${uniquePrefix}cookie-category">
+            <div class="${uniquePrefix}toggle-container">
+                <h3>${lang[categoryKey]}</h3>
+                <label class="${uniquePrefix}toggle-switch" data-ms-consent="ad_storage">
+                    <input type="checkbox" data-category="${category}" ${isEssential ? 'checked disabled' : ''}>
+                    <span class="${uniquePrefix}toggle-slider"></span>
                 </label>
             </div>
-            <p class="ccb-category-desc">${lang[`${categoryKey}Desc`]}</p>
-            <div class="ccb-cookie-details-container">
-                <div class="ccb-cookie-details-header">
-                    <span class="ccb-details-title">Cookie Details</span>
-                    <span class="ccb-toggle-details">+</span>
+            <p>${lang[`${categoryKey}Desc`]}</p>
+            <div class="${uniquePrefix}cookie-details-container">
+                <div class="${uniquePrefix}cookie-details-header">
+                    <span>Cookie Details</span>
+                    <span class="${uniquePrefix}toggle-details">+</span>
                 </div>
-                <div class="ccb-cookie-details-content" style="display: none;">
+                <div class="${uniquePrefix}cookie-details-content" style="display: none;">
                     ${cookies.length > 0 ? 
                         generateCookieTable(cookies) : 
-                        `<p class="ccb-no-cookies-message">No cookies in this category detected.</p>`}
+                        `<p class="${uniquePrefix}no-cookies-message">No cookies in this category detected.</p>`}
                 </div>
             </div>
         </div>`;
@@ -1150,8 +1094,8 @@ function injectConsentHTML(detectedCookies, language = 'en') {
     
     // Generate language selector dropdown if enabled
     const languageSelector = config.languageConfig.showLanguageSelector ? `
-    <div class="ccb-language-selector">
-        <select id="ccbLanguageSelect" class="ccb-language-select">
+    <div class="${uniquePrefix}language-selector">
+        <select id="${uniquePrefix}cookieLanguageSelect">
             ${availableLanguages.map(code => `
                 <option value="${code}" ${code === language ? 'selected' : ''}>${translations[code].language}</option>
             `).join('')}
@@ -1160,7 +1104,7 @@ function injectConsentHTML(detectedCookies, language = 'en') {
     
     // Generate admin dashboard button if analytics enabled
     const adminButton = config.analytics.enabled && config.analytics.showDashboard && config.behavior.showAdminButton ? `
-    <div id="ccbAdminButton" class="ccb-admin-button" title="${lang.dashboardTitle}">
+    <div id="${uniquePrefix}cookieAdminButton" class="${uniquePrefix}cookie-admin-button" title="${lang.dashboardTitle}">
         <svg viewBox="0 0 24 24" width="28" height="28" xmlns="http://www.w3.org/2000/svg" fill="currentColor" stroke="none">
             <title>Admin Dashboard</title>
             <path d="M4.75,20.75A.25.25,0,0,0,5,20.5v-2a1,1,0,0,0-1-1H2a1,1,0,0,0-1,1v2a.25.25,0,0,0,.25.25Z"/>
@@ -1172,72 +1116,144 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         </svg>
     </div>` : '';
     
-    // Create a container div for our elements
-    const container = document.createElement('div');
-    container.id = 'ccb-container';
-    container.style.all = 'initial'; // Reset all inherited styles
+    const html = `
+    <!-- Main Consent Banner -->
+    <div id="${uniquePrefix}cookieConsentBanner" class="${uniquePrefix}cookie-consent-banner">
+        <div class="${uniquePrefix}cookie-consent-container">
+            ${languageSelector}
+            <div class="${uniquePrefix}cookie-consent-content">
+                <h2>${lang.title}</h2>
+                <p>${lang.description}</p>
+                <a href="${config.privacyPolicyUrl}" class="${uniquePrefix}privacy-policy-link">${lang.privacy}</a>
+            </div>
+            <div class="${uniquePrefix}cookie-consent-buttons">
+                <button id="${uniquePrefix}acceptAllBtn" class="${uniquePrefix}cookie-btn ${uniquePrefix}accept-btn">${lang.accept}</button>
+                <button id="${uniquePrefix}adjustConsentBtn" class="${uniquePrefix}cookie-btn ${uniquePrefix}adjust-btn">${lang.customize}</button>
+                <button id="${uniquePrefix}rejectAllBtn" class="${uniquePrefix}cookie-btn ${uniquePrefix}reject-btn">${lang.reject}</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div id="${uniquePrefix}cookieSettingsModal" class="${uniquePrefix}cookie-settings-modal">
+        <div class="${uniquePrefix}cookie-settings-content">
+            <div class="${uniquePrefix}cookie-settings-header">
+                <h2>${lang.title}</h2>
+                <span class="${uniquePrefix}close-modal">&times;</span>
+            </div>
+            <div class="${uniquePrefix}cookie-settings-body">
+                ${generateCategorySection('functional')}
+                ${generateCategorySection('analytics')}
+                ${generateCategorySection('performance')}
+                ${generateCategorySection('advertising')}
+                ${detectedCookies.uncategorized.length > 0 ? generateCategorySection('uncategorized') : ''}
+            </div>
+            <div class="${uniquePrefix}cookie-settings-footer">
+                ${config.analytics.enabled ? `
+                <div class="${uniquePrefix}see-analytics-container">
+                    <a href="#" class="${uniquePrefix}see-analytics-link">${lang.seeAnalytics}</a>
+                </div>` : ''}
+                <div class="${uniquePrefix}modal-buttons-container">
+                    <button id="${uniquePrefix}acceptAllSettingsBtn" class="${uniquePrefix}cookie-btn ${uniquePrefix}accept-btn">${lang.accept}</button>
+                    <button id="${uniquePrefix}saveSettingsBtn" class="${uniquePrefix}cookie-btn ${uniquePrefix}save-btn">${lang.save}</button>
+                    <button id="${uniquePrefix}rejectAllSettingsBtn" class="${uniquePrefix}cookie-btn ${uniquePrefix}reject-btn">${lang.reject}</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Settings Button -->
+    <div id="${uniquePrefix}cookieFloatingButton" class="${uniquePrefix}cookie-settings-button" title="${lang.title}">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="none">
+            <path d="M6 8H8.01V10H6V8Z" fill="currentColor"/>
+            <path d="M11 11H13.01V13H11V11Z" fill="currentColor"/>
+            <path d="M8 15H10.01V17H8V15Z" fill="currentColor"/>
+            <path d="M15 15H17.01V17H15V15Z" fill="currentColor"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M1 12C1 5.92487 5.92487 1 12 1C12.0366 1 12.0732 1.00018 12.1097 1.00054L13.3208 1.01239L13.08 2.19932C13.0276 2.45721 13 2.72486 13 3C13 4.95769 14.4074 6.58878 16.2659 6.93296L16.9419 7.05815L17.067 7.73414C17.4112 9.59261 19.0423 11 21 11C21.2751 11 21.5428 10.9724 21.8007 10.92L22.9876 10.6792L22.9995 11.8903C22.9998 11.9268 23 11.9634 23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12ZM11.0002 3.0549C6.50018 3.55223 3 7.36736 3 12C3 16.9706 7.02944 21 12 21C16.6326 21 20.4478 17.4998 20.9451 12.9998C18.2609 12.9757 15.9991 11.1899 15.2573 8.74272C12.8101 8.00085 11.0243 5.73912 11.0002 3.0549Z" fill="currentColor"/>
+        </svg>
+    </div>
     
-    // Create a style element with our CSS
+    ${adminButton}
+    
+    <!-- Analytics Dashboard -->
+    <div id="${uniquePrefix}cookieAnalyticsModal" class="${uniquePrefix}cookie-analytics-modal">
+        <div class="${uniquePrefix}cookie-analytics-content">
+            <div class="${uniquePrefix}cookie-analytics-header">
+                <h2>${lang.dashboardTitle}</h2>
+                <span class="${uniquePrefix}close-analytics-modal">&times;</span>
+            </div>
+            <div class="${uniquePrefix}cookie-analytics-body">
+                ${config.analytics.passwordProtect && !isDashboardAuthenticated ? 
+                    generatePasswordPrompt(language) : 
+                    generateAnalyticsDashboard(language)}
+            </div>
+        </div>
+    </div>`;
+    
+    // Create a style element with all our CSS
     const style = document.createElement('style');
     style.textContent = `
-    /* CSS Reset for our elements */
-    #ccb-container * {
-        all: revert;
-        box-sizing: border-box !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        border: 0 !important;
-        font-size: 100% !important;
-        font: inherit !important;
-        vertical-align: baseline !important;
+    /* Reset styles to prevent interference */
+    .${uniquePrefix}cookie-consent-banner *,
+    .${uniquePrefix}cookie-consent-banner *::before,
+    .${uniquePrefix}cookie-consent-banner *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        line-height: 1.5;
     }
     
     /* Main Banner Styles */
-    .ccb-consent-banner {
+    .${uniquePrefix}cookie-consent-banner {
         position: fixed !important;
         bottom: 20px !important;
         ${config.behavior.bannerPosition === 'left' ? 'left: 20px !important;' : 'right: 20px !important;'}
-        width: ${config.bannerStyle.width} !important;
-        background: ${config.bannerStyle.background} !important;
-        border-radius: ${config.bannerStyle.borderRadius} !important;
-        box-shadow: ${config.bannerStyle.boxShadow} !important;
+        width: ${config.bannerStyle.width};
+        background: ${config.bannerStyle.background};
+        border-radius: ${config.bannerStyle.borderRadius};
+        box-shadow: ${config.bannerStyle.boxShadow};
         z-index: 9999 !important;
-        padding: ${config.bannerStyle.padding} !important;
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+        padding: ${config.bannerStyle.padding};
         display: none !important;
         transform: translateY(20px) !important;
         opacity: 0 !important;
         transition: all ${config.behavior.bannerAnimation.duration}s ${config.behavior.bannerAnimation.easing} !important;
         ${config.bannerStyle.border.enabled ? 
-            `border: ${config.bannerStyle.border.width} ${config.bannerStyle.border.style} ${config.bannerStyle.border.color} !important;` : 
+            `border: ${config.bannerStyle.border.width} ${config.bannerStyle.border.style} ${config.bannerStyle.border.color};` : 
             'border: none !important;'}
         overflow: hidden !important;
     }
 
-    .ccb-consent-banner.show {
+    .${uniquePrefix}cookie-consent-banner.${uniquePrefix}show {
         transform: translateY(0) !important;
         opacity: 1 !important;
         display: block !important;
     }
 
-    .ccb-consent-content h2 {
+    .${uniquePrefix}cookie-consent-container {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+
+    .${uniquePrefix}cookie-consent-content h2 {
         margin: 0 0 16px 0 !important;
-        font-size: ${config.bannerStyle.title.fontSize} !important;
-        color: ${config.bannerStyle.title.color} !important;
-        font-weight: ${config.bannerStyle.title.fontWeight} !important;
+        font-size: ${config.bannerStyle.title.fontSize};
+        color: ${config.bannerStyle.title.color};
+        font-weight: ${config.bannerStyle.title.fontWeight};
         line-height: 1.4 !important;
         letter-spacing: -0.2px !important;
     }
 
-    .ccb-consent-content p {
+    .${uniquePrefix}cookie-consent-content p {
         margin: 0 0 10px 0 !important;
-        font-size: ${config.bannerStyle.description.fontSize} !important;
-        color: ${config.bannerStyle.description.color} !important;
-        line-height: ${config.bannerStyle.description.lineHeight} !important;
+        font-size: ${config.bannerStyle.description.fontSize};
+        color: ${config.bannerStyle.description.color};
+        line-height: ${config.bannerStyle.description.lineHeight};
     }
 
-    .ccb-privacy-policy-link {
-        color: ${config.bannerStyle.linkColor} !important;
+    .${uniquePrefix}privacy-policy-link {
+        color: ${config.bannerStyle.linkColor};
         text-decoration: none !important;
         font-size: 13px !important;
         font-weight: 500 !important;
@@ -1246,102 +1262,102 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         transition: color 0.2s ease !important;
     }
 
-    .ccb-privacy-policy-link:hover {
-        color: ${config.bannerStyle.linkHoverColor} !important;
+    .${uniquePrefix}privacy-policy-link:hover {
+        color: ${config.bannerStyle.linkHoverColor};
     }
 
-    .ccb-consent-buttons {
+    .${uniquePrefix}cookie-consent-buttons {
         display: flex !important;
         flex-direction: column !important;
         gap: 12px !important;
         margin-top: 8px !important;
     }
 
-    .ccb-btn {
-        padding: ${config.buttonStyle.padding} !important;
-        border-radius: ${config.buttonStyle.borderRadius} !important;
+    .${uniquePrefix}cookie-btn {
+        padding: ${config.buttonStyle.padding};
+        border-radius: ${config.buttonStyle.borderRadius};
         cursor: pointer !important;
-        font-weight: ${config.buttonStyle.fontWeight} !important;
-        font-size: ${config.buttonStyle.fontSize} !important;
-        transition: ${config.buttonStyle.transition} !important;
+        font-weight: ${config.buttonStyle.fontWeight};
+        font-size: ${config.buttonStyle.fontSize};
+        transition: ${config.buttonStyle.transition};
         text-align: center !important;
         border: none !important;
         flex: 1 !important;
         letter-spacing: 0.2px !important;
     }
 
-    .ccb-adjust-btn {
-        background-color: ${config.buttonStyle.adjust.background} !important;
-        color: ${config.buttonStyle.adjust.color} !important;
-        border: ${config.buttonStyle.adjust.border} !important;
+    .${uniquePrefix}adjust-btn {
+        background-color: ${config.buttonStyle.adjust.background};
+        color: ${config.buttonStyle.adjust.color};
+        border: ${config.buttonStyle.adjust.border};
     }
 
-    .ccb-adjust-btn:hover {
-        background-color: ${config.buttonStyle.adjust.hover.background} !important;
-        color: ${config.buttonStyle.adjust.hover.color} !important;
-        transform: ${config.buttonStyle.adjust.hover.transform} !important;
+    .${uniquePrefix}adjust-btn:hover {
+        background-color: ${config.buttonStyle.adjust.hover.background};
+        color: ${config.buttonStyle.adjust.hover.color};
+        transform: ${config.buttonStyle.adjust.hover.transform};
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
     }
 
-    .ccb-reject-btn {
-        background-color: ${config.buttonStyle.reject.background} !important;
-        color: ${config.buttonStyle.reject.color} !important;
-        border: ${config.buttonStyle.reject.border} !important;
+    .${uniquePrefix}reject-btn {
+        background-color: ${config.buttonStyle.reject.background};
+        color: ${config.buttonStyle.reject.color};
+        border: ${config.buttonStyle.reject.border};
     }
 
-    .ccb-reject-btn:hover {
-        background-color: ${config.buttonStyle.reject.hover.background} !important;
-        color: ${config.buttonStyle.reject.hover.color} !important;
-        transform: ${config.buttonStyle.reject.hover.transform} !important;
+    .${uniquePrefix}reject-btn:hover {
+        background-color: ${config.buttonStyle.reject.hover.background};
+        color: ${config.buttonStyle.reject.hover.color};
+        transform: ${config.buttonStyle.reject.hover.transform};
         box-shadow: 0 2px 8px rgba(231, 76, 60, 0.15) !important;
     }
 
-    .ccb-accept-btn {
-        background-color: ${config.buttonStyle.accept.background} !important;
-        color: ${config.buttonStyle.accept.color} !important;
-        border: ${config.buttonStyle.accept.border} !important;
+    .${uniquePrefix}accept-btn {
+        background-color: ${config.buttonStyle.accept.background};
+        color: ${config.buttonStyle.accept.color};
+        border: ${config.buttonStyle.accept.border};
         box-shadow: 0 2px 12px rgba(46, 204, 113, 0.3) !important;
     }
 
-    .ccb-accept-btn:hover {
-        background-color: ${config.buttonStyle.accept.hover.background} !important;
-        color: ${config.buttonStyle.accept.hover.color} !important;
-        transform: ${config.buttonStyle.accept.hover.transform} !important;
+    .${uniquePrefix}accept-btn:hover {
+        background-color: ${config.buttonStyle.accept.hover.background};
+        color: ${config.buttonStyle.accept.hover.color};
+        transform: ${config.buttonStyle.accept.hover.transform};
         box-shadow: 0 4px 16px rgba(46, 204, 113, 0.4) !important;
     }
 
-    .ccb-save-btn {
-        background-color: ${config.buttonStyle.save.background} !important;
-        color: ${config.buttonStyle.save.color} !important;
-        border: ${config.buttonStyle.save.border} !important;
+    .${uniquePrefix}save-btn {
+        background-color: ${config.buttonStyle.save.background};
+        color: ${config.buttonStyle.save.color};
+        border: ${config.buttonStyle.save.border};
     }
 
-    .ccb-save-btn:hover {
-        background-color: ${config.buttonStyle.save.hover.background} !important;
-        color: ${config.buttonStyle.save.hover.color} !important;
-        transform: ${config.buttonStyle.save.hover.transform} !important;
+    .${uniquePrefix}save-btn:hover {
+        background-color: ${config.buttonStyle.save.hover.background};
+        color: ${config.buttonStyle.save.hover.color};
+        transform: ${config.buttonStyle.save.hover.transform};
         box-shadow: 0 5px 10px rgba(0,0,0,0.15) !important;
     }
 
     /* Modal Footer Buttons */
-    .ccb-modal-buttons-container {
+    .${uniquePrefix}modal-buttons-container {
         display: flex !important;
         gap: 12px !important;
         margin-top: 15px !important;
     }
 
-    .ccb-modal-buttons-container .ccb-btn {
+    .${uniquePrefix}modal-buttons-container .${uniquePrefix}cookie-btn {
         flex: 1 !important;
     }
 
     /* Language Selector Styles */
-    .ccb-language-selector {
+    .${uniquePrefix}language-selector {
         position: absolute !important;
         top: 15px !important;
         right: 15px !important;
     }
 
-    .ccb-language-selector select {
+    .${uniquePrefix}language-selector select {
         padding: 6px 10px !important;
         border-radius: 6px !important;
         border: 1px solid #e0e0e0 !important;
@@ -1352,19 +1368,19 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         transition: all 0.2s ease !important;
     }
 
-    .ccb-language-selector select:hover {
+    .${uniquePrefix}language-selector select:hover {
         border-color: ${config.bannerStyle.linkColor} !important;
         background-color: #fff !important;
     }
 
-    .ccb-language-selector select:focus {
+    .${uniquePrefix}language-selector select:focus {
         outline: none !important;
         border-color: ${config.bannerStyle.linkColor} !important;
         box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2) !important;
     }
 
     /* Settings Modal */
-    .ccb-settings-modal {
+    .${uniquePrefix}cookie-settings-modal {
         display: none !important;
         position: fixed !important;
         top: 0 !important;
@@ -1379,19 +1395,19 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         transition: opacity ${config.behavior.modalAnimation.duration}s ${config.behavior.modalAnimation.easing} !important;
     }
 
-    .ccb-settings-modal.show {
+    .${uniquePrefix}cookie-settings-modal.${uniquePrefix}show {
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
         opacity: 1 !important;
     }
 
-    .ccb-settings-content {
-        background-color: ${config.modalStyle.background} !important;
+    .${uniquePrefix}cookie-settings-content {
+        background-color: ${config.modalStyle.background};
         margin: 0 auto !important;
-        width: ${config.modalStyle.width} !important;
-        max-height: ${config.modalStyle.maxHeight} !important;
-        border-radius: ${config.modalStyle.borderRadius} !important;
+        width: ${config.modalStyle.width};
+        max-height: ${config.modalStyle.maxHeight};
+        border-radius: ${config.modalStyle.borderRadius};
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
         overflow: hidden !important;
         transform: translateY(20px) !important;
@@ -1400,114 +1416,114 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         flex-direction: column !important;
     }
 
-    .ccb-settings-modal.show .ccb-settings-content {
+    .${uniquePrefix}cookie-settings-modal.${uniquePrefix}show .${uniquePrefix}cookie-settings-content {
         transform: translateY(0) !important;
     }
 
-    .ccb-settings-header {
+    .${uniquePrefix}cookie-settings-header {
         padding: 20px 30px !important;
         border-bottom: 1px solid #ecf0f1 !important;
         display: flex !important;
         justify-content: space-between !important;
         align-items: center !important;
-        background-color: ${config.modalStyle.header.background} !important;
+        background-color: ${config.modalStyle.header.background};
     }
 
-    .ccb-settings-header h2 {
+    .${uniquePrefix}cookie-settings-header h2 {
         margin: 0 !important;
-        color: ${config.modalStyle.header.textColor} !important;
-        font-size: ${config.modalStyle.header.fontSize} !important;
-        font-weight: ${config.modalStyle.header.fontWeight} !important;
+        color: ${config.modalStyle.header.textColor};
+        font-size: ${config.modalStyle.header.fontSize};
+        font-weight: ${config.modalStyle.header.fontWeight};
     }
 
-    .ccb-close-modal {
+    .${uniquePrefix}close-modal {
         font-size: 28px !important;
         font-weight: bold !important;
         cursor: pointer !important;
-        color: ${config.modalStyle.closeButton.color} !important;
+        color: ${config.modalStyle.closeButton.color};
         background: none !important;
         border: none !important;
         padding: 0 10px !important;
         transition: color 0.2s ease !important;
     }
 
-    .ccb-close-modal:hover {
-        color: ${config.modalStyle.closeButton.hoverColor} !important;
+    .${uniquePrefix}close-modal:hover {
+        color: ${config.modalStyle.closeButton.hoverColor};
     }
 
-    .ccb-settings-body {
+    .${uniquePrefix}cookie-settings-body {
         padding: 25px 30px !important;
-        background-color: ${config.modalStyle.body.background} !important;
+        background-color: ${config.modalStyle.body.background};
         overflow-y: auto !important;
         flex: 1 !important;
     }
 
-    .ccb-cookie-category {
+    .${uniquePrefix}cookie-category {
         margin-bottom: 25px !important;
         padding-bottom: 20px !important;
         border-bottom: 1px solid #ecf0f1 !important;
         transition: all 0.3s ease !important;
     }
 
-    .ccb-cookie-category:hover {
-        background-color: ${config.categoryStyle.background} !important;
-        border-radius: ${config.categoryStyle.borderRadius} !important;
+    .${uniquePrefix}cookie-category:hover {
+        background-color: ${config.categoryStyle.background};
+        border-radius: ${config.categoryStyle.borderRadius};
         padding: 20px !important;
         margin-bottom: 20px !important;
-        border: ${config.categoryStyle.border} !important;
+        border: ${config.categoryStyle.border};
     }
 
-    .ccb-cookie-category:last-child {
+    .${uniquePrefix}cookie-category:last-child {
         border-bottom: none !important;
         margin-bottom: 0 !important;
         padding-bottom: 0 !important;
     }
 
     /* Toggle Switch Styles */
-    .ccb-toggle-container {
+    .${uniquePrefix}toggle-container {
         display: flex !important;
         align-items: center !important;
         justify-content: space-between !important;
         margin-bottom: 12px !important;
     }
 
-    .ccb-toggle-container h3 {
+    .${uniquePrefix}toggle-container h3 {
         margin: 0 !important;
-        font-size: ${config.categoryStyle.title.fontSize} !important;
-        color: ${config.categoryStyle.title.color} !important;
-        font-weight: ${config.categoryStyle.title.fontWeight} !important;
+        font-size: ${config.categoryStyle.title.fontSize};
+        color: ${config.categoryStyle.title.color};
+        font-weight: ${config.categoryStyle.title.fontWeight};
     }
 
-    .ccb-toggle-switch {
+    .${uniquePrefix}toggle-switch {
         position: relative !important;
         display: inline-block !important;
-        width: ${config.toggleStyle.size} !important;
-        height: ${config.toggleStyle.height} !important;
+        width: ${config.toggleStyle.size};
+        height: ${config.toggleStyle.height};
     }
 
-    .ccb-toggle-input {
+    .${uniquePrefix}toggle-switch input {
         opacity: 0 !important;
         width: 0 !important;
         height: 0 !important;
     }
 
-    .ccb-toggle-slider {
+    .${uniquePrefix}toggle-slider {
         position: absolute !important;
         cursor: pointer !important;
         top: 0 !important;
         left: 0 !important;
         right: 0 !important;
         bottom: 0 !important;
-        background-color: ${config.toggleStyle.inactiveColor} !important;
+        background-color: ${config.toggleStyle.inactiveColor};
         transition: .4s !important;
         border-radius: 34px !important;
     }
 
-    .ccb-toggle-slider:before {
+    .${uniquePrefix}toggle-slider:before {
         position: absolute !important;
         content: "" !important;
-        height: ${config.toggleStyle.sliderSize} !important;
-        width: ${config.toggleStyle.sliderSize} !important;
+        height: ${config.toggleStyle.sliderSize};
+        width: ${config.toggleStyle.sliderSize};
         left: 3px !important;
         bottom: 3px !important;
         background-color: white !important;
@@ -1516,21 +1532,21 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         box-shadow: 0 2px 5px rgba(0,0,0,0.2) !important;
     }
 
-    .ccb-toggle-input:checked + .ccb-toggle-slider {
-        background-color: ${config.toggleStyle.activeColor} !important;
+    input:checked + .${uniquePrefix}toggle-slider {
+        background-color: ${config.toggleStyle.activeColor};
     }
 
-    .ccb-toggle-input:checked + .ccb-toggle-slider:before {
+    input:checked + .${uniquePrefix}toggle-slider:before {
         transform: translateX(24px) !important;
     }
 
-    .ccb-toggle-input:disabled + .ccb-toggle-slider {
+    input:disabled + .${uniquePrefix}toggle-slider {
         background-color: #95a5a6 !important;
         cursor: not-allowed !important;
     }
 
     /* Cookie Details */
-    .ccb-cookie-details-container {
+    .${uniquePrefix}cookie-details-container {
         margin-top: 15px !important;
         border: 1px solid #e0e0e0 !important;
         border-radius: 8px !important;
@@ -1538,12 +1554,12 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         transition: all 0.3s ease !important;
     }
 
-    .ccb-cookie-details-container:hover {
+    .${uniquePrefix}cookie-details-container:hover {
         box-shadow: 0 3px 12px rgba(0,0,0,0.1) !important;
         border-color: ${config.buttonStyle.accept.background} !important;
     }
 
-    .ccb-cookie-details-header {
+    .${uniquePrefix}cookie-details-header {
         background-color: #f5f5f5 !important;
         padding: 12px 18px !important;
         font-weight: 600 !important;
@@ -1554,68 +1570,68 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         transition: all 0.2s ease !important;
     }
 
-    .ccb-cookie-details-header:hover {
+    .${uniquePrefix}cookie-details-header:hover {
         background-color: #eeeeee !important;
     }
 
-    .ccb-cookie-details-content {
+    .${uniquePrefix}cookie-details-content {
         padding: 18px !important;
         background-color: #fafafa !important;
         border-top: 1px solid #e0e0e0 !important;
         display: none !important;
-        animation: fadeIn 0.3s ease !important;
+        animation: ${uniquePrefix}fadeIn 0.3s ease !important;
     }
 
-    @keyframes fadeIn {
+    @keyframes ${uniquePrefix}fadeIn {
         from { opacity: 0; transform: translateY(-10px); }
         to { opacity: 1; transform: translateY(0); }
     }
 
-    .ccb-cookie-details-table {
+    .${uniquePrefix}cookie-details-table {
         width: 100% !important;
         border-collapse: collapse !important;
         font-size: 13px !important;
     }
 
-    .ccb-table-header {
+    .${uniquePrefix}cookie-details-table th {
         text-align: left !important;
         padding: 10px 12px !important;
         background-color: #f0f0f0 !important;
         font-weight: 600 !important;
         border-bottom: 2px solid #e0e0e0 !important;
-        color: ${config.bannerStyle.title.color} !important;
+        color: ${config.bannerStyle.title.color};
     }
 
-    .ccb-table-cell {
+    .${uniquePrefix}cookie-details-table td {
         padding: 10px 12px !important;
         border-bottom: 1px solid #e0e0e0 !important;
-        color: ${config.bannerStyle.description.color} !important;
+        color: ${config.bannerStyle.description.color};
     }
 
-    .ccb-table-row:last-child .ccb-table-cell {
+    .${uniquePrefix}cookie-details-table tr:last-child td {
         border-bottom: none !important;
     }
 
-    .ccb-table-row:hover {
+    .${uniquePrefix}cookie-details-table tr:hover {
         background-color: #f5f5f5 !important;
     }
 
-    .ccb-code {
+    .${uniquePrefix}cookie-details-table code {
         background-color: #f0f0f0 !important;
         padding: 2px 5px !important;
         border-radius: 3px !important;
         font-family: monospace !important;
-        color: ${config.bannerStyle.title.color} !important;
+        color: ${config.bannerStyle.title.color};
     }
 
     /* See Analytics Link */
-    .ccb-see-analytics-container {
+    .${uniquePrefix}see-analytics-container {
         margin-bottom: 15px !important;
         text-align: center !important;
     }
 
-    .ccb-see-analytics-link {
-        color: ${config.bannerStyle.linkColor} !important;
+    .${uniquePrefix}see-analytics-link {
+        color: ${config.bannerStyle.linkColor};
         text-decoration: none !important;
         font-size: 13px !important;
         font-weight: 500 !important;
@@ -1623,24 +1639,24 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         transition: color 0.2s ease !important;
     }
 
-    .ccb-see-analytics-link:hover {
-        color: ${config.bannerStyle.linkHoverColor} !important;
+    .${uniquePrefix}see-analytics-link:hover {
+        color: ${config.bannerStyle.linkHoverColor};
         text-decoration: underline !important;
     }
 
     /* Mobile-friendly cookie value display */
-    .ccb-cookie-value-cell {
+    .${uniquePrefix}cookie-value-cell {
         position: relative !important;
     }
 
-    .ccb-cookie-value-full {
+    .${uniquePrefix}cookie-value-full {
         word-break: break-all !important;
     }
 
-    .ccb-toggle-cookie-value {
+    .${uniquePrefix}toggle-cookie-value {
         background: none !important;
         border: none !important;
-        color: ${config.bannerStyle.linkColor} !important;
+        color: ${config.bannerStyle.linkColor};
         text-decoration: underline !important;
         cursor: pointer !important;
         font-size: 12px !important;
@@ -1649,11 +1665,11 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         display: block !important;
     }
 
-    .ccb-toggle-cookie-value:hover {
-        color: ${config.bannerStyle.linkHoverColor} !important;
+    .${uniquePrefix}toggle-cookie-value:hover {
+        color: ${config.bannerStyle.linkHoverColor};
     }
 
-    .ccb-no-cookies-message {
+    .${uniquePrefix}no-cookies-message {
         padding: 15px !important;
         text-align: center !important;
         color: #666 !important;
@@ -1661,39 +1677,39 @@ function injectConsentHTML(detectedCookies, language = 'en') {
     }
 
     /* Floating Settings Button */
-    .ccb-settings-button {
+    .${uniquePrefix}cookie-settings-button {
         position: fixed !important;
         bottom: 30px !important;
         ${config.behavior.floatingButtonPosition === 'left' ? 'left: 30px !important;' : 'right: 30px !important;'}
-        width: ${config.floatingButtonStyle.size} !important;
-        height: ${config.floatingButtonStyle.size} !important;
-        background-color: ${config.floatingButtonStyle.background} !important;
-        border-radius: ${config.floatingButtonStyle.borderRadius} !important;
+        width: ${config.floatingButtonStyle.size};
+        height: ${config.floatingButtonStyle.size};
+        background-color: ${config.floatingButtonStyle.background};
+        border-radius: ${config.floatingButtonStyle.borderRadius};
         display: none !important;
         align-items: center !important;
         justify-content: center !important;
         cursor: pointer !important;
-        box-shadow: ${config.floatingButtonStyle.boxShadow} !important;
+        box-shadow: ${config.floatingButtonStyle.boxShadow};
         z-index: 9998 !important;
         transition: all 0.3s ease !important;
         opacity: 0 !important;
         transform: translateY(20px) !important;
-        border: ${config.floatingButtonStyle.border} !important;
+        border: ${config.floatingButtonStyle.border};
     }
 
-    .ccb-settings-button.show {
+    .${uniquePrefix}cookie-settings-button.${uniquePrefix}show {
         opacity: 1 !important;
         transform: translateY(0) !important;
     }
 
-    .ccb-settings-button:hover {
-        background-color: ${config.floatingButtonStyle.hover.background} !important;
-        transform: ${config.floatingButtonStyle.hover.transform} !important;
-        box-shadow: ${config.floatingButtonStyle.hover.boxShadow} !important;
+    .${uniquePrefix}cookie-settings-button:hover {
+        background-color: ${config.floatingButtonStyle.hover.background};
+        transform: ${config.floatingButtonStyle.hover.transform};
+        box-shadow: ${config.floatingButtonStyle.hover.boxShadow};
     }
 
-    #ccbFloatingButton.ccb-settings-button svg,
-    #ccbFloatingButton.ccb-settings-button svg path {
+    #${uniquePrefix}cookieFloatingButton.${uniquePrefix}cookie-settings-button svg,
+    #${uniquePrefix}cookieFloatingButton.${uniquePrefix}cookie-settings-button svg path {
         width: 40px !important;
         height: 40px !important;
         fill: ${config.floatingButtonStyle.iconColor} !important;
@@ -1701,56 +1717,56 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         transition: transform 0.3s ease !important;
         margin-top: 0px !important; 
     }
-    .ccb-settings-button:hover svg {
+    .${uniquePrefix}cookie-settings-button:hover svg {
         transform: rotate(15deg) !important;
     }
 
     /* Admin Button */
-    .ccb-admin-button {
+    .${uniquePrefix}cookie-admin-button {
         position: fixed !important;
         ${config.behavior.adminButtonPosition === 'left' ? 
           'left: 30px !important; bottom: 100px !important;' : 
           'right: 30px !important; bottom: 100px !important;'}
-        width: ${config.adminButtonStyle.size} !important;
-        height: ${config.adminButtonStyle.size} !important;
-        background-color: ${config.adminButtonStyle.background} !important;
-        border-radius: ${config.adminButtonStyle.borderRadius} !important;
+        width: ${config.adminButtonStyle.size};
+        height: ${config.adminButtonStyle.size};
+        background-color: ${config.adminButtonStyle.background};
+        border-radius: ${config.adminButtonStyle.borderRadius};
         display: none !important;
         align-items: center !important;
         justify-content: center !important;
         cursor: pointer !important;
-        box-shadow: ${config.adminButtonStyle.boxShadow} !important;
+        box-shadow: ${config.adminButtonStyle.boxShadow};
         z-index: 9997 !important;
         transition: all 0.3s ease !important;
         opacity: 0 !important;
         transform: translateY(20px) !important;
-        border: ${config.adminButtonStyle.border} !important;
+        border: ${config.adminButtonStyle.border};
     }
 
-    .ccb-admin-button.show {
+    .${uniquePrefix}cookie-admin-button.${uniquePrefix}show {
         opacity: 1 !important;
         transform: translateY(0) !important;
     }
 
-    .ccb-admin-button:hover {
-        background-color: ${config.adminButtonStyle.hover.background} !important;
-        transform: ${config.adminButtonStyle.hover.transform} !important;
-        box-shadow: ${config.adminButtonStyle.hover.boxShadow} !important;
+    .${uniquePrefix}cookie-admin-button:hover {
+        background-color: ${config.adminButtonStyle.hover.background};
+        transform: ${config.adminButtonStyle.hover.transform};
+        box-shadow: ${config.adminButtonStyle.hover.boxShadow};
     }
 
-    .ccb-admin-button svg {
+    .${uniquePrefix}cookie-admin-button svg {
         width: 28px !important;
         height: 28px !important;
         fill: ${config.adminButtonStyle.iconColor} !important;
         transition: transform 0.3s ease !important;
     }
 
-    .ccb-admin-button:hover svg {
+    .${uniquePrefix}cookie-admin-button:hover svg {
         transform: rotate(15deg) !important;
     }
 
     /* Analytics Dashboard */
-    .ccb-analytics-modal {
+    .${uniquePrefix}cookie-analytics-modal {
         display: none !important;
         position: fixed !important;
         top: 0 !important;
@@ -1765,19 +1781,19 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         transition: opacity ${config.behavior.dashboardAnimation.duration}s ${config.behavior.dashboardAnimation.easing} !important;
     }
 
-    .ccb-analytics-modal.show {
+    .${uniquePrefix}cookie-analytics-modal.${uniquePrefix}show {
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
         opacity: 1 !important;
     }
 
-    .ccb-analytics-content {
-        background-color: ${config.dashboardStyle.background} !important;
+    .${uniquePrefix}cookie-analytics-content {
+        background-color: ${config.dashboardStyle.background};
         margin: 0 auto !important;
-        width: ${config.dashboardStyle.width} !important;
-        max-height: ${config.dashboardStyle.maxHeight} !important;
-        border-radius: ${config.dashboardStyle.borderRadius} !important;
+        width: ${config.dashboardStyle.width};
+        max-height: ${config.dashboardStyle.maxHeight};
+        border-radius: ${config.dashboardStyle.borderRadius};
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
         overflow: hidden !important;
         transform: translateY(20px) !important;
@@ -1786,199 +1802,199 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         flex-direction: column !important;
     }
 
-    .ccb-analytics-modal.show .ccb-analytics-content {
+    .${uniquePrefix}cookie-analytics-modal.${uniquePrefix}show .${uniquePrefix}cookie-analytics-content {
         transform: translateY(0) !important;
     }
 
-    .ccb-analytics-header {
+    .${uniquePrefix}cookie-analytics-header {
         padding: 20px 30px !important;
         border-bottom: 1px solid #ecf0f1 !important;
         display: flex !important;
         justify-content: space-between !important;
         align-items: center !important;
-        background-color: ${config.dashboardStyle.header.background} !important;
+        background-color: ${config.dashboardStyle.header.background};
     }
 
-    .ccb-analytics-header h2 {
+    .${uniquePrefix}cookie-analytics-header h2 {
         margin: 0 !important;
-        color: ${config.dashboardStyle.header.textColor} !important;
-        font-size: ${config.dashboardStyle.header.fontSize} !important;
-        font-weight: ${config.dashboardStyle.header.fontWeight} !important;
+        color: ${config.dashboardStyle.header.textColor};
+        font-size: ${config.dashboardStyle.header.fontSize};
+        font-weight: ${config.dashboardStyle.header.fontWeight};
     }
 
-    .ccb-close-analytics-modal {
+    .${uniquePrefix}close-analytics-modal {
         font-size: 28px !important;
         font-weight: bold !important;
         cursor: pointer !important;
-        color: ${config.modalStyle.closeButton.color} !important;
+        color: ${config.modalStyle.closeButton.color};
         background: none !important;
         border: none !important;
         padding: 0 10px !important;
         transition: color 0.2s ease !important;
     }
 
-    .ccb-close-analytics-modal:hover {
-        color: ${config.modalStyle.closeButton.hoverColor} !important;
+    .${uniquePrefix}close-analytics-modal:hover {
+        color: ${config.modalStyle.closeButton.hoverColor};
     }
 
-    .ccb-analytics-body {
+    .${uniquePrefix}cookie-analytics-body {
         padding: 25px 30px !important;
-        background-color: ${config.dashboardStyle.body.background} !important;
+        background-color: ${config.dashboardStyle.body.background};
         overflow-y: auto !important;
         flex: 1 !important;
     }
 
     /* Stats Dashboard */
-    .ccb-analytics-dashboard {
+    .${uniquePrefix}analytics-dashboard {
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
     }
 
-    .ccb-dashboard-title {
-        color: ${config.bannerStyle.title.color} !important;
+    .${uniquePrefix}analytics-dashboard h3 {
+        color: ${config.bannerStyle.title.color};
         margin-top: 0 !important;
         margin-bottom: 20px !important;
         font-size: 1.3rem !important;
     }
 
-    .ccb-stats-summary {
+    .${uniquePrefix}stats-summary {
         display: grid !important;
         grid-template-columns: repeat(4, 1fr) !important;
         gap: 15px !important;
         margin-bottom: 30px !important;
     }
 
-    .ccb-stat-card {
-        background-color: ${config.dashboardStyle.statCards.background} !important;
-        border-radius: ${config.dashboardStyle.statCards.borderRadius} !important;
+    .${uniquePrefix}stat-card {
+        background-color: ${config.dashboardStyle.statCards.background};
+        border-radius: ${config.dashboardStyle.statCards.borderRadius};
         padding: 15px !important;
         text-align: center !important;
         transition: all 0.3s ease !important;
     }
 
-    .ccb-stat-card:hover {
+    .${uniquePrefix}stat-card:hover {
         transform: translateY(-3px) !important;
         box-shadow: 0 5px 15px rgba(0,0,0,0.1) !important;
     }
 
-    .ccb-stat-card.ccb-accepted {
+    .${uniquePrefix}stat-card.${uniquePrefix}accepted {
         border-top: 4px solid ${config.dashboardStyle.statCards.acceptedColor} !important;
     }
 
-    .ccb-stat-card.ccb-rejected {
+    .${uniquePrefix}stat-card.${uniquePrefix}rejected {
         border-top: 4px solid ${config.dashboardStyle.statCards.rejectedColor} !important;
     }
 
-    .ccb-stat-card.ccb-custom {
+    .${uniquePrefix}stat-card.${uniquePrefix}custom {
         border-top: 4px solid ${config.dashboardStyle.statCards.customColor} !important;
     }
 
-    .ccb-stat-card.ccb-total {
+    .${uniquePrefix}stat-card.${uniquePrefix}total {
         border-top: 4px solid ${config.dashboardStyle.statCards.totalColor} !important;
     }
 
-    .ccb-stat-title {
+    .${uniquePrefix}stat-card h4 {
         margin: 0 0 10px 0 !important;
         font-size: 1rem !important;
-        color: ${config.bannerStyle.description.color} !important;
+        color: ${config.bannerStyle.description.color};
     }
 
-    .ccb-stat-value {
+    .${uniquePrefix}stat-value {
         font-size: 1.8rem !important;
         font-weight: 700 !important;
-        color: ${config.bannerStyle.title.color} !important;
+        color: ${config.bannerStyle.title.color};
         margin-bottom: 5px !important;
     }
 
-    .ccb-stat-percentage {
+    .${uniquePrefix}stat-percentage {
         font-size: 1rem !important;
-        color: ${config.bannerStyle.description.color} !important;
+        color: ${config.bannerStyle.description.color};
     }
 
-    .ccb-time-based-stats {
+    .${uniquePrefix}time-based-stats {
         display: grid !important;
         grid-template-columns: 1fr !important;
         gap: 30px !important;
     }
 
-    .ccb-time-stat {
-        background-color: ${config.dashboardStyle.statCards.background} !important;
-        border-radius: ${config.dashboardStyle.statCards.borderRadius} !important;
+    .${uniquePrefix}time-stat {
+        background-color: ${config.dashboardStyle.statCards.background};
+        border-radius: ${config.dashboardStyle.statCards.borderRadius};
         padding: 20px !important;
     }
 
-    .ccb-time-title {
+    .${uniquePrefix}time-stat h4 {
         margin: 0 0 15px 0 !important;
         font-size: 1.1rem !important;
-        color: ${config.bannerStyle.title.color} !important;
+        color: ${config.bannerStyle.title.color};
     }
 
-    .ccb-stat-bars {
+    .${uniquePrefix}stat-bars {
         display: grid !important;
         grid-template-columns: 1fr !important;
         gap: 10px !important;
     }
 
-    .ccb-stat-bar-container {
+    .${uniquePrefix}stat-bar-container {
         margin-bottom: 15px !important;
     }
 
-    .ccb-stat-bar-label {
+    .${uniquePrefix}stat-bar-label {
         font-size: 0.85rem !important;
-        color: ${config.bannerStyle.description.color} !important;
+        color: ${config.bannerStyle.description.color};
         margin-bottom: 5px !important;
     }
 
-    .ccb-stat-bar {
-        height: ${config.dashboardStyle.barChart.height} !important;
-        background-color: ${config.dashboardStyle.barChart.background} !important;
-        border-radius: ${config.dashboardStyle.barChart.borderRadius} !important;
+    .${uniquePrefix}stat-bar {
+        height: ${config.dashboardStyle.barChart.height};
+        background-color: ${config.dashboardStyle.barChart.background};
+        border-radius: ${config.dashboardStyle.barChart.borderRadius};
         overflow: hidden !important;
         display: flex !important;
     }
 
-    .ccb-stat-bar-segment {
+    .${uniquePrefix}stat-bar-segment {
         height: 100% !important;
     }
 
-    .ccb-stat-bar-segment.ccb-accepted {
-        background-color: ${config.dashboardStyle.barChart.acceptedColor} !important;
+    .${uniquePrefix}stat-bar-segment.${uniquePrefix}accepted {
+        background-color: ${config.dashboardStyle.barChart.acceptedColor};
     }
 
-    .ccb-stat-bar-segment.ccb-rejected {
-        background-color: ${config.dashboardStyle.barChart.rejectedColor} !important;
+    .${uniquePrefix}stat-bar-segment.${uniquePrefix}rejected {
+        background-color: ${config.dashboardStyle.barChart.rejectedColor};
     }
 
-    .ccb-stat-bar-segment.ccb-custom {
-        background-color: ${config.dashboardStyle.barChart.customColor} !important;
+    .${uniquePrefix}stat-bar-segment.${uniquePrefix}custom {
+        background-color: ${config.dashboardStyle.barChart.customColor};
     }
 
-    .ccb-stat-bar-legend {
+    .${uniquePrefix}stat-bar-legend {
         display: flex !important;
         justify-content: space-between !important;
         font-size: 0.75rem !important;
-        color: ${config.bannerStyle.description.color} !important;
+        color: ${config.bannerStyle.description.color};
         margin-top: 5px !important;
     }
 
     /* Footer Buttons */
-    .ccb-settings-footer {
+    .${uniquePrefix}cookie-settings-footer {
         padding: 20px 30px !important;
-        background-color: ${config.modalStyle.footer.background} !important;
-        border-top: ${config.modalStyle.footer.borderTop} !important;
+        background-color: ${config.modalStyle.footer.background};
+        border-top: ${config.modalStyle.footer.borderTop};
     }
 
     /* Password Prompt */
-    .ccb-password-prompt {
+    .${uniquePrefix}password-prompt {
         text-align: center !important;
         padding: 30px !important;
     }
 
-    .ccb-prompt-title {
-        color: ${config.bannerStyle.title.color} !important;
+    .${uniquePrefix}password-prompt h3 {
+        color: ${config.bannerStyle.title.color};
         margin-bottom: 20px !important;
     }
 
-    .ccb-password-input {
+    .${uniquePrefix}password-prompt input {
         padding: 12px 15px !important;
         border-radius: 6px !important;
         border: 1px solid #e0e0e0 !important;
@@ -1988,9 +2004,9 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         font-size: 14px !important;
     }
 
-    .ccb-password-submit {
+    .${uniquePrefix}password-prompt button {
         padding: 12px 25px !important;
-        background-color: ${config.buttonStyle.accept.background} !important;
+        background-color: ${config.buttonStyle.accept.background};
         color: white !important;
         border: none !important;
         border-radius: 6px !important;
@@ -1999,42 +2015,44 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         transition: all 0.2s ease !important;
     }
 
-    .ccb-password-submit:hover {
-        background-color: ${config.buttonStyle.accept.hover.background} !important;
+    .${uniquePrefix}password-prompt button:hover {
+        background-color: ${config.buttonStyle.accept.hover.background};
     }
 
-    .ccb-error-message {
-        color: ${config.buttonStyle.reject.color} !important;
+    .${uniquePrefix}error-message {
+        color: ${config.buttonStyle.reject.color};
         margin-top: 10px !important;
         font-size: 14px !important;
     }
 
     /* Responsive Styles */
     @media (max-width: 900px) {
-        .ccb-settings-content {
+        .${uniquePrefix}cookie-settings-content {
             width: 90% !important;
             max-height: 80vh !important;
         }
         
-        .ccb-analytics-content {
+        .${uniquePrefix}cookie-analytics-content {
             width: 90% !important;
             max-height: 80vh !important;
         }
         
-        .ccb-stats-summary {
+        .${uniquePrefix}stats-summary {
             grid-template-columns: repeat(2, 1fr) !important;
         }
     }
+
     @media (min-width: 768px) {
-        .ccb-consent-buttons {
+        .${uniquePrefix}cookie-consent-buttons {
             flex-direction: row !important;
         }
-        .ccb-btn {
+        .${uniquePrefix}cookie-btn {
             flex: 1 !important;
         }
     }
+
     @media (max-width: 768px) {
-        .ccb-consent-banner {
+        .${uniquePrefix}cookie-consent-banner {
             width: 90% !important;
             ${config.behavior.bannerPosition === 'left' ? 'left: 5% !important;' : 'right: 5% !important;'}
             bottom: 10px !important;
@@ -2042,94 +2060,94 @@ function injectConsentHTML(detectedCookies, language = 'en') {
             flex-direction: column !important;
         }
         
-        .ccb-btn {
+        .${uniquePrefix}cookie-btn {
             flex: 1 !important;
             min-width: 120px !important;
         }
         
-        .ccb-btn:last-child {
+        .${uniquePrefix}cookie-btn:last-child {
             margin-bottom: 0 !important;
         }
         
-        .ccb-settings-header {
+        .${uniquePrefix}cookie-settings-header {
             padding: 15px 20px !important;
         }
         
-        .ccb-settings-body {
+        .${uniquePrefix}cookie-settings-body {
             padding: 15px 20px !important;
         }
         
-        .ccb-settings-footer {
+        .${uniquePrefix}cookie-settings-footer {
             padding: 15px 20px !important;
         }
         
-        .ccb-modal-buttons-container {
+        .${uniquePrefix}modal-buttons-container {
             flex-direction: column !important;
         }
         
-        .ccb-modal-buttons-container .ccb-btn {
+        .${uniquePrefix}modal-buttons-container .${uniquePrefix}cookie-btn {
             width: 100% !important;
             margin-bottom: 8px !important;
         }
         
-        .ccb-modal-buttons-container .ccb-btn:last-child {
+        .${uniquePrefix}modal-buttons-container .${uniquePrefix}cookie-btn:last-child {
             margin-bottom: 0 !important;
         }
         
-        .ccb-stats-summary {
+        .${uniquePrefix}stats-summary {
             grid-template-columns: 1fr !important;
         }
         
         /* Mobile cookie details */
-        .ccb-cookie-details-table {
+        .${uniquePrefix}cookie-details-table {
             display: block !important;
             overflow-x: auto !important;
             white-space: nowrap !important;
         }
         
-        .ccb-table-cell {
+        .${uniquePrefix}cookie-details-table td {
             white-space: normal !important;
         }
         
-        .ccb-cookie-value-cell {
+        .${uniquePrefix}cookie-value-cell {
             min-width: 120px !important;
         }
     }
 
     @media (max-width: 480px) {
-        .ccb-consent-banner {
+        .${uniquePrefix}cookie-consent-banner {
             padding: 15px !important;
             flex-direction: column !important;
             width: calc(100% - 30px) !important;
             ${config.behavior.bannerPosition === 'left' ? 'left: 15px !important;' : 'right: 15px !important;'}
         }
         
-        .ccb-consent-content h2 {
+        .${uniquePrefix}cookie-consent-content h2 {
             font-size: 1.1rem !important;
         }
         
-        .ccb-consent-content p {
+        .${uniquePrefix}cookie-consent-content p {
             font-size: 0.85rem !important;
             margin-bottom: 15px !important;
         }
         
-        .ccb-privacy-policy-link {
+        .${uniquePrefix}privacy-policy-link {
             margin-bottom: 15px !important;
         }
         
-        .ccb-btn {
+        .${uniquePrefix}cookie-btn {
             padding: 10px !important;
             font-size: 0.85rem !important;
         }
         
-        .ccb-settings-button {
+        .${uniquePrefix}cookie-settings-button {
             width: 50px !important;
             height: 50px !important;
             bottom: 15px !important;
             ${config.behavior.floatingButtonPosition === 'left' ? 'left: 15px !important;' : 'right: 15px !important;'}
         }
         
-        .ccb-admin-button {
+        .${uniquePrefix}cookie-admin-button {
             width: 50px !important;
             height: 50px !important;
             ${config.behavior.adminButtonPosition === 'left' ? 
@@ -2137,113 +2155,43 @@ function injectConsentHTML(detectedCookies, language = 'en') {
               'right: 15px !important; bottom: 80px !important;'}
         }
         
-        .ccb-settings-button svg {
+        .${uniquePrefix}cookie-settings-button svg {
             width: 22px !important;
             height: 22px !important;
         }
         
-        .ccb-admin-button svg {
+        .${uniquePrefix}cookie-admin-button svg {
             width: 22px !important;
             height: 22px !important;
         }
         
-        .ccb-settings-header h2 {
+        .${uniquePrefix}cookie-settings-header h2 {
             font-size: 1.2rem !important;
         }
         
-        .ccb-category-title {
+        .${uniquePrefix}toggle-container h3 {
             font-size: 1rem !important;
         }
         
-        .ccb-cookie-details-table {
+        .${uniquePrefix}cookie-details-table {
             font-size: 0.8rem !important;
         }
         
-        .ccb-table-header, 
-        .ccb-table-cell {
+        .${uniquePrefix}cookie-details-table th, 
+        .${uniquePrefix}cookie-details-table td {
             padding: 8px 10px !important;
         }
     }`;
     
-    // Add the style element to the container
-    container.appendChild(style);
+    // Create a container for our elements
+    const container = document.createElement('div');
+    container.id = uniquePrefix + 'cookieConsentContainer';
+    container.innerHTML = html;
     
-    // Add the HTML content to the container
-    container.innerHTML += `
-    <!-- Main Consent Banner -->
-    <div id="ccbConsentBanner" class="ccb-consent-banner">
-        <div class="ccb-consent-container">
-            ${languageSelector}
-            <div class="ccb-consent-content">
-                <h2>${lang.title}</h2>
-                <p>${lang.description}</p>
-                <a href="${config.privacyPolicyUrl}" class="ccb-privacy-policy-link">${lang.privacy}</a>
-            </div>
-            <div class="ccb-consent-buttons">
-                <button id="ccbAcceptAllBtn" class="ccb-btn ccb-accept-btn">${lang.accept}</button>
-                <button id="ccbAdjustConsentBtn" class="ccb-btn ccb-adjust-btn">${lang.customize}</button>
-                <button id="ccbRejectAllBtn" class="ccb-btn ccb-reject-btn">${lang.reject}</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Settings Modal -->
-    <div id="ccbSettingsModal" class="ccb-settings-modal">
-        <div class="ccb-settings-content">
-            <div class="ccb-settings-header">
-                <h2>${lang.title}</h2>
-                <span class="ccb-close-modal">&times;</span>
-            </div>
-            <div class="ccb-settings-body">
-                ${generateCategorySection('functional')}
-                ${generateCategorySection('analytics')}
-                ${generateCategorySection('performance')}
-                ${generateCategorySection('advertising')}
-                ${detectedCookies.uncategorized.length > 0 ? generateCategorySection('uncategorized') : ''}
-            </div>
-            <div class="ccb-settings-footer">
-                ${config.analytics.enabled ? `
-                <div class="ccb-see-analytics-container">
-                    <a href="#" class="ccb-see-analytics-link">${lang.seeAnalytics}</a>
-                </div>` : ''}
-                <div class="ccb-modal-buttons-container">
-                    <button id="ccbAcceptAllSettingsBtn" class="ccb-btn ccb-accept-btn">${lang.accept}</button>
-                    <button id="ccbSaveSettingsBtn" class="ccb-btn ccb-save-btn">${lang.save}</button>
-                    <button id="ccbRejectAllSettingsBtn" class="ccb-btn ccb-reject-btn">${lang.reject}</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
-   <!-- Floating Settings Button -->
-    <div id="ccbFloatingButton" class="ccb-settings-button" title="${lang.title}">
-        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="none">
-            <path d="M6 8H8.01V10H6V8Z" fill="currentColor"/>
-            <path d="M11 11H13.01V13H11V11Z" fill="currentColor"/>
-            <path d="M8 15H10.01V17H8V15Z" fill="currentColor"/>
-            <path d="M15 15H17.01V17H15V15Z" fill="currentColor"/>
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M1 12C1 5.92487 5.92487 1 12 1C12.0366 1 12.0732 1.00018 12.1097 1.00054L13.3208 1.01239L13.08 2.19932C13.0276 2.45721 13 2.72486 13 3C13 4.95769 14.4074 6.58878 16.2659 6.93296L16.9419 7.05815L17.067 7.73414C17.4112 9.59261 19.0423 11 21 11C21.2751 11 21.5428 10.9724 21.8007 10.92L22.9876 10.6792L22.9995 11.8903C22.9998 11.9268 23 11.9634 23 12C23 18.0751 18.0751 23 12 23C5.92487 23 1 18.0751 1 12ZM11.0002 3.0549C6.50018 3.55223 3 7.36736 3 12C3 16.9706 7.02944 21 12 21C16.6326 21 20.4478 17.4998 20.9451 12.9998C18.2609 12.9757 15.9991 11.1899 15.2573 8.74272C12.8101 8.00085 11.0243 5.73912 11.0002 3.0549Z" fill="currentColor"/>
-        </svg>
-    </div>
+    // Add the style element first
+    container.insertBefore(style, container.firstChild);
     
-    ${adminButton}
-    
-    <!-- Analytics Dashboard -->
-    <div id="ccbAnalyticsModal" class="ccb-analytics-modal">
-        <div class="ccb-analytics-content">
-            <div class="ccb-analytics-header">
-                <h2>${lang.dashboardTitle}</h2>
-                <span class="ccb-close-analytics-modal">&times;</span>
-            </div>
-            <div class="ccb-analytics-body">
-                ${config.analytics.passwordProtect && !isDashboardAuthenticated ? 
-                    generatePasswordPrompt(language) : 
-                    generateAnalyticsDashboard(language)}
-            </div>
-        </div>
-    </div>`;
-    
-    // Append the container to the body
+    // Add the container to the body
     document.body.appendChild(container);
 }
 
@@ -2256,9 +2204,8 @@ function shouldShowBanner() {
     const now = new Date();
     const currentDate = now.toISOString().split('T')[0];
     const currentTime = now.getHours() * 100 + now.getMinutes();
-    const currentDay = now.getDay(); // 0 = Sunday, 1 = Monday, etc.
+    const currentDay = now.getDay();
 
-    // Check if we're using duration-based settings
     if (config.behavior.bannerSchedule.durationDays) {
         const firstVisit = getCookie('first_visit_date');
         if (!firstVisit) {
@@ -2276,7 +2223,7 @@ function shouldShowBanner() {
     if (config.behavior.bannerSchedule.durationMinutes) {
         const sessionStart = getCookie('session_start_time');
         if (!sessionStart) {
-            setCookie('session_start_time', now.getTime().toString(), 0.5); // Expires in 30 minutes
+            setCookie('session_start_time', now.getTime().toString(), 0.5);
             return true;
         }
         
@@ -2286,7 +2233,6 @@ function shouldShowBanner() {
         return now.getTime() <= endTime;
     }
 
-    // Check date range
     const startDate = new Date(config.behavior.bannerSchedule.startDate);
     const endDate = new Date(config.behavior.bannerSchedule.endDate);
     
@@ -2294,7 +2240,6 @@ function shouldShowBanner() {
         return false;
     }
 
-    // Check time range
     const startTime = parseInt(config.behavior.bannerSchedule.startTime.split(':')[0]) * 100 + 
                       parseInt(config.behavior.bannerSchedule.startTime.split(':')[1]);
     const endTime = parseInt(config.behavior.bannerSchedule.endTime.split(':')[0]) * 100 + 
@@ -2304,7 +2249,6 @@ function shouldShowBanner() {
         return false;
     }
 
-    // Check days of week
     if (config.behavior.bannerSchedule.daysOfWeek.length > 0 && 
         !config.behavior.bannerSchedule.daysOfWeek.includes(currentDay)) {
         return false;
@@ -2317,7 +2261,6 @@ function shouldShowBanner() {
 function initializeCookieConsent(detectedCookies, language) {
     const consentGiven = getCookie('cookie_consent');
     
-    // Check if banner should be shown based on schedule
     const bannerShouldBeShown = shouldShowBanner();
     
     if (!consentGiven && config.behavior.autoShow && bannerShouldBeShown) {
@@ -2333,27 +2276,22 @@ function initializeCookieConsent(detectedCookies, language) {
         }
     }
     
-    // Explicitly apply the default language from config
     changeLanguage(config.languageConfig.defaultLanguage);
     
-    // Set the dropdown to the default language
-    const languageSelect = document.getElementById('ccbLanguageSelect');
+    const languageSelect = document.getElementById(uniquePrefix + 'cookieLanguageSelect');
     if (languageSelect) {
         languageSelect.value = config.languageConfig.defaultLanguage;
-        // Ensure the change event listener is correctly set up
         languageSelect.addEventListener('change', function() {
             changeLanguage(this.value);
         });
     }
     
-    // Set up event listeners
     setupEventListeners();
     
-    // Setup cookie details toggles
-    document.querySelectorAll('.ccb-cookie-details-header').forEach(header => {
+    document.querySelectorAll('.' + uniquePrefix + 'cookie-details-header').forEach(header => {
         header.addEventListener('click', function() {
             const content = this.nextElementSibling;
-            const toggle = this.querySelector('.ccb-toggle-details');
+            const toggle = this.querySelector('.' + uniquePrefix + 'toggle-details');
             if (content.style.display === 'none') {
                 content.style.display = 'block';
                 toggle.textContent = '−';
@@ -2364,12 +2302,11 @@ function initializeCookieConsent(detectedCookies, language) {
         });
     });
     
-    // Setup cookie value toggles for mobile
     document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('ccb-toggle-cookie-value')) {
-            const cell = e.target.closest('.ccb-cookie-value-cell');
-            const full = cell.querySelector('.ccb-cookie-value-full');
-            const truncated = cell.querySelector('.ccb-cookie-value-truncated');
+        if (e.target.classList.contains(uniquePrefix + 'toggle-cookie-value')) {
+            const cell = e.target.closest('.' + uniquePrefix + 'cookie-value-cell');
+            const full = cell.querySelector('.' + uniquePrefix + 'cookie-value-full');
+            const truncated = cell.querySelector('.' + uniquePrefix + 'cookie-value-truncated');
             
             if (e.target.dataset.state === 'truncated') {
                 full.style.display = 'inline';
@@ -2385,25 +2322,22 @@ function initializeCookieConsent(detectedCookies, language) {
         }
     });
     
-    // Setup admin button if enabled
     if (config.analytics.enabled && config.analytics.showDashboard && config.behavior.showAdminButton) {
-        const adminButton = document.getElementById('ccbAdminButton');
+        const adminButton = document.getElementById(uniquePrefix + 'cookieAdminButton');
         if (adminButton) {
             adminButton.addEventListener('click', showAnalyticsDashboard);
             setTimeout(() => {
                 adminButton.style.display = 'flex';
-                adminButton.classList.add('show');
+                adminButton.classList.add(uniquePrefix + 'show');
             }, 100);
         }
     }
     
-    // Setup password prompt events if needed
     if (config.analytics.passwordProtect && !isDashboardAuthenticated) {
         setupPasswordPromptEvents();
     }
     
-    // Setup "See Consent Analytics" link in the modal footer
-    const seeAnalyticsLink = document.querySelector('.ccb-see-analytics-link');
+    const seeAnalyticsLink = document.querySelector('.' + uniquePrefix + 'see-analytics-link');
     if (seeAnalyticsLink) {
         seeAnalyticsLink.addEventListener('click', function(e) {
             e.preventDefault();
@@ -2411,9 +2345,7 @@ function initializeCookieConsent(detectedCookies, language) {
         });
     }
     
-    // Setup timer for durationMinutes if enabled
     if (config.behavior.bannerSchedule.enabled && config.behavior.bannerSchedule.durationMinutes) {
-        // Clear any existing timer
         if (bannerTimer) {
             clearTimeout(bannerTimer);
         }
@@ -2428,20 +2360,19 @@ function initializeCookieConsent(detectedCookies, language) {
 
 // Setup password prompt events
 function setupPasswordPromptEvents() {
-    const passwordSubmit = document.getElementById('ccbDashboardPasswordSubmit');
+    const passwordSubmit = document.getElementById(uniquePrefix + 'dashboardPasswordSubmit');
     if (passwordSubmit) {
         passwordSubmit.addEventListener('click', function() {
-            const passwordInput = document.getElementById('ccbDashboardPasswordInput');
-            const errorMessage = document.getElementById('ccbPasswordError');
-            const lang = document.getElementById('ccbLanguageSelect') ? 
-                document.getElementById('ccbLanguageSelect').value : 'en';
+            const passwordInput = document.getElementById(uniquePrefix + 'dashboardPasswordInput');
+            const errorMessage = document.getElementById(uniquePrefix + 'passwordError');
+            const lang = document.getElementById(uniquePrefix + 'cookieLanguageSelect') ? 
+                document.getElementById(uniquePrefix + 'cookieLanguageSelect').value : 'en';
             
             if (passwordInput.value === config.analytics.dashboardPassword) {
                 isDashboardAuthenticated = true;
                 setCookie('dashboard_auth', 'true', config.analytics.passwordCookieDuration);
                 
-                // Update the dashboard content
-                document.querySelector('.ccb-analytics-body').innerHTML = generateAnalyticsDashboard(lang);
+                document.querySelector('.' + uniquePrefix + 'cookie-analytics-body').innerHTML = generateAnalyticsDashboard(lang);
             } else {
                 errorMessage.textContent = translations[lang].passwordIncorrect;
             }
@@ -2451,7 +2382,7 @@ function setupPasswordPromptEvents() {
 
 // Setup all event listeners
 function setupEventListeners() {
-    document.getElementById('ccbAcceptAllBtn').addEventListener('click', function() {
+    document.getElementById(uniquePrefix + 'acceptAllBtn').addEventListener('click', function() {
         acceptAllCookies();
         hideCookieBanner();
         if (config.behavior.showFloatingButton) {
@@ -2459,7 +2390,7 @@ function setupEventListeners() {
         }
     });
     
-    document.getElementById('ccbRejectAllBtn').addEventListener('click', function() {
+    document.getElementById(uniquePrefix + 'rejectAllBtn').addEventListener('click', function() {
         rejectAllCookies();
         hideCookieBanner();
         if (config.behavior.showFloatingButton) {
@@ -2467,12 +2398,12 @@ function setupEventListeners() {
         }
     });
     
-    document.getElementById('ccbAdjustConsentBtn').addEventListener('click', function() {
+    document.getElementById(uniquePrefix + 'adjustConsentBtn').addEventListener('click', function() {
         showCookieSettings();
         hideCookieBanner();
     });
     
-    document.getElementById('ccbAcceptAllSettingsBtn').addEventListener('click', function() {
+    document.getElementById(uniquePrefix + 'acceptAllSettingsBtn').addEventListener('click', function() {
         acceptAllCookies();
         hideCookieSettings();
         if (config.behavior.showFloatingButton) {
@@ -2480,7 +2411,7 @@ function setupEventListeners() {
         }
     });
     
-    document.getElementById('ccbRejectAllSettingsBtn').addEventListener('click', function() {
+    document.getElementById(uniquePrefix + 'rejectAllSettingsBtn').addEventListener('click', function() {
         rejectAllCookies();
         hideCookieSettings();
         if (config.behavior.showFloatingButton) {
@@ -2488,7 +2419,7 @@ function setupEventListeners() {
         }
     });
     
-    document.getElementById('ccbSaveSettingsBtn').addEventListener('click', function() {
+    document.getElementById(uniquePrefix + 'saveSettingsBtn').addEventListener('click', function() {
         saveCustomSettings();
         hideCookieSettings();
         if (config.behavior.showFloatingButton) {
@@ -2496,19 +2427,19 @@ function setupEventListeners() {
         }
     });
     
-    document.querySelector('.ccb-close-modal').addEventListener('click', function() {
+    document.querySelector('.' + uniquePrefix + 'close-modal').addEventListener('click', function() {
         hideCookieSettings();
         if (!getCookie('cookie_consent')) {
             showCookieBanner();
         }
     });
     
-    document.querySelector('.ccb-close-analytics-modal').addEventListener('click', function() {
+    document.querySelector('.' + uniquePrefix + 'close-analytics-modal').addEventListener('click', function() {
         hideAnalyticsDashboard();
     });
     
-    document.getElementById('ccbFloatingButton').addEventListener('click', function() {
-        if (!document.getElementById('ccbConsentBanner').classList.contains('show')) {
+    document.getElementById(uniquePrefix + 'cookieFloatingButton').addEventListener('click', function() {
+        if (!document.getElementById(uniquePrefix + 'cookieConsentBanner').classList.contains(uniquePrefix + 'show')) {
             showCookieBanner();
         } else {
             hideCookieBanner();
@@ -2518,17 +2449,17 @@ function setupEventListeners() {
 
 // Show/hide functions with animations
 function showCookieBanner() {
-    const banner = document.getElementById('ccbConsentBanner');
+    const banner = document.getElementById(uniquePrefix + 'cookieConsentBanner');
     banner.style.display = 'block';
     setTimeout(() => {
-        banner.classList.add('show');
+        banner.classList.add(uniquePrefix + 'show');
     }, 10);
     bannerShown = true;
 }
 
 function hideCookieBanner() {
-    const banner = document.getElementById('ccbConsentBanner');
-    banner.classList.remove('show');
+    const banner = document.getElementById(uniquePrefix + 'cookieConsentBanner');
+    banner.classList.remove(uniquePrefix + 'show');
     setTimeout(() => {
         banner.style.display = 'none';
     }, 400);
@@ -2536,61 +2467,61 @@ function hideCookieBanner() {
 }
 
 function showCookieSettings() {
-    const modal = document.getElementById('ccbSettingsModal');
+    const modal = document.getElementById(uniquePrefix + 'cookieSettingsModal');
     modal.style.display = 'flex';
     setTimeout(() => {
-        modal.classList.add('show');
+        modal.classList.add(uniquePrefix + 'show');
     }, 10);
     hideCookieBanner();
 }
 
 function hideCookieSettings() {
-    const modal = document.getElementById('ccbSettingsModal');
-    modal.classList.remove('show');
+    const modal = document.getElementById(uniquePrefix + 'cookieSettingsModal');
+    modal.classList.remove(uniquePrefix + 'show');
     setTimeout(() => {
         modal.style.display = 'none';
     }, 300);
 }
 
 function showAnalyticsDashboard() {
-    const lang = document.getElementById('ccbLanguageSelect') ? 
-        document.getElementById('ccbLanguageSelect').value : 'en';
+    const lang = document.getElementById(uniquePrefix + 'cookieLanguageSelect') ? 
+        document.getElementById(uniquePrefix + 'cookieLanguageSelect').value : 'en';
     
     if (config.analytics.passwordProtect && !isDashboardAuthenticated) {
-        const modal = document.getElementById('ccbAnalyticsModal');
+        const modal = document.getElementById(uniquePrefix + 'cookieAnalyticsModal');
         modal.style.display = 'flex';
         setTimeout(() => {
-            modal.classList.add('show');
+            modal.classList.add(uniquePrefix + 'show');
         }, 10);
     } else {
-        const modal = document.getElementById('ccbAnalyticsModal');
-        document.querySelector('.ccb-analytics-body').innerHTML = generateAnalyticsDashboard(lang);
+        const modal = document.getElementById(uniquePrefix + 'cookieAnalyticsModal');
+        document.querySelector('.' + uniquePrefix + 'cookie-analytics-body').innerHTML = generateAnalyticsDashboard(lang);
         modal.style.display = 'flex';
         setTimeout(() => {
-            modal.classList.add('show');
+            modal.classList.add(uniquePrefix + 'show');
         }, 10);
     }
 }
 
 function hideAnalyticsDashboard() {
-    const modal = document.getElementById('ccbAnalyticsModal');
-    modal.classList.remove('show');
+    const modal = document.getElementById(uniquePrefix + 'cookieAnalyticsModal');
+    modal.classList.remove(uniquePrefix + 'show');
     setTimeout(() => {
         modal.style.display = 'none';
     }, 300);
 }
 
 function showFloatingButton() {
-    const button = document.getElementById('ccbFloatingButton');
+    const button = document.getElementById(uniquePrefix + 'cookieFloatingButton');
     button.style.display = 'flex';
     setTimeout(() => {
-        button.classList.add('show');
+        button.classList.add(uniquePrefix + 'show');
     }, 100);
 }
 
 function hideFloatingButton() {
-    const button = document.getElementById('ccbFloatingButton');
-    button.classList.remove('show');
+    const button = document.getElementById(uniquePrefix + 'cookieFloatingButton');
+    button.classList.remove(uniquePrefix + 'show');
     setTimeout(() => {
         button.style.display = 'none';
     }, 300);
@@ -2619,7 +2550,6 @@ function acceptAllCookies() {
         updateConsentStats('accepted');
     }
     
-    // Push dataLayer event for consent acceptance with location data
     window.dataLayer.push({
         'event': 'cookie_consent_accepted',
         'consent_mode': {
@@ -2661,7 +2591,6 @@ function rejectAllCookies() {
         updateConsentStats('rejected');
     }
     
-    // Push dataLayer event for consent rejection with location data
     window.dataLayer.push({
         'event': 'cookie_consent_rejected',
         'consent_mode': {
@@ -2723,7 +2652,6 @@ function saveCustomSettings() {
         updateConsentStats('custom');
     }
     
-    // Push dataLayer event for custom consent settings with location data
     const consentStates = {
         'ad_storage': consentData.categories.advertising ? 'granted' : 'denied',
         'analytics_storage': consentData.categories.analytics ? 'granted' : 'denied',
@@ -2799,34 +2727,30 @@ function updateConsentMode(consentData) {
         'security_storage': 'granted'
     };
 
-    // Determine GCS signal based on consent status and categories
-    let gcsSignal = 'G100'; // Default to all denied
+    let gcsSignal = 'G100';
     
     if (consentData.status === 'accepted') {
-        gcsSignal = 'G111'; // All granted
+        gcsSignal = 'G111';
     } else if (consentData.status === 'custom') {
         if (consentData.categories.analytics && !consentData.categories.advertising) {
-            gcsSignal = 'G101'; // Analytics granted, ads denied
+            gcsSignal = 'G101';
         } else if (consentData.categories.advertising && !consentData.categories.analytics) {
-            gcsSignal = 'G110'; // Ads granted, analytics denied
+            gcsSignal = 'G110';
         } else if (consentData.categories.analytics && consentData.categories.advertising) {
-            gcsSignal = 'G111'; // Both granted (same as accept all)
+            gcsSignal = 'G111';
         } else {
-            gcsSignal = ''; // Both denied (same as reject all)
+            gcsSignal = '';
         }
     }
 
-    // Update Google consent
     gtag('consent', 'update', consentStates);
     
-    // Update Microsoft UET consent if enabled
     if (config.uetConfig.enabled) {
         const uetConsentState = consentData.categories.advertising ? 'granted' : 'denied';
         window.uetq.push('consent', 'update', {
             'ad_storage': uetConsentState
         });
         
-        // Push UET consent event to dataLayer with the exact requested format
         window.dataLayer.push({
             'event': 'uet_consent_update',
             'uet_consent': {
@@ -2840,7 +2764,6 @@ function updateConsentMode(consentData) {
         });
     }
     
-    // Push general consent update to dataLayer
     window.dataLayer.push({
         'event': 'cookie_consent_update',
         'consent_mode': consentStates,
@@ -2885,50 +2808,37 @@ function loadAnalyticsCookies() {
 
 function loadAdvertisingCookies() {
     console.log('Loading advertising cookies');
-    // This would typically load advertising scripts like Facebook Pixel, etc.
-    // Implementation depends on your specific advertising setup
 }
 
 function loadPerformanceCookies() {
     console.log('Loading performance cookies');
-    // This would typically load performance optimization scripts
 }
 
 // Main execution flow
 document.addEventListener('DOMContentLoaded', async function() {
-    // Add this line first:
-    fetchLocationData(); // Start loading location data immediately
+    fetchLocationData();
 
-    // Check if domain is allowed
     if (!isDomainAllowed()) {
         console.log('Cookie consent banner not shown - domain not allowed');
         return;
     }
 
-    // Load analytics data from storage
     if (config.analytics.enabled) {
         loadAnalyticsData();
     }
 
-    // Set default UET consent
     setDefaultUetConsent();
 
-    // Fetch location data asynchronously
     await fetchLocationData();
 
-    // Scan and categorize existing cookies
     const detectedCookies = scanAndCategorizeCookies();
 
-    // Detect user language
     const userLanguage = detectUserLanguage(locationData);
 
-    // Inject HTML elements
     injectConsentHTML(detectedCookies, userLanguage);
 
-    // Initialize cookie consent
     initializeCookieConsent(detectedCookies, userLanguage);
 
-    // Handle scroll acceptance if enabled
     if (config.behavior.acceptOnScroll) {
         let scrollTimeout;
         window.addEventListener('scroll', function() {
@@ -2948,12 +2858,11 @@ document.addEventListener('DOMContentLoaded', async function() {
         });
     }
 
-    // Handle continue button acceptance if enabled
     if (config.behavior.acceptOnContinue) {
         document.addEventListener('click', function(e) {
             if (!getCookie('cookie_consent') && bannerShown && 
-                !e.target.closest('#ccbConsentBanner') && 
-                !e.target.closest('#ccbSettingsModal')) {
+                !e.target.closest('#' + uniquePrefix + 'cookieConsentBanner') && 
+                !e.target.closest('#' + uniquePrefix + 'cookieSettingsModal')) {
                 acceptAllCookies();
                 hideCookieBanner();
                 if (config.behavior.showFloatingButton) {
