@@ -1,6 +1,6 @@
 const config = {
     // Domain restriction
-    allowedDomains: ['my-complete-health.com'],
+    allowedDomains: ['dev-rpractice.pantheonsite.io', 'my-complete-health.com'],
     
     // Privacy policy URL (configurable)
     privacyPolicyUrl: 'https://yourdomain.com/privacy-policy', // Add your full privacy policy URL here
@@ -61,7 +61,7 @@ const config = {
     // Language configuration
     languageConfig: {
         defaultLanguage: 'en',
-        availableLanguages: [], // Only en and fr as requested
+        availableLanguages: ['en'], // Only en and fr as requested
         showLanguageSelector: false,
         autoDetectLanguage: true
     },
