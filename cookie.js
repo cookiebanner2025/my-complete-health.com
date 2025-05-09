@@ -1993,49 +1993,49 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         </div>
     </div>
     
-    <style>
-    /* Main Banner Styles */
-    .cookie-consent-banner {
-        position: fixed;
-        bottom: 20px;
-        ${config.behavior.bannerPosition === 'left' ? 'left: 20px;' : 'right: 20px;'}
-        width: ${config.bannerStyle.width};
-        background: ${config.bannerStyle.background};
-        border-radius: ${config.bannerStyle.borderRadius};
-        box-shadow: ${config.bannerStyle.boxShadow};
-        z-index: 9999;
-        padding: ${config.bannerStyle.padding};
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-        display: none;
-        transform: translateY(20px);
-        opacity: 0;
-        transition: all ${config.behavior.bannerAnimation.duration}s ${config.behavior.bannerAnimation.easing};
+<style>
+    /* Main Banner Styles - Made more specific with !important */
+    #cookieConsentBanner.cookie-consent-banner {
+        position: fixed !important;
+        bottom: 20px !important;
+        ${config.behavior.bannerPosition === 'left' ? 'left: 20px !important;' : 'right: 20px !important;'}
+        width: ${config.bannerStyle.width} !important;
+        background: ${config.bannerStyle.background} !important;
+        border-radius: ${config.bannerStyle.borderRadius} !important;
+        box-shadow: ${config.bannerStyle.boxShadow} !important;
+        z-index: 9999 !important;
+        padding: ${config.bannerStyle.padding} !important;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+        display: none !important;
+        transform: translateY(20px) !important;
+        opacity: 0 !important;
+        transition: all ${config.behavior.bannerAnimation.duration}s ${config.behavior.bannerAnimation.easing} !important;
         ${config.bannerStyle.border.enabled ? 
-            `border: ${config.bannerStyle.border.width} ${config.bannerStyle.border.style} ${config.bannerStyle.border.color};` : 
-            'border: none;'}
-        overflow: hidden;
+            `border: ${config.bannerStyle.border.width} ${config.bannerStyle.border.style} ${config.bannerStyle.border.color} !important;` : 
+            'border: none !important;'}
+        overflow: hidden !important;
     }
 
-    .cookie-consent-banner.show {
-        transform: translateY(0);
-        opacity: 1;
-        display: block;
+   #cookieConsentBanner.cookie-consent-banner.show {
+        transform: translateY(0) !important;
+        opacity: 1 !important;
+        display: block !important;
+    }
+    
+   #cookieConsentBanner .cookie-consent-content h2 {
+        margin: 0 0 16px 0 !important;
+        font-size: ${config.bannerStyle.title.fontSize} !important;
+        color: ${config.bannerStyle.title.color} !important;
+        font-weight: ${config.bannerStyle.title.fontWeight} !important;
+        line-height: 1.4 !important;
+        letter-spacing: -0.2px !important;
     }
 
-    .cookie-consent-content h2 {
-        margin: 0 0 16px 0;
-        font-size: ${config.bannerStyle.title.fontSize};
-        color: ${config.bannerStyle.title.color};
-        font-weight: ${config.bannerStyle.title.fontWeight};
-        line-height: 1.4;
-        letter-spacing: -0.2px;
-    }
-
-    .cookie-consent-content p {
-        margin: 0 0 10px 0;
-        font-size: ${config.bannerStyle.description.fontSize};
-        color: ${config.bannerStyle.description.color};
-        line-height: ${config.bannerStyle.description.lineHeight};
+     #cookieConsentBanner .cookie-consent-content p {
+        margin: 0 0 10px 0 !important;
+        font-size: ${config.bannerStyle.description.fontSize} !important;
+        color: ${config.bannerStyle.description.color} !important;
+        line-height: ${config.bannerStyle.description.lineHeight} !important;
     }
 
     .privacy-policy-link {
@@ -2266,11 +2266,13 @@ function injectConsentHTML(detectedCookies, language = 'en') {
     }
 
     /* Toggle Switch Styles */
-    .toggle-container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        margin-bottom: 12px;
+   /* Toggle switch positioning fix */
+    #cookieSettingsModal .toggle-container {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
+        margin-bottom: 12px !important;
+        width: 100% !important;
     }
 
     .toggle-container h3 {
@@ -2280,12 +2282,14 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         font-weight: ${config.categoryStyle.title.fontWeight};
     }
 
-    .toggle-switch {
-        position: relative;
-        display: inline-block;
-        width: ${config.toggleStyle.size};
-        height: ${config.toggleStyle.height};
-    }
+    #cookieSettingsModal .toggle-switch {
+        position: relative !important;
+        display: inline-block !important;
+        width: ${config.toggleStyle.size} !important;
+        height: ${config.toggleStyle.height} !important;
+        margin-left: 15px !important;
+        flex-shrink: 0 !important;
+    
 
     .toggle-switch input {
         opacity: 0;
@@ -2835,66 +2839,85 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         flex: 1;
     }
 }
-    @media (max-width: 768px) {
-        .cookie-consent-banner {
-            width: 90%;
-            ${config.behavior.bannerPosition === 'left' ? 'left: 5%;' : 'right: 5%;'}
-            bottom: 10px;
-            padding: 20px;
-            flex-direction: column;
+       @media (max-width: 768px) {
+        /* Banner styles - more specific with !important */
+        #cookieConsentBanner.cookie-consent-banner {
+            width: calc(100% - 40px) !important;
+            ${config.behavior.bannerPosition === 'left' ? 'left: 20px !important;' : 'right: 20px !important;'}
+            bottom: 20px !important;
+            padding: 15px !important;
+            flex-direction: column !important;
         }
         
-        .cookie-btn {
-            flex: 1;
-            min-width: 120px;
+        /* Button styles */
+        #cookieConsentBanner .cookie-consent-buttons {
+            flex-direction: column !important;
+            gap: 12px !important;
         }
         
-        .cookie-btn:last-child {
-            margin-bottom: 0;
+        #cookieConsentBanner .cookie-btn {
+            width: 100% !important;
+            margin-bottom: 0 !important;
+            min-width: auto !important;
         }
         
-        .cookie-settings-header {
-            padding: 15px 20px;
+        /* Modal settings */
+        #cookieSettingsModal .cookie-settings-content {
+            width: 95% !important;
+            max-height: 85vh !important;
         }
         
-        .cookie-settings-body {
-            padding: 15px 20px;
+        #cookieSettingsModal .cookie-settings-header {
+            padding: 15px 20px !important;
         }
         
-        .cookie-settings-footer {
-            padding: 15px 20px;
+        #cookieSettingsModal .cookie-settings-body {
+            padding: 15px 20px !important;
         }
         
-        .modal-buttons-container {
-            flex-direction: column;
+        #cookieSettingsModal .cookie-settings-footer {
+            padding: 15px 20px !important;
         }
         
-        .modal-buttons-container .cookie-btn {
-            width: 100%;
-            margin-bottom: 8px;
+        /* Toggle fixes */
+        #cookieSettingsModal .toggle-container {
+            flex-wrap: wrap !important;
+            width: 100% !important;
         }
         
-        .modal-buttons-container .cookie-btn:last-child {
-            margin-bottom: 0;
+        #cookieSettingsModal .toggle-switch {
+            margin-left: auto !important;
         }
         
+        /* Modal buttons */
+        #cookieSettingsModal .modal-buttons-container {
+            flex-direction: column !important;
+            gap: 12px !important;
+        }
+        
+        #cookieSettingsModal .modal-buttons-container .cookie-btn {
+            width: 100% !important;
+            margin-bottom: 0 !important;
+        }
+        
+        /* Stats grid */
         .stats-summary {
-            grid-template-columns: 1fr;
+            grid-template-columns: 1fr !important;
         }
         
-        /* Mobile cookie details */
+        /* Cookie details table */
         .cookie-details-table {
-            display: block;
-            overflow-x: auto;
-            white-space: nowrap;
+            display: block !important;
+            overflow-x: auto !important;
+            white-space: nowrap !important;
         }
         
         .cookie-details-table td {
-            white-space: normal;
+            white-space: normal !important;
         }
         
         .cookie-value-cell {
-            min-width: 120px;
+            min-width: 120px !important;
         }
     }
 
