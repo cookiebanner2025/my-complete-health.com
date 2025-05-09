@@ -2005,7 +2005,7 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         box-shadow: ${config.bannerStyle.boxShadow};
         z-index: 9999;
         padding: ${config.bannerStyle.padding};
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
         display: none;
         transform: translateY(20px);
         opacity: 0;
@@ -2267,9 +2267,9 @@ function injectConsentHTML(detectedCookies, language = 'en') {
 
     /* Toggle Switch Styles */
     .toggle-container {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: space-between !important;
         margin-bottom: 12px;
     }
 
@@ -2836,13 +2836,22 @@ function injectConsentHTML(detectedCookies, language = 'en') {
     }
 }
     @media (max-width: 768px) {
-        .cookie-consent-banner {
-            width: 90%;
-            ${config.behavior.bannerPosition === 'left' ? 'left: 5%;' : 'right: 5%;'}
-            bottom: 10px;
-            padding: 20px;
-            flex-direction: column;
-        }
+    .cookie-consent-banner {
+        width: 90% !important;
+        left: 5% !important;
+        right: 5% !important;
+    }
+    
+    .toggle-container {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+    }
+    
+    .toggle-switch {
+        margin-top: 10px !important;
+        align-self: flex-end !important;
+    }
+}
         
         .cookie-btn {
             flex: 1;
