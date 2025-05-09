@@ -1,6 +1,6 @@
 const config = {
     // Domain restriction
-    allowedDomains: ['dev-rpractice.pantheonsite.io', 'my-complete-health.com'],
+    allowedDomains: ['my-complete-health.com'],
     
     // Microsoft UET Configuration
     uetConfig: {
@@ -19,7 +19,7 @@ const config = {
         acceptOnScroll: false,
         acceptOnContinue: true,
         showFloatingButton: true,
-        showAdminButton: true,
+        showAdminButton: false,
         floatingButtonPosition: 'left',
         adminButtonPosition: 'left',
         bannerPosition: 'left',
