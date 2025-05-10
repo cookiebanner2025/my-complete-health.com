@@ -2327,20 +2327,20 @@ function initializeCookieConsent(detectedCookies, language) {
     setupEventListeners();
     
     // Setup cookie details toggles
-    document.querySelectorAll('.cookie-details-header').forEach(header => {
-        header.addEventListener('click', function() {
-            const content = this.nextElementSibling;
-            const toggle = this.querySelector('.toggle-details');
-            if (content.style.display === 'none') {
-                content.style.display = 'block';
-                toggle.textContent = '−';
-            } else {
-                content.style.display = 'none';
-                toggle.textContent = '+';
-            }
-        });
+  // In the initializeCookieConsent function, replace the cookie details toggle setup with:
+document.querySelectorAll('.cookie-details-header').forEach(header => {
+    header.addEventListener('click', function() {
+        const content = this.nextElementSibling;
+        const toggle = this.querySelector('.toggle-details');
+        if (content.style.display === 'none' || !content.style.display) {
+            content.style.display = 'block';
+            toggle.textContent = '−';
+        } else {
+            content.style.display = 'none';
+            toggle.textContent = '+';
+        }
     });
-    
+});
     // Setup cookie value toggles for mobile
     document.addEventListener('click', function(e) {
         if (e.target.classList.contains('toggle-cookie-value')) {
