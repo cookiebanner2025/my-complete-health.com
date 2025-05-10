@@ -2535,6 +2535,84 @@ function setupEventListeners() {
     });
 }
 
+// Update the initializeCookieConsent function to properly initialize the floating button
+function initializeCookieConsent(detectedCookies, language) {
+    const consentGiven = getCookie('cookie_consent');
+    
+    // Check if banner should be shown based on schedule
+    const bannerShouldBeShown = shouldShowBanner();
+    
+    if (!consentGiven && config.behavior.autoShow && bannerShouldBeShown) {
+        setTimeout(() => {
+            showCookieBanner();
+        }, config.behavior.bannerDelay * 1000);
+    } else if (consentGiven) {
+        const consentData = JSON.parse(consentGiven);
+        updateConsentMode(consentData);
+        loadCookiesAccordingToConsent(consentData);
+        if (config.behavior.showFloatingButton) {
+            showFloatingButton();
+        }
+    }
+    
+    // Explicitly apply the default language from config
+    changeLanguage(config.languageConfig.defaultLanguage);
+    
+    // Set the dropdown to the default language
+    const languageSelect = document.getElementById('cookieLanguageSelect');
+    if (languageSelect) {
+        languageSelect.value = config.languageConfig.defaultLanguage;
+        // Ensure the change event listener is correctly set up
+        languageSelect.addEventListener('change', function() {
+            changeLanguage(this.value);
+        });
+    }
+    
+    // Set up event listeners
+    setupEventListeners();
+    
+    // Setup admin button if enabled
+    if (config.analytics.enabled && config.analytics.showDashboard && config.behavior.showAdminButton) {
+        const adminButton = document.getElementById('cookieAdminButton');
+        if (adminButton) {
+            adminButton.addEventListener('click', showAnalyticsDashboard);
+            setTimeout(() => {
+                adminButton.style.display = 'flex';
+                adminButton.classList.add('show');
+            }, 100);
+        }
+    }
+    
+    // Setup password prompt events if needed
+    if (config.analytics.passwordProtect && !isDashboardAuthenticated) {
+        setupPasswordPromptEvents();
+    }
+    
+    // Setup "See Consent Analytics" link in the modal footer
+    const seeAnalyticsLink = document.querySelector('.see-analytics-link');
+    if (seeAnalyticsLink) {
+        seeAnalyticsLink.addEventListener('click', function(e) {
+            e.preventDefault();
+            showAnalyticsDashboard();
+        });
+    }
+    
+    // Setup timer for durationMinutes if enabled
+    if (config.behavior.bannerSchedule.enabled && config.behavior.bannerSchedule.durationMinutes) {
+        // Clear any existing timer
+        if (bannerTimer) {
+            clearTimeout(bannerTimer);
+        }
+        
+        bannerTimer = setTimeout(() => {
+            if (!getCookie('cookie_consent')) {
+                hideCookieBanner();
+            }
+        }, config.behavior.bannerSchedule.durationMinutes * 60 * 1000);
+    }
+}
+
+
 // Show/hide functions with animations
 function showCookieBanner() {
     const banner = document.getElementById('cookieConsentBanner');
