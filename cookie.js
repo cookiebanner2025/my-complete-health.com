@@ -1993,986 +1993,987 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         </div>
     </div>
     
-<style>
+    <style>
     /* Main Banner Styles */
     .cookie-consent-banner {
-        position: fixed !important;
-        bottom: 20px !important;
-        ${config.behavior.bannerPosition === 'left' ? 'left: 20px !important;' : 'right: 20px !important;'}
-        width: ${config.bannerStyle.width} !important;
-        background: ${config.bannerStyle.background} !important;
-        border-radius: ${config.bannerStyle.borderRadius} !important;
-        box-shadow: ${config.bannerStyle.boxShadow} !important;
-        z-index: 9999 !important;
-        padding: ${config.bannerStyle.padding} !important;
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
-        display: none !important;
-        transform: translateY(20px) !important;
-        opacity: 0 !important;
-        transition: all ${config.behavior.bannerAnimation.duration}s ${config.behavior.bannerAnimation.easing} !important;
+        position: fixed;
+        bottom: 20px;
+        ${config.behavior.bannerPosition === 'left' ? 'left: 20px;' : 'right: 20px;'}
+        width: ${config.bannerStyle.width};
+        background: ${config.bannerStyle.background};
+        border-radius: ${config.bannerStyle.borderRadius};
+        box-shadow: ${config.bannerStyle.boxShadow};
+        z-index: 9999;
+        padding: ${config.bannerStyle.padding};
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+        display: none;
+        transform: translateY(20px);
+        opacity: 0;
+        transition: all ${config.behavior.bannerAnimation.duration}s ${config.behavior.bannerAnimation.easing};
         ${config.bannerStyle.border.enabled ? 
-            `border: ${config.bannerStyle.border.width} ${config.bannerStyle.border.style} ${config.bannerStyle.border.color} !important;` : 
-            'border: none !important;'}
-        overflow: hidden !important;
+            `border: ${config.bannerStyle.border.width} ${config.bannerStyle.border.style} ${config.bannerStyle.border.color};` : 
+            'border: none;'}
+        overflow: hidden;
     }
 
     .cookie-consent-banner.show {
-        transform: translateY(0) !important;
-        opacity: 1 !important;
-        display: block !important;
+        transform: translateY(0);
+        opacity: 1;
+        display: block;
     }
 
     .cookie-consent-content h2 {
-        margin: 0 0 16px 0 !important;
-        font-size: ${config.bannerStyle.title.fontSize} !important;
-        color: ${config.bannerStyle.title.color} !important;
-        font-weight: ${config.bannerStyle.title.fontWeight} !important;
-        line-height: 1.4 !important;
-        letter-spacing: -0.2px !important;
+        margin: 0 0 16px 0;
+        font-size: ${config.bannerStyle.title.fontSize};
+        color: ${config.bannerStyle.title.color};
+        font-weight: ${config.bannerStyle.title.fontWeight};
+        line-height: 1.4;
+        letter-spacing: -0.2px;
     }
 
     .cookie-consent-content p {
-        margin: 0 0 10px 0 !important;
-        font-size: ${config.bannerStyle.description.fontSize} !important;
-        color: ${config.bannerStyle.description.color} !important;
-        line-height: ${config.bannerStyle.description.lineHeight} !important;
+        margin: 0 0 10px 0;
+        font-size: ${config.bannerStyle.description.fontSize};
+        color: ${config.bannerStyle.description.color};
+        line-height: ${config.bannerStyle.description.lineHeight};
     }
 
     .privacy-policy-link {
-        color: ${config.bannerStyle.linkColor} !important;
-        text-decoration: none !important;
-        font-size: 13px !important;
-        font-weight: 500 !important;
-        display: inline-block !important;
-        margin-bottom: 8px !important;
-        transition: color 0.2s ease !important;
+        color: ${config.bannerStyle.linkColor};
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 500;
+        display: inline-block;
+        margin-bottom: 8px;
+        transition: color 0.2s ease;
     }
 
     .privacy-policy-link:hover {
-        color: ${config.bannerStyle.linkHoverColor} !important;
+        color: ${config.bannerStyle.linkHoverColor};
     }
 
-    .cookie-consent-buttons {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 12px !important;
-        margin-top: 8px !important;
-    }
+.cookie-consent-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 8px;
+}
 
     .cookie-btn {
-        padding: ${config.buttonStyle.padding} !important;
-        border-radius: ${config.buttonStyle.borderRadius} !important;
-        cursor: pointer !important;
-        font-weight: ${config.buttonStyle.fontWeight} !important;
-        font-size: ${config.buttonStyle.fontSize} !important;
-        transition: ${config.buttonStyle.transition} !important;
-        text-align: center !important;
-        border: none !important;
-        flex: 1 !important;
-        letter-spacing: 0.2px !important;
+        padding: ${config.buttonStyle.padding};
+        border-radius: ${config.buttonStyle.borderRadius};
+        cursor: pointer;
+        font-weight: ${config.buttonStyle.fontWeight};
+        font-size: ${config.buttonStyle.fontSize};
+        transition: ${config.buttonStyle.transition};
+        text-align: center;
+        border: none;
+        flex: 1;
+        letter-spacing: 0.2px;
     }
 
     .adjust-btn {
-        background-color: ${config.buttonStyle.adjust.background} !important;
-        color: ${config.buttonStyle.adjust.color} !important;
-        border: ${config.buttonStyle.adjust.border} !important;
+        background-color: ${config.buttonStyle.adjust.background};
+        color: ${config.buttonStyle.adjust.color};
+        border: ${config.buttonStyle.adjust.border};
     }
 
     .adjust-btn:hover {
-        background-color: ${config.buttonStyle.adjust.hover.background} !important;
-        color: ${config.buttonStyle.adjust.hover.color} !important;
-        transform: ${config.buttonStyle.adjust.hover.transform} !important;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+        background-color: ${config.buttonStyle.adjust.hover.background};
+        color: ${config.buttonStyle.adjust.hover.color};
+        transform: ${config.buttonStyle.adjust.hover.transform};
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     }
 
     .reject-btn {
-        background-color: ${config.buttonStyle.reject.background} !important;
-        color: ${config.buttonStyle.reject.color} !important;
-        border: ${config.buttonStyle.reject.border} !important;
+        background-color: ${config.buttonStyle.reject.background};
+        color: ${config.buttonStyle.reject.color};
+        border: ${config.buttonStyle.reject.border};
     }
 
     .reject-btn:hover {
-        background-color: ${config.buttonStyle.reject.hover.background} !important;
-        color: ${config.buttonStyle.reject.hover.color} !important;
-        transform: ${config.buttonStyle.reject.hover.transform} !important;
-        box-shadow: 0 2px 8px rgba(231, 76, 60, 0.15) !important;
+        background-color: ${config.buttonStyle.reject.hover.background};
+        color: ${config.buttonStyle.reject.hover.color};
+        transform: ${config.buttonStyle.reject.hover.transform};
+        box-shadow: 0 2px 8px rgba(231, 76, 60, 0.15);
     }
 
     .accept-btn {
-        background-color: ${config.buttonStyle.accept.background} !important;
-        color: ${config.buttonStyle.accept.color} !important;
-        border: ${config.buttonStyle.accept.border} !important;
-        box-shadow: 0 2px 12px rgba(46, 204, 113, 0.3) !important;
+        background-color: ${config.buttonStyle.accept.background};
+        color: ${config.buttonStyle.accept.color};
+        border: ${config.buttonStyle.accept.border};
+        box-shadow: 0 2px 12px rgba(46, 204, 113, 0.3);
     }
 
     .accept-btn:hover {
-        background-color: ${config.buttonStyle.accept.hover.background} !important;
-        color: ${config.buttonStyle.accept.hover.color} !important;
-        transform: ${config.buttonStyle.accept.hover.transform} !important;
-        box-shadow: 0 4px 16px rgba(46, 204, 113, 0.4) !important;
+        background-color: ${config.buttonStyle.accept.hover.background};
+        color: ${config.buttonStyle.accept.hover.color};
+        transform: ${config.buttonStyle.accept.hover.transform};
+        box-shadow: 0 4px 16px rgba(46, 204, 113, 0.4);
     }
 
     .save-btn {
-        background-color: ${config.buttonStyle.save.background} !important;
-        color: ${config.buttonStyle.save.color} !important;
-        border: ${config.buttonStyle.save.border} !important;
+        background-color: ${config.buttonStyle.save.background};
+        color: ${config.buttonStyle.save.color};
+        border: ${config.buttonStyle.save.border};
     }
 
     .save-btn:hover {
-        background-color: ${config.buttonStyle.save.hover.background} !important;
-        color: ${config.buttonStyle.save.hover.color} !important;
-        transform: ${config.buttonStyle.save.hover.transform} !important;
-        box-shadow: 0 5px 10px rgba(0,0,0,0.15) !important;
+        background-color: ${config.buttonStyle.save.hover.background};
+        color: ${config.buttonStyle.save.hover.color};
+        transform: ${config.buttonStyle.save.hover.transform};
+        box-shadow: 0 5px 10px rgba(0,0,0,0.15);
     }
 
     /* Modal Footer Buttons */
     .modal-buttons-container {
-        display: flex !important;
-        gap: 12px !important;
-        margin-top: 15px !important;
+        display: flex;
+        gap: 12px;
+        margin-top: 15px;
     }
 
     .modal-buttons-container .cookie-btn {
-        flex: 1 !important;
+        flex: 1;
     }
 
     /* Language Selector Styles */
     .language-selector {
-        position: absolute !important;
-        top: 15px !important;
-        right: 15px !important;
+        position: absolute;
+        top: 15px;
+        right: 15px;
     }
 
     .language-selector select {
-        padding: 6px 10px !important;
-        border-radius: 6px !important;
-        border: 1px solid #e0e0e0 !important;
-        background-color: #f8f9fa !important;
-        font-size: 13px !important;
-        color: #333 !important;
-        cursor: pointer !important;
-        transition: all 0.2s ease !important;
+        padding: 6px 10px;
+        border-radius: 6px;
+        border: 1px solid #e0e0e0;
+        background-color: #f8f9fa;
+        font-size: 13px;
+        color: #333;
+        cursor: pointer;
+        transition: all 0.2s ease;
     }
 
     .language-selector select:hover {
-        border-color: ${config.bannerStyle.linkColor} !important;
-        background-color: #fff !important;
+        border-color: ${config.bannerStyle.linkColor};
+        background-color: #fff;
     }
 
     .language-selector select:focus {
-        outline: none !important;
-        border-color: ${config.bannerStyle.linkColor} !important;
-        box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2) !important;
+        outline: none;
+        border-color: ${config.bannerStyle.linkColor};
+        box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
     }
 
     /* Settings Modal */
     .cookie-settings-modal {
-        display: none !important;
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-        background-color: rgba(0, 0, 0, 0.7) !important;
-        z-index: 10000 !important;
-        overflow-y: auto !important;
-        padding: 30px 0 !important;
-        opacity: 0 !important;
-        transition: opacity ${config.behavior.modalAnimation.duration}s ${config.behavior.modalAnimation.easing} !important;
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 10000;
+        overflow-y: auto;
+        padding: 30px 0;
+        opacity: 0;
+        transition: opacity ${config.behavior.modalAnimation.duration}s ${config.behavior.modalAnimation.easing};
     }
 
     .cookie-settings-modal.show {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        opacity: 1 !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 1;
     }
 
     .cookie-settings-content {
-        background-color: ${config.modalStyle.background} !important;
-        margin: 0 auto !important;
-        width: ${config.modalStyle.width} !important;
-        max-height: ${config.modalStyle.maxHeight} !important;
-        border-radius: ${config.modalStyle.borderRadius} !important;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
-        overflow: hidden !important;
-        transform: translateY(20px) !important;
-        transition: transform ${config.behavior.modalAnimation.duration}s ${config.behavior.modalAnimation.easing} !important;
-        display: flex !important;
-        flex-direction: column !important;
+        background-color: ${config.modalStyle.background};
+        margin: 0 auto;
+        width: ${config.modalStyle.width};
+        max-height: ${config.modalStyle.maxHeight};
+        border-radius: ${config.modalStyle.borderRadius};
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        transform: translateY(20px);
+        transition: transform ${config.behavior.modalAnimation.duration}s ${config.behavior.modalAnimation.easing};
+        display: flex;
+        flex-direction: column;
     }
 
     .cookie-settings-modal.show .cookie-settings-content {
-        transform: translateY(0) !important;
+        transform: translateY(0);
     }
 
     .cookie-settings-header {
-        padding: 20px 30px !important;
-        border-bottom: 1px solid #ecf0f1 !important;
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        background-color: ${config.modalStyle.header.background} !important;
+        padding: 20px 30px;
+        border-bottom: 1px solid #ecf0f1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: ${config.modalStyle.header.background};
     }
 
     .cookie-settings-header h2 {
-        margin: 0 !important;
-        color: ${config.modalStyle.header.textColor} !important;
-        font-size: ${config.modalStyle.header.fontSize} !important;
-        font-weight: ${config.modalStyle.header.fontWeight} !important;
+        margin: 0;
+        color: ${config.modalStyle.header.textColor};
+        font-size: ${config.modalStyle.header.fontSize};
+        font-weight: ${config.modalStyle.header.fontWeight};
     }
 
-    #cookieSettingsModal .close-modal,
-    #cookieAnalyticsModal .close-analytics-modal {
-        font-size: 28px !important;
-        font-weight: bold !important;
-        cursor: pointer !important;
-        color: ${config.modalStyle.closeButton.color} !important;
-        background: none !important;
-        border: none !important;
-        padding: 0 10px !important;
-        transition: color 0.2s ease !important;
-        position: relative !important;
-        z-index: 1 !important;
-    }
+  #cookieSettingsModal .close-modal,
+#cookieAnalyticsModal .close-analytics-modal {
+    font-size: 28px !important;
+    font-weight: bold !important;
+    cursor: pointer !important;
+    color: ${config.modalStyle.closeButton.color} !important;
+    background: none !important;
+    border: none !important;
+    padding: 0 10px !important;
+    transition: color 0.2s ease !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
 
-    #cookieSettingsModal .close-modal:hover,
-    #cookieAnalyticsModal .close-analytics-modal:hover {
-        color: ${config.modalStyle.closeButton.hoverColor} !important;
-    }
+#cookieSettingsModal .close-modal:hover,
+#cookieAnalyticsModal .close-analytics-modal:hover {
+    color: ${config.modalStyle.closeButton.hoverColor} !important;
+}
 
     .cookie-settings-body {
-        padding: 25px 30px !important;
-        background-color: ${config.modalStyle.body.background} !important;
-        overflow-y: auto !important;
-        flex: 1 !important;
+        padding: 25px 30px;
+        background-color: ${config.modalStyle.body.background};
+        overflow-y: auto;
+        flex: 1;
     }
 
     .cookie-category {
-        margin-bottom: 25px !important;
-        padding-bottom: 20px !important;
-        border-bottom: 1px solid #ecf0f1 !important;
-        transition: all 0.3s ease !important;
+        margin-bottom: 25px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid #ecf0f1;
+        transition: all 0.3s ease;
     }
 
     .cookie-category:hover {
-        background-color: ${config.categoryStyle.background} !important;
-        border-radius: ${config.categoryStyle.borderRadius} !important;
-        padding: 20px !important;
-        margin-bottom: 20px !important;
-        border: ${config.categoryStyle.border} !important;
+        background-color: ${config.categoryStyle.background};
+        border-radius: ${config.categoryStyle.borderRadius};
+        padding: 20px;
+        margin-bottom: 20px;
+        border: ${config.categoryStyle.border};
     }
 
     .cookie-category:last-child {
-        border-bottom: none !important;
-        margin-bottom: 0 !important;
-        padding-bottom: 0 !important;
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
     }
 
     /* Toggle Switch Styles */
     .toggle-container {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: space-between !important;
-        margin-bottom: 12px !important;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 12px;
     }
 
     .toggle-container h3 {
-        margin: 0 !important;
-        font-size: ${config.categoryStyle.title.fontSize} !important;
-        color: ${config.categoryStyle.title.color} !important;
-        font-weight: ${config.categoryStyle.title.fontWeight} !important;
+        margin: 0;
+        font-size: ${config.categoryStyle.title.fontSize};
+        color: ${config.categoryStyle.title.color};
+        font-weight: ${config.categoryStyle.title.fontWeight};
     }
 
-    #cookieSettingsModal .toggle-switch {
-        position: relative !important;
-        display: inline-block !important;
-        width: ${config.toggleStyle.size} !important;
-        height: ${config.toggleStyle.height} !important;
-    }
+   #cookieSettingsModal .toggle-switch {
+    position: relative !important;
+    display: inline-block !important;
+    width: ${config.toggleStyle.size} !important;
+    height: ${config.toggleStyle.height} !important;
+}
 
-    #cookieSettingsModal .toggle-switch input {
-        opacity: 0 !important;
-        width: 0 !important;
-        height: 0 !important;
-    }
+#cookieSettingsModal .toggle-switch input {
+    opacity: 0 !important;
+    width: 0 !important;
+    height: 0 !important;
+}
 
-    #cookieSettingsModal .toggle-slider {
-        position: absolute !important;
-        cursor: pointer !important;
-        top: 0 !important;
-        left: 0 !important;
-        right: 0 !important;
-        bottom: 0 !important;
-        background-color: ${config.toggleStyle.inactiveColor} !important;
-        transition: .4s !important;
-        border-radius: 34px !important;
-    }
+#cookieSettingsModal .toggle-slider {
+    position: absolute !important;
+    cursor: pointer !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: 0 !important;
+    background-color: ${config.toggleStyle.inactiveColor} !important;
+    transition: .4s !important;
+    border-radius: 34px !important;
+}
 
-    #cookieSettingsModal .toggle-slider:before {
-        position: absolute !important;
-        content: "" !important;
-        height: ${config.toggleStyle.sliderSize} !important;
-        width: ${config.toggleStyle.sliderSize} !important;
-        left: 3px !important;
-        bottom: 3px !important;
-        background-color: white !important;
-        transition: .4s !important;
-        border-radius: 50% !important;
-        box-shadow: 0 2px 5px rgba(0,0,0,0.2) !important;
-    }
+#cookieSettingsModal .toggle-slider:before {
+    position: absolute !important;
+    content: "" !important;
+    height: ${config.toggleStyle.sliderSize} !important;
+    width: ${config.toggleStyle.sliderSize} !important;
+    left: 3px !important;
+    bottom: 3px !important;
+    background-color: white !important;
+    transition: .4s !important;
+    border-radius: 50% !important;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2) !important;
+}
 
-    #cookieSettingsModal input:checked + .toggle-slider {
-        background-color: ${config.toggleStyle.activeColor} !important;
-    }
+#cookieSettingsModal input:checked + .toggle-slider {
+    background-color: ${config.toggleStyle.activeColor} !important;
+}
 
-    #cookieSettingsModal input:checked + .toggle-slider:before {
-        transform: translateX(24px) !important;
-    }
+#cookieSettingsModal input:checked + .toggle-slider:before {
+    transform: translateX(24px) !important;
+}
 
-    #cookieSettingsModal input:disabled + .toggle-slider {
-        background-color: #95a5a6 !important;
-        cursor: not-allowed !important;
-    }
+#cookieSettingsModal input:disabled + .toggle-slider {
+    background-color: #95a5a6 !important;
+    cursor: not-allowed !important;
+}
 
     /* Cookie Details */
     .cookie-details-container {
-        margin-top: 15px !important;
-        border: 1px solid #e0e0e0 !important;
-        border-radius: 8px !important;
-        overflow: hidden !important;
-        transition: all 0.3s ease !important;
+        margin-top: 15px;
+        border: 1px solid #e0e0e0;
+        border-radius: 8px;
+        overflow: hidden;
+        transition: all 0.3s ease;
     }
 
     .cookie-details-container:hover {
-        box-shadow: 0 3px 12px rgba(0,0,0,0.1) !important;
-        border-color: ${config.buttonStyle.accept.background} !important;
+        box-shadow: 0 3px 12px rgba(0,0,0,0.1);
+        border-color: ${config.buttonStyle.accept.background};
     }
 
     .cookie-details-header {
-        background-color: #f5f5f5 !important;
-        padding: 12px 18px !important;
-        font-weight: 600 !important;
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        cursor: pointer !important;
-        transition: all 0.2s ease !important;
+        background-color: #f5f5f5;
+        padding: 12px 18px;
+        font-weight: 600;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        transition: all 0.2s ease;
     }
 
     .cookie-details-header:hover {
-        background-color: #eeeeee !important;
+        background-color: #eeeeee;
     }
 
     .cookie-details-content {
-        padding: 18px !important;
-        background-color: #fafafa !important;
-        border-top: 1px solid #e0e0e0 !important;
-        display: none !important;
-        animation: fadeIn 0.3s ease !important;
+        padding: 18px;
+        background-color: #fafafa;
+        border-top: 1px solid #e0e0e0;
+        display: none;
+        animation: fadeIn 0.3s ease;
     }
 
     @keyframes fadeIn {
-        from { opacity: 0 !important; transform: translateY(-10px) !important; }
-        to { opacity: 1 !important; transform: translateY(0) !important; }
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
     }
 
     .cookie-details-table {
-        width: 100% !important;
-        border-collapse: collapse !important;
-        font-size: 13px !important;
+        width: 100%;
+        border-collapse: collapse;
+        font-size: 13px;
     }
 
     .cookie-details-table th {
-        text-align: left !important;
-        padding: 10px 12px !important;
-        background-color: #f0f0f0 !important;
-        font-weight: 600 !important;
-        border-bottom: 2px solid #e0e0e0 !important;
-        color: ${config.bannerStyle.title.color} !important;
+        text-align: left;
+        padding: 10px 12px;
+        background-color: #f0f0f0;
+        font-weight: 600;
+        border-bottom: 2px solid #e0e0e0;
+        color: ${config.bannerStyle.title.color};
     }
 
     .cookie-details-table td {
-        padding: 10px 12px !important;
-        border-bottom: 1px solid #e0e0e0 !important;
-        color: ${config.bannerStyle.description.color} !important;
+        padding: 10px 12px;
+        border-bottom: 1px solid #e0e0e0;
+        color: ${config.bannerStyle.description.color};
     }
 
     .cookie-details-table tr:last-child td {
-        border-bottom: none !important;
+        border-bottom: none;
     }
 
     .cookie-details-table tr:hover {
-        background-color: #f5f5f5 !important;
+        background-color: #f5f5f5;
     }
 
     .cookie-details-table code {
-        background-color: #f0f0f0 !important;
-        padding: 2px 5px !important;
-        border-radius: 3px !important;
-        font-family: monospace !important;
-        color: ${config.bannerStyle.title.color} !important;
+        background-color: #f0f0f0;
+        padding: 2px 5px;
+        border-radius: 3px;
+        font-family: monospace;
+        color: ${config.bannerStyle.title.color};
     }
 
     /* See Analytics Link */
     .see-analytics-container {
-        margin-bottom: 15px !important;
-        text-align: center !important;
+        margin-bottom: 15px;
+        text-align: center;
     }
 
     .see-analytics-link {
-        color: ${config.bannerStyle.linkColor} !important;
-        text-decoration: none !important;
-        font-size: 13px !important;
-        font-weight: 500 !important;
-        display: inline-block !important;
-        transition: color 0.2s ease !important;
+        color: ${config.bannerStyle.linkColor};
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 500;
+        display: inline-block;
+        transition: color 0.2s ease;
     }
 
     .see-analytics-link:hover {
-        color: ${config.bannerStyle.linkHoverColor} !important;
-        text-decoration: underline !important;
+        color: ${config.bannerStyle.linkHoverColor};
+        text-decoration: underline;
     }
 
     /* Mobile-friendly cookie value display */
     .cookie-value-cell {
-        position: relative !important;
+        position: relative;
     }
 
     .cookie-value-full {
-        word-break: break-all !important;
+        word-break: break-all;
     }
 
     .toggle-cookie-value {
-        background: none !important;
-        border: none !important;
-        color: ${config.bannerStyle.linkColor} !important;
-        text-decoration: underline !important;
-        cursor: pointer !important;
-        font-size: 12px !important;
-        padding: 0 !important;
-        margin-top: 5px !important;
-        display: block !important;
+        background: none;
+        border: none;
+        color: ${config.bannerStyle.linkColor};
+        text-decoration: underline;
+        cursor: pointer;
+        font-size: 12px;
+        padding: 0;
+        margin-top: 5px;
+        display: block;
     }
 
     .toggle-cookie-value:hover {
-        color: ${config.bannerStyle.linkHoverColor} !important;
+        color: ${config.bannerStyle.linkHoverColor};
     }
 
     .no-cookies-message {
-        padding: 15px !important;
-        text-align: center !important;
-        color: #666 !important;
-        font-style: italic !important;
+        padding: 15px;
+        text-align: center;
+        color: #666;
+        font-style: italic;
     }
 
     /* Floating Settings Button */
     .cookie-settings-button {
-        position: fixed !important;
-        bottom: 30px !important;
-        ${config.behavior.floatingButtonPosition === 'left' ? 'left: 30px !important;' : 'right: 30px !important;'}
-        width: ${config.floatingButtonStyle.size} !important;
-        height: ${config.floatingButtonStyle.size} !important;
-        background-color: ${config.floatingButtonStyle.background} !important;
-        border-radius: ${config.floatingButtonStyle.borderRadius} !important;
-        display: none !important;
-        align-items: center !important;
-        justify-content: center !important;
-        cursor: pointer !important;
-        box-shadow: ${config.floatingButtonStyle.boxShadow} !important;
-        z-index: 9998 !important;
-        transition: all 0.3s ease !important;
-        opacity: 0 !important;
-        transform: translateY(20px) !important;
-        border: ${config.floatingButtonStyle.border} !important;
+        position: fixed;
+        bottom: 30px;
+        ${config.behavior.floatingButtonPosition === 'left' ? 'left: 30px;' : 'right: 30px;'}
+        width: ${config.floatingButtonStyle.size};
+        height: ${config.floatingButtonStyle.size};
+        background-color: ${config.floatingButtonStyle.background};
+        border-radius: ${config.floatingButtonStyle.borderRadius};
+        display: none;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: ${config.floatingButtonStyle.boxShadow};
+        z-index: 9998;
+        transition: all 0.3s ease;
+        opacity: 0;
+        transform: translateY(20px);
+        border: ${config.floatingButtonStyle.border};
     }
 
     .cookie-settings-button.show {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
+        opacity: 1;
+        transform: translateY(0);
     }
 
     .cookie-settings-button:hover {
-        background-color: ${config.floatingButtonStyle.hover.background} !important;
-        transform: ${config.floatingButtonStyle.hover.transform} !important;
-        box-shadow: ${config.floatingButtonStyle.hover.boxShadow} !important;
+        background-color: ${config.floatingButtonStyle.hover.background};
+        transform: ${config.floatingButtonStyle.hover.transform};
+        box-shadow: ${config.floatingButtonStyle.hover.boxShadow};
     }
 
     #cookieFloatingButton.cookie-settings-button svg,
     #cookieFloatingButton.cookie-settings-button svg path {
-        width: 40px !important;
-        height: 40px !important;
+        width: 40px;
+        height: 40px;
         fill: ${config.floatingButtonStyle.iconColor} !important;
-        stroke: none !important;
-        transition: transform 0.3s ease !important;
-        margin-top: 0px !important; 
+        stroke: none;
+        transition: transform 0.3s ease;
+        margin-top: 0px; 
     }
     .cookie-settings-button:hover svg {
-        transform: rotate(15deg) !important;
+        transform: rotate(15deg);
     }
 
     /* Admin Button */
     .cookie-admin-button {
-        position: fixed !important;
+        position: fixed;
         ${config.behavior.adminButtonPosition === 'left' ? 
-          'left: 30px !important; bottom: 100px !important;' : 
-          'right: 30px !important; bottom: 100px !important;'}
-        width: ${config.adminButtonStyle.size} !important;
-        height: ${config.adminButtonStyle.size} !important;
-        background-color: ${config.adminButtonStyle.background} !important;
-        border-radius: ${config.adminButtonStyle.borderRadius} !important;
-        display: none !important;
-        align-items: center !important;
-        justify-content: center !important;
-        cursor: pointer !important;
-        box-shadow: ${config.adminButtonStyle.boxShadow} !important;
-        z-index: 9997 !important;
-        transition: all 0.3s ease !important;
-        opacity: 0 !important;
-        transform: translateY(20px) !important;
-        border: ${config.adminButtonStyle.border} !important;
+          'left: 30px; bottom: 100px;' : 
+          'right: 30px; bottom: 100px;'}
+        width: ${config.adminButtonStyle.size};
+        height: ${config.adminButtonStyle.size};
+        background-color: ${config.adminButtonStyle.background};
+        border-radius: ${config.adminButtonStyle.borderRadius};
+        display: none;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: ${config.adminButtonStyle.boxShadow};
+        z-index: 9997;
+        transition: all 0.3s ease;
+        opacity: 0;
+        transform: translateY(20px);
+        border: ${config.adminButtonStyle.border};
     }
 
     .cookie-admin-button.show {
-        opacity: 1 !important;
-        transform: translateY(0) !important;
+        opacity: 1;
+        transform: translateY(0);
     }
 
     .cookie-admin-button:hover {
-        background-color: ${config.adminButtonStyle.hover.background} !important;
-        transform: ${config.adminButtonStyle.hover.transform} !important;
-        box-shadow: ${config.adminButtonStyle.hover.boxShadow} !important;
+        background-color: ${config.adminButtonStyle.hover.background};
+        transform: ${config.adminButtonStyle.hover.transform};
+        box-shadow: ${config.adminButtonStyle.hover.boxShadow};
     }
 
     .cookie-admin-button svg {
-        width: 28px !important;
-        height: 28px !important;
-        fill: ${config.adminButtonStyle.iconColor} !important;
-        transition: transform 0.3s ease !important;
+        width: 28px;
+        height: 28px;
+        fill: ${config.adminButtonStyle.iconColor};
+        transition: transform 0.3s ease;
     }
 
     .cookie-admin-button:hover svg {
-        transform: rotate(15deg) !important;
+        transform: rotate(15deg);
     }
 
     /* Analytics Dashboard */
     .cookie-analytics-modal {
-        display: none !important;
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-        background-color: rgba(0, 0, 0, 0.7) !important;
-        z-index: 10001 !important;
-        overflow-y: auto !important;
-        padding: 30px 0 !important;
-        opacity: 0 !important;
-        transition: opacity ${config.behavior.dashboardAnimation.duration}s ${config.behavior.dashboardAnimation.easing} !important;
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        z-index: 10001;
+        overflow-y: auto;
+        padding: 30px 0;
+        opacity: 0;
+        transition: opacity ${config.behavior.dashboardAnimation.duration}s ${config.behavior.dashboardAnimation.easing};
     }
 
     .cookie-analytics-modal.show {
-        display: flex !important;
-        align-items: center !important;
-        justify-content: center !important;
-        opacity: 1 !important;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 1;
     }
 
     .cookie-analytics-content {
-        background-color: ${config.dashboardStyle.background} !important;
-        margin: 0 auto !important;
-        width: ${config.dashboardStyle.width} !important;
-        max-height: ${config.dashboardStyle.maxHeight} !important;
-        border-radius: ${config.dashboardStyle.borderRadius} !important;
-        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
-        overflow: hidden !important;
-        transform: translateY(20px) !important;
-        transition: transform ${config.behavior.dashboardAnimation.duration}s ${config.behavior.dashboardAnimation.easing} !important;
-        display: flex !important;
-        flex-direction: column !important;
+        background-color: ${config.dashboardStyle.background};
+        margin: 0 auto;
+        width: ${config.dashboardStyle.width};
+        max-height: ${config.dashboardStyle.maxHeight};
+        border-radius: ${config.dashboardStyle.borderRadius};
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+        transform: translateY(20px);
+        transition: transform ${config.behavior.dashboardAnimation.duration}s ${config.behavior.dashboardAnimation.easing};
+        display: flex;
+        flex-direction: column;
     }
 
     .cookie-analytics-modal.show .cookie-analytics-content {
-        transform: translateY(0) !important;
+        transform: translateY(0);
     }
 
     .cookie-analytics-header {
-        padding: 20px 30px !important;
-        border-bottom: 1px solid #ecf0f1 !important;
-        display: flex !important;
-        justify-content: space-between !important;
-        align-items: center !important;
-        background-color: ${config.dashboardStyle.header.background} !important;
+        padding: 20px 30px;
+        border-bottom: 1px solid #ecf0f1;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: ${config.dashboardStyle.header.background};
     }
 
     .cookie-analytics-header h2 {
-        margin: 0 !important;
-        color: ${config.dashboardStyle.header.textColor} !important;
-        font-size: ${config.dashboardStyle.header.fontSize} !important;
-        font-weight: ${config.dashboardStyle.header.fontWeight} !important;
+        margin: 0;
+        color: ${config.dashboardStyle.header.textColor};
+        font-size: ${config.dashboardStyle.header.fontSize};
+        font-weight: ${config.dashboardStyle.header.fontWeight};
     }
 
     .close-analytics-modal {
-        font-size: 28px !important;
-        font-weight: bold !important;
-        cursor: pointer !important;
-        color: ${config.modalStyle.closeButton.color} !important;
-        background: none !important;
-        border: none !important;
-        padding: 0 10px !important;
-        transition: color 0.2s ease !important;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+        color: ${config.modalStyle.closeButton.color};
+        background: none;
+        border: none;
+        padding: 0 10px;
+        transition: color 0.2s ease;
     }
 
     .close-analytics-modal:hover {
-        color: ${config.modalStyle.closeButton.hoverColor} !important;
+        color: ${config.modalStyle.closeButton.hoverColor};
     }
 
     .cookie-analytics-body {
-        padding: 25px 30px !important;
-        background-color: ${config.dashboardStyle.body.background} !important;
-        overflow-y: auto !important;
-        flex: 1 !important;
+        padding: 25px 30px;
+        background-color: ${config.dashboardStyle.body.background};
+        overflow-y: auto;
+        flex: 1;
     }
 
     /* Stats Dashboard */
     .analytics-dashboard {
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     }
 
     .analytics-dashboard h3 {
-        color: ${config.bannerStyle.title.color} !important;
-        margin-top: 0 !important;
-        margin-bottom: 20px !important;
-        font-size: 1.3rem !important;
+        color: ${config.bannerStyle.title.color};
+        margin-top: 0;
+        margin-bottom: 20px;
+        font-size: 1.3rem;
     }
 
     .stats-summary {
-        display: grid !important;
-        grid-template-columns: repeat(4, 1fr) !important;
-        gap: 15px !important;
-        margin-bottom: 30px !important;
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 15px;
+        margin-bottom: 30px;
     }
 
     .stat-card {
-        background-color: ${config.dashboardStyle.statCards.background} !important;
-        border-radius: ${config.dashboardStyle.statCards.borderRadius} !important;
-        padding: 15px !important;
-        text-align: center !important;
-        transition: all 0.3s ease !important;
+        background-color: ${config.dashboardStyle.statCards.background};
+                border-radius: ${config.dashboardStyle.statCards.borderRadius};
+        padding: 15px;
+        text-align: center;
+        transition: all 0.3s ease;
     }
 
     .stat-card:hover {
-        transform: translateY(-3px) !important;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.1) !important;
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
     }
 
     .stat-card.accepted {
-        border-top: 4px solid ${config.dashboardStyle.statCards.acceptedColor} !important;
+        border-top: 4px solid ${config.dashboardStyle.statCards.acceptedColor};
     }
 
     .stat-card.rejected {
-        border-top: 4px solid ${config.dashboardStyle.statCards.rejectedColor} !important;
+        border-top: 4px solid ${config.dashboardStyle.statCards.rejectedColor};
     }
 
     .stat-card.custom {
-        border-top: 4px solid ${config.dashboardStyle.statCards.customColor} !important;
+        border-top: 4px solid ${config.dashboardStyle.statCards.customColor};
     }
 
     .stat-card.total {
-        border-top: 4px solid ${config.dashboardStyle.statCards.totalColor} !important;
+        border-top: 4px solid ${config.dashboardStyle.statCards.totalColor};
     }
 
     .stat-card h4 {
-        margin: 0 0 10px 0 !important;
-        font-size: 1rem !important;
-        color: ${config.bannerStyle.description.color} !important;
+        margin: 0 0 10px 0;
+        font-size: 1rem;
+        color: ${config.bannerStyle.description.color};
     }
 
     .stat-value {
-        font-size: 1.8rem !important;
-        font-weight: 700 !important;
-        color: ${config.bannerStyle.title.color} !important;
-        margin-bottom: 5px !important;
+        font-size: 1.8rem;
+        font-weight: 700;
+        color: ${config.bannerStyle.title.color};
+        margin-bottom: 5px;
     }
 
     .stat-percentage {
-        font-size: 1rem !important;
-        color: ${config.bannerStyle.description.color} !important;
+        font-size: 1rem;
+        color: ${config.bannerStyle.description.color};
     }
 
     .time-based-stats {
-        display: grid !important;
-        grid-template-columns: 1fr !important;
-        gap: 30px !important;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 30px;
     }
 
     .time-stat {
-        background-color: ${config.dashboardStyle.statCards.background} !important;
-        border-radius: ${config.dashboardStyle.statCards.borderRadius} !important;
-        padding: 20px !important;
+        background-color: ${config.dashboardStyle.statCards.background};
+        border-radius: ${config.dashboardStyle.statCards.borderRadius};
+        padding: 20px;
     }
 
     .time-stat h4 {
-        margin: 0 0 15px 0 !important;
-        font-size: 1.1rem !important;
-        color: ${config.bannerStyle.title.color} !important;
+        margin: 0 0 15px 0;
+        font-size: 1.1rem;
+        color: ${config.bannerStyle.title.color};
     }
 
     .stat-bars {
-        display: grid !important;
-        grid-template-columns: 1fr !important;
-        gap: 10px !important;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
     }
 
     .stat-bar-container {
-        margin-bottom: 15px !important;
+        margin-bottom: 15px;
     }
 
     .stat-bar-label {
-        font-size: 0.85rem !important;
-        color: ${config.bannerStyle.description.color} !important;
-        margin-bottom: 5px !important;
+        font-size: 0.85rem;
+        color: ${config.bannerStyle.description.color};
+        margin-bottom: 5px;
     }
 
     .stat-bar {
-        height: ${config.dashboardStyle.barChart.height} !important;
-        background-color: ${config.dashboardStyle.barChart.background} !important;
-        border-radius: ${config.dashboardStyle.barChart.borderRadius} !important;
-        overflow: hidden !important;
-        display: flex !important;
+        height: ${config.dashboardStyle.barChart.height};
+        background-color: ${config.dashboardStyle.barChart.background};
+        border-radius: ${config.dashboardStyle.barChart.borderRadius};
+        overflow: hidden;
+        display: flex;
     }
 
     .stat-bar-segment {
-        height: 100% !important;
+        height: 100%;
     }
 
     .stat-bar-segment.accepted {
-        background-color: ${config.dashboardStyle.barChart.acceptedColor} !important;
+        background-color: ${config.dashboardStyle.barChart.acceptedColor};
     }
 
     .stat-bar-segment.rejected {
-        background-color: ${config.dashboardStyle.barChart.rejectedColor} !important;
+        background-color: ${config.dashboardStyle.barChart.rejectedColor};
     }
 
     .stat-bar-segment.custom {
-        background-color: ${config.dashboardStyle.barChart.customColor} !important;
+        background-color: ${config.dashboardStyle.barChart.customColor};
     }
 
     .stat-bar-legend {
-        display: flex !important;
-        justify-content: space-between !important;
-        font-size: 0.75rem !important;
-        color: ${config.bannerStyle.description.color} !important;
-        margin-top: 5px !important;
+        display: flex;
+        justify-content: space-between;
+        font-size: 0.75rem;
+        color: ${config.bannerStyle.description.color};
+        margin-top: 5px;
     }
 
     /* Footer Buttons */
     .cookie-settings-footer {
-        padding: 20px 30px !important;
-        background-color: ${config.modalStyle.footer.background} !important;
-        border-top: ${config.modalStyle.footer.borderTop} !important;
+        padding: 20px 30px;
+        background-color: ${config.modalStyle.footer.background};
+        border-top: ${config.modalStyle.footer.borderTop};
     }
 
     /* Password Prompt */
     .password-prompt {
-        text-align: center !important;
-        padding: 30px !important;
+        text-align: center;
+        padding: 30px;
     }
 
     .password-prompt h3 {
-        color: ${config.bannerStyle.title.color} !important;
-        margin-bottom: 20px !important;
+        color: ${config.bannerStyle.title.color};
+        margin-bottom: 20px;
     }
 
     .password-prompt input {
-        padding: 12px 15px !important;
-        border-radius: 6px !important;
-        border: 1px solid #e0e0e0 !important;
-        width: 100% !important;
-        max-width: 300px !important;
-        margin-bottom: 15px !important;
-        font-size: 14px !important;
+        padding: 12px 15px;
+        border-radius: 6px;
+        border: 1px solid #e0e0e0;
+        width: 100%;
+        max-width: 300px;
+        margin-bottom: 15px;
+        font-size: 14px;
     }
 
     .password-prompt button {
-        padding: 12px 25px !important;
-        background-color: ${config.buttonStyle.accept.background} !important;
-        color: white !important;
-        border: none !important;
-        border-radius: 6px !important;
-        cursor: pointer !important;
-        font-weight: 600 !important;
-        transition: all 0.2s ease !important;
+        padding: 12px 25px;
+        background-color: ${config.buttonStyle.accept.background};
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+        font-weight: 600;
+        transition: all 0.2s ease;
     }
 
     .password-prompt button:hover {
-        background-color: ${config.buttonStyle.accept.hover.background} !important;
+        background-color: ${config.buttonStyle.accept.hover.background};
     }
 
     .error-message {
-        color: ${config.buttonStyle.reject.color} !important;
-        margin-top: 10px !important;
-        font-size: 14px !important;
+        color: ${config.buttonStyle.reject.color};
+        margin-top: 10px;
+        font-size: 14px;
     }
 
     /* Responsive Styles */
     @media (max-width: 900px) {
         .cookie-settings-content {
-            width: 90% !important;
-            max-height: 80vh !important;
+            width: 90%;
+            max-height: 80vh;
         }
         
         .cookie-analytics-content {
-            width: 90% !important;
-            max-height: 80vh !important;
+            width: 90%;
+            max-height: 80vh;
         }
         
         .stats-summary {
-            grid-template-columns: repeat(2, 1fr) !important;
+            grid-template-columns: repeat(2, 1fr);
         }
     }
-    @media (min-width: 768px) {
-        .cookie-consent-buttons {
-            flex-direction: row !important;
-        }
-        .cookie-btn {
-            flex: 1 !important;
-        }
+@media (min-width: 768px) {
+    .cookie-consent-buttons {
+        flex-direction: row;
     }
+    .cookie-btn {
+        flex: 1;
+    }
+}
     @media (max-width: 768px) {
         .cookie-consent-banner {
-            width: 90% !important;
-            ${config.behavior.bannerPosition === 'left' ? 'left: 5% !important;' : 'right: 5% !important;'}
-            bottom: 10px !important;
-            padding: 20px !important;
-            flex-direction: column !important;
+            width: 90%;
+            ${config.behavior.bannerPosition === 'left' ? 'left: 5%;' : 'right: 5%;'}
+            bottom: 10px;
+            padding: 20px;
+            flex-direction: column;
         }
         
         .cookie-btn {
-            flex: 1 !important;
-            min-width: 120px !important;
+            flex: 1;
+            min-width: 120px;
         }
         
         .cookie-btn:last-child {
-            margin-bottom: 0 !important;
+            margin-bottom: 0;
         }
         
         .cookie-settings-header {
-            padding: 15px 20px !important;
+            padding: 15px 20px;
         }
         
         .cookie-settings-body {
-            padding: 15px 20px !important;
+            padding: 15px 20px;
         }
         
         .cookie-settings-footer {
-            padding: 15px 20px !important;
+            padding: 15px 20px;
         }
         
         .modal-buttons-container {
-            flex-direction: column !important;
+            flex-direction: column;
         }
         
         .modal-buttons-container .cookie-btn {
-            width: 100% !important;
-            margin-bottom: 8px !important;
+            width: 100%;
+            margin-bottom: 8px;
         }
         
         .modal-buttons-container .cookie-btn:last-child {
-            margin-bottom: 0 !important;
+            margin-bottom: 0;
         }
         
         .stats-summary {
-            grid-template-columns: 1fr !important;
+            grid-template-columns: 1fr;
         }
         
         /* Mobile cookie details */
         .cookie-details-table {
-            display: block !important;
-            overflow-x: auto !important;
-            white-space: nowrap !important;
+            display: block;
+            overflow-x: auto;
+            white-space: nowrap;
         }
         
         .cookie-details-table td {
-            white-space: normal !important;
+            white-space: normal;
         }
         
         .cookie-value-cell {
-            min-width: 120px !important;
+            min-width: 120px;
         }
     }
 
     @media (max-width: 480px) {
         .cookie-consent-banner {
-            padding: 15px !important;
-            flex-direction: column !important;
-            width: calc(100% - 30px) !important;
-            ${config.behavior.bannerPosition === 'left' ? 'left: 15px !important;' : 'right: 15px !important;'}
+            padding: 15px;
+            flex-direction: column;
+            width: calc(100% - 30px);
+            ${config.behavior.bannerPosition === 'left' ? 'left: 15px;' : 'right: 15px;'}
         }
         
         .cookie-consent-content h2 {
-            font-size: 1.1rem !important;
+            font-size: 1.1rem;
         }
         
         .cookie-consent-content p {
-            font-size: 0.85rem !important;
-            margin-bottom: 15px !important;
-            text-align: justify !important;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
+            text-align: justify;
         }
         
         .privacy-policy-link {
-            margin-bottom: 12px !important;
-            margin-left: -274px !important;
+            margin-bottom: 12px;
+            margin-left: -274px;
         }
         
         .cookie-btn {
-            padding: 10px !important;
-            font-size: 0.85rem !important;
+            padding: 10px;
+            font-size: 0.85rem;
         }
         
         .cookie-settings-button {
-            width: 50px !important;
-            height: 50px !important;
-            bottom: 15px !important;
-            ${config.behavior.floatingButtonPosition === 'left' ? 'left: 15px !important;' : 'right: 15px !important;'}
+            width: 50px;
+            height: 50px;
+            bottom: 15px;
+            ${config.behavior.floatingButtonPosition === 'left' ? 'left: 15px;' : 'right: 15px;'}
         }
         
         .cookie-admin-button {
-            width: 50px !important;
-            height: 50px !important;
+            width: 50px;
+            height: 50px;
             ${config.behavior.adminButtonPosition === 'left' ? 
-              'left: 15px !important; bottom: 80px !important;' : 
-              'right: 15px !important; bottom: 80px !important;'}
+              'left: 15px; bottom: 80px;' : 
+              'right: 15px; bottom: 80px;'}
         }
         
         .cookie-settings-button svg {
-            width: 22px !important;
-            height: 22px !important;
+            width: 22px;
+            height: 22px;
         }
         
         .cookie-admin-button svg {
-            width: 22px !important;
-            height: 22px !important;
+            width: 22px;
+            height: 22px;
         }
         
         .cookie-settings-header h2 {
-            font-size: 1.2rem !important;
+            font-size: 1.2rem;
         }
         
         .toggle-container h3 {
-            font-size: 1rem !important;
+            font-size: 1rem;
         }
         
         .cookie-details-table {
-            font-size: 0.8rem !important;
+            font-size: 0.8rem;
         }
         
         .cookie-details-table th, 
         .cookie-details-table td {
-            padding: 8px 10px !important;
+            padding: 8px 10px;
         }
     }
-</style>
+    </style>`;
+    
     document.body.insertAdjacentHTML('beforeend', html);
 }
 
@@ -3708,4 +3709,5 @@ if (typeof window !== 'undefined') {
         config: config
     };
 }
+
 
