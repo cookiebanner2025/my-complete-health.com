@@ -2921,7 +2921,8 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         }
         
         .privacy-policy-link {
-            margin-bottom: 15px;
+            margin-bottom: 12px;
+            margin-left: -274px;
         }
         
         .cookie-btn {
