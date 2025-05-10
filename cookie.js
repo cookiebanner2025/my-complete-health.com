@@ -3,7 +3,7 @@ const config = {
     allowedDomains: ['dev-rpractice.pantheonsite.io', 'my-complete-health.com'],
     
     // Privacy policy URL (configurable)
-    privacyPolicyUrl: 'https://yourdomain.com/privacy-policy', // Add your full privacy policy URL here
+    privacyPolicyUrl: 'https://my-complete-health.com/#privacy-policy', // Add your full privacy policy URL here
     
     // Microsoft UET Configuration
     uetConfig: {
