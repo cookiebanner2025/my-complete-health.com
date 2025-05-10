@@ -2427,7 +2427,9 @@ function setupPasswordPromptEvents() {
 }
 
 // Setup all event listeners
+// Update the setupEventListeners function to properly handle cookie details toggles
 function setupEventListeners() {
+    // Existing event listeners
     document.getElementById('acceptAllBtn').addEventListener('click', function() {
         acceptAllCookies();
         hideCookieBanner();
@@ -2447,6 +2449,46 @@ function setupEventListeners() {
     document.getElementById('adjustConsentBtn').addEventListener('click', function() {
         showCookieSettings();
         hideCookieBanner();
+        if (config.behavior.showFloatingButton) {
+            showFloatingButton();
+        }
+    });
+    
+    // Add click event for cookie details headers
+    document.addEventListener('click', function(e) {
+        // Handle cookie details toggle
+        if (e.target.closest('.cookie-details-header')) {
+            const header = e.target.closest('.cookie-details-header');
+            const content = header.nextElementSibling;
+            const toggle = header.querySelector('.toggle-details');
+            
+            if (content.style.display === 'none' || !content.style.display) {
+                content.style.display = 'block';
+                toggle.textContent = '−';
+            } else {
+                content.style.display = 'none';
+                toggle.textContent = '+';
+            }
+        }
+        
+        // Handle cookie value toggle
+        if (e.target.classList.contains('toggle-cookie-value')) {
+            const cell = e.target.closest('.cookie-value-cell');
+            const full = cell.querySelector('.cookie-value-full');
+            const truncated = cell.querySelector('.cookie-value-truncated');
+            
+            if (e.target.dataset.state === 'truncated') {
+                full.style.display = 'inline';
+                truncated.style.display = 'none';
+                e.target.textContent = 'Hide full';
+                e.target.dataset.state = 'full';
+            } else {
+                full.style.display = 'none';
+                truncated.style.display = 'inline';
+                e.target.textContent = 'Show full';
+                e.target.dataset.state = 'truncated';
+            }
+        }
     });
     
     document.getElementById('acceptAllSettingsBtn').addEventListener('click', function() {
