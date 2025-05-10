@@ -1766,6 +1766,9 @@ function changeLanguage(languageCode) {
         passwordError.textContent = translations[languageCode].passwordIncorrect;
     }
     
+    // REINITIALIZE TOGGLES AFTER ALL UPDATES
+    setupToggleDetails();
+    
     // Store selected language in cookie
     if (config.behavior.rememberLanguage) {
         setCookie('preferred_language', languageCode, 365);
@@ -2359,7 +2362,27 @@ function injectConsentHTML(detectedCookies, language = 'en') {
     .cookie-details-header:hover {
         background-color: #eeeeee;
     }
+/* Add these styles to your existing CSS */
+.cookie-details-header {
+    pointer-events: auto !important;
+    cursor: pointer !important;
+}
 
+.cookie-details-content {
+    display: none !important;
+}
+
+.cookie-details-content[style*="block"] {
+    display: block !important;
+}
+
+.toggle-details {
+    user-select: none !important;
+    -webkit-user-select: none !important;
+    font-family: monospace !important;
+    font-weight: bold !important;
+    margin-left: 8px;
+}
     .cookie-details-content {
         padding: 18px;
         background-color: #fafafa;
@@ -3074,19 +3097,35 @@ function initializeCookieConsent(detectedCookies, language) {
     setupEventListeners();
     
     // Setup cookie details toggles
+   // Replace the existing toggle setup code with this more robust version
+function setupToggleDetails() {
     document.querySelectorAll('.cookie-details-header').forEach(header => {
-        header.addEventListener('click', function() {
-            const content = this.nextElementSibling;
-            const toggle = this.querySelector('.toggle-details');
-            if (content.style.display === 'none') {
+        // Remove any existing event listeners first
+        header.replaceWith(header.cloneNode(true));
+        
+        const newHeader = document.querySelector(`[data-id="${header.dataset.id}"]`) || header;
+        const content = newHeader.nextElementSibling;
+        const toggle = newHeader.querySelector('.toggle-details');
+        
+        // Initialize state
+        content.style.display = 'none';
+        toggle.textContent = '+';
+        
+        // Add robust click handler
+        newHeader.addEventListener('click', function(e) {
+            e.stopPropagation();
+            e.preventDefault();
+            
+            if (content.style.display === 'none' || !content.style.display) {
                 content.style.display = 'block';
                 toggle.textContent = '−';
             } else {
                 content.style.display = 'none';
                 toggle.textContent = '+';
             }
-        });
+        }, true); // Use capture phase to ensure it runs first
     });
+}
     
     // Setup cookie value toggles for mobile
     document.addEventListener('click', function(e) {
@@ -3649,7 +3688,8 @@ document.addEventListener('DOMContentLoaded', async function() {
 
     // Inject HTML elements
     injectConsentHTML(detectedCookies, userLanguage);
-
+// Initialize toggle functionality (NEW LINE ADDED)
+setupToggleDetails();
     // Initialize cookie consent
     initializeCookieConsent(detectedCookies, userLanguage);
 
