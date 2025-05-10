@@ -1,21 +1,17 @@
-// Generate a unique prefix for all our classes to avoid conflicts
-const uniquePrefix = 'ccb_' + Math.random().toString(36).substring(2, 8) + '_';
-
-// Configuration object with all settings
 const config = {
     // Domain restriction
     allowedDomains: ['dev-rpractice.pantheonsite.io', 'my-complete-health.com'],
     
     // Privacy policy URL (configurable)
-    privacyPolicyUrl: 'https://yourdomain.com/privacy-policy',
+    privacyPolicyUrl: 'https://yourdomain.com/privacy-policy', // Add your full privacy policy URL here
     
     // Microsoft UET Configuration
     uetConfig: {
         enabled: true,
-        defaultTagId: '137027166',
-        autoDetectTagId: true,
-        defaultConsent: 'denied',
-        enforceInEEA: true
+        defaultTagId: '137027166', // Fallback if auto-detection fails
+        autoDetectTagId: true,     // Try to detect UET tag ID automatically
+        defaultConsent: 'denied',  // 'denied' or 'granted'
+        enforceInEEA: true         // Enforce consent mode in EEA countries
     },
     
     // Behavior configuration
@@ -48,22 +44,24 @@ const config = {
             enterEffect: 'fadeIn',
             exitEffect: 'fadeOut'
         },
+        
+        // New timeline configuration for banner visibility
         bannerSchedule: {
-            enabled: false,
-            startDate: '2023-01-01',
-            endDate: '2023-12-31',
-            startTime: '00:00',
-            endTime: '23:59',
-            daysOfWeek: [1,2,3,4,5],
-            durationDays: 365,
-            durationMinutes: 2
+            enabled: false, // Set to true to enable scheduling
+            startDate: '2023-01-01', // Start date (YYYY-MM-DD)
+            endDate: '2023-12-31',   // End date (YYYY-MM-DD)
+            startTime: '00:00',      // Start time (24-hour format)
+            endTime: '23:59',        // End time (24-hour format)
+            daysOfWeek: [1,2,3,4,5], // 0=Sunday, 1=Monday, etc.
+            durationDays: 365,       // Alternative: show banner for X days from first visit
+            durationMinutes: 2       // Alternative: show banner for X minutes per session
         }
     },
     
     // Language configuration
     languageConfig: {
         defaultLanguage: 'en',
-        availableLanguages: ['en', 'fr'],
+        availableLanguages: ['en'], // Only en and fr as requested
         showLanguageSelector: false,
         autoDetectLanguage: true
     },
@@ -94,198 +92,198 @@ const config = {
     // UI Theme selection
     uiTheme: 'default',
     
-    // Banner styling (now with !important flags)
+    // Banner styling
     bannerStyle: {
-        background: '#ffffff !important',
-        borderRadius: '12px !important',
-        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.12) !important',
-        width: '465px !important',
-        padding: '24px !important',
-        textColor: '#2c3e50 !important',
-        linkColor: '#3498db !important',
-        linkHoverColor: '#1d6fa5 !important',
+        background: '#ffffff',
+        borderRadius: '12px',
+        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.12)',
+        width: '465px',
+        padding: '24px',
+        textColor: '#2c3e50',
+        linkColor: '#3498db',
+        linkHoverColor: '#1d6fa5',
         border: {
             enabled: false,
-            width: '1px !important',
-            style: 'solid !important',
-            color: '#e0e0e0 !important'
+            width: '1px',
+            style: 'solid',
+            color: '#e0e0e0'
         },
         title: {
-            fontSize: '18px !important',
-            fontWeight: '600 !important',
-            color: '#2c3e50 !important'
+            fontSize: '18px',
+            fontWeight: '600',
+            color: '#2c3e50'
         },
         description: {
-            fontSize: '14px !important',
-            lineHeight: '1.5 !important',
-            color: '#7f8c8d !important'
+            fontSize: '14px',
+            lineHeight: '1.5',
+            color: '#7f8c8d'
         }
     },
     
-    // Button styling with !important
+    // Button styling
     buttonStyle: {
-        borderRadius: '8px !important',
-        padding: '12px 20px !important',
-        fontWeight: '600 !important',
-        fontSize: '14px !important',
-        transition: 'all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1) !important',
+        borderRadius: '8px',
+        padding: '12px 20px',
+        fontWeight: '600',
+        fontSize: '14px',
+        transition: 'all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1)',
         
         accept: {
-            background: '#2ecc71 !important',
-            color: '#ffffff !important',
-            border: '1px solid #2ecc71 !important',
+            background: '#2ecc71',
+            color: '#ffffff',
+            border: '1px solid #2ecc71',
             hover: {
-                background: '#27ae60 !important',
-                color: '#ffffff !important',
-                transform: 'translateY(-1px) !important'
+                background: '#27ae60',
+                color: '#ffffff',
+                transform: 'translateY(-1px)'
             }
         },
         
         reject: {
-            background: '#ffffff !important',
-            color: '#e74c3c !important',
-            border: '1px solid #e74c3c !important',
+            background: '#ffffff',
+            color: '#e74c3c',
+            border: '1px solid #e74c3c',
             hover: {
-                background: '#ffeeed !important',
-                color: '#e74c3c !important',
-                transform: 'translateY(-1px) !important'
+                background: '#ffeeed',
+                color: '#e74c3c',
+                transform: 'translateY(-1px)'
             }
         },
         
         adjust: {
-            background: '#f8f9fa !important',
-            color: '#333333 !important',
-            border: '1px solid #e0e0e0 !important',
+            background: '#f8f9fa',
+            color: '#333333',
+            border: '1px solid #e0e0e0',
             hover: {
-                background: '#f0f2f5 !important',
-                color: '#333333 !important',
-                transform: 'translateY(-1px) !important'
+                background: '#f0f2f5',
+                color: '#333333',
+                transform: 'translateY(-1px)'
             }
         },
         
         save: {
-            background: '#3498db !important',
-            color: '#ffffff !important',
-            border: '1px solid #3498db !important',
+            background: '#3498db',
+            color: '#ffffff',
+            border: '1px solid #3498db',
             hover: {
-                background: '#2980b9 !important',
-                color: '#ffffff !important',
-                transform: 'translateY(-1px) !important'
+                background: '#2980b9',
+                color: '#ffffff',
+                transform: 'translateY(-1px)'
             }
         }
     },
     
-    // Floating button styling with !important
+    // Floating button styling
     floatingButtonStyle: {
-        size: '50px !important',
-        background: '#2ecc71 !important',
-        iconColor: '#ffffff !important',
-        border: '2px solid #ffffff !important',
-        borderRadius: '50% !important',
-        boxShadow: '0 6px 20px rgba(0, 0, 0, 0.2) !important',
+        size: '50px',
+        background: '#2ecc71',
+        iconColor: '#ffffff',
+        border: '2px solid #ffffff',
+        borderRadius: '50%',
+        boxShadow: '0 6px 20px rgba(0, 0, 0, 0.2)',
         hover: {
-            background: '#27ae60 !important',
-            transform: 'translateY(-3px) scale(1.05) !important',
-            boxShadow: '0 8px 25px rgba(0, 0, 0, 0.3) !important'
+            background: '#27ae60',
+            transform: 'translateY(-3px) scale(1.05)',
+            boxShadow: '0 8px 25px rgba(0, 0, 0, 0.3)'
         }
     },
     
-    // Admin button styling with !important
+    // Admin button styling
     adminButtonStyle: {
-        size: '60px !important',
-        background: '#2ecc71 !important',
-        iconColor: '#ffffff !important',
-        border: '2px solid #ffffff !important',
-        borderRadius: '50% !important',
-        boxShadow: '0 6px 20px rgba(0, 0, 0, 0.2) !important',
+        size: '60px',
+        background: '#2ecc71',
+        iconColor: '#ffffff',
+        border: '2px solid #ffffff',
+        borderRadius: '50%',
+        boxShadow: '0 6px 20px rgba(0, 0, 0, 0.2)',
         hover: {
-            background: '#2980b9 !important',
-            transform: 'translateY(-3px) scale(1.05) !important',
-            boxShadow: '0 8px 25px rgba(0, 0, 0, 0.3) !important'
+            background: '#2980b9',
+            transform: 'translateY(-3px) scale(1.05)',
+            boxShadow: '0 8px 25px rgba(0, 0, 0, 0.3)'
         }
     },
     
-    // Modal styling with !important
+    // Modal styling
     modalStyle: {
-        background: '#ffffff !important',
-        borderRadius: '12px !important',
-        width: '845px !important',
-        maxHeight: '470px !important',
+        background: '#ffffff',
+        borderRadius: '12px',
+        width: '845px',
+        maxHeight: '470px',
         header: {
-            background: '#f8f9fa !important',
-            textColor: '#2c3e50 !important',
-            fontSize: '1.5rem !important',
-            fontWeight: '600 !important'
+            background: '#f8f9fa',
+            textColor: '#2c3e50',
+            fontSize: '1.5rem',
+            fontWeight: '600'
         },
         body: {
-            background: '#fefefe !important',
-            textColor: '#2c3e50 !important'
+            background: '#fefefe',
+            textColor: '#2c3e50'
         },
         footer: {
-            background: '#f8f9fa !important',
-            borderTop: '1px solid #ecf0f1 !important'
+            background: '#f8f9fa',
+            borderTop: '1px solid #ecf0f1'
         },
         closeButton: {
-            color: '#7f8c8d !important',
-            hoverColor: '#e74c3c !important'
+            color: '#7f8c8d',
+            hoverColor: '#e74c3c'
         }
     },
     
-    // Toggle switch styling with !important
+    // Toggle switch styling
     toggleStyle: {
-        activeColor: '#2ecc71 !important',
-        inactiveColor: '#bdc3c7 !important',
-        size: '50px !important',
-        height: '26px !important',
-        sliderSize: '20px !important'
+        activeColor: '#2ecc71',
+        inactiveColor: '#bdc3c7',
+        size: '50px',
+        height: '26px',
+        sliderSize: '20px'
     },
     
-    // Cookie category styling with !important
+    // Cookie category styling
     categoryStyle: {
-        background: '#f8f9fa !important',
-        borderRadius: '8px !important',
-        border: '1px solid #ecf0f1 !important',
+        background: '#f8f9fa',
+        borderRadius: '8px',
+        border: '1px solid #ecf0f1',
         title: {
-            fontSize: '1.1rem !important',
-            fontWeight: '600 !important',
-            color: '#2c3e50 !important'
+            fontSize: '1.1rem',
+            fontWeight: '600',
+            color: '#2c3e50'
         },
         description: {
-            fontSize: '14px !important',
-            color: '#7f8c8d !important'
+            fontSize: '14px',
+            color: '#7f8c8d'
         }
     },
     
-    // Dashboard styling with !important
+    // Dashboard styling
     dashboardStyle: {
-        background: '#ffffff !important',
-        borderRadius: '12px !important',
-        width: '900px !important',
-        maxHeight: '600px !important',
+        background: '#ffffff',
+        borderRadius: '12px',
+        width: '900px',
+        maxHeight: '600px',
         header: {
-            background: '#f8f9fa !important',
-            textColor: '#2c3e50 !important',
-            fontSize: '1.5rem !important',
-            fontWeight: '600 !important'
+            background: '#f8f9fa',
+            textColor: '#2c3e50',
+            fontSize: '1.5rem',
+            fontWeight: '600'
         },
         body: {
-            background: '#fefefe !important'
+            background: '#fefefe'
         },
         statCards: {
-            background: '#f8f9fa !important',
-            borderRadius: '8px !important',
-            acceptedColor: '#2ecc71 !important',
-            rejectedColor: '#e74c3c !important',
-            customColor: '#3498db !important',
-            totalColor: '#9b59b6 !important'
+            background: '#f8f9fa',
+            borderRadius: '8px',
+            acceptedColor: '#2ecc71',
+            rejectedColor: '#e74c3c',
+            customColor: '#3498db',
+            totalColor: '#9b59b6'
         },
         barChart: {
-            height: '20px !important',
-            borderRadius: '10px !important',
-            background: '#ecf0f1 !important',
-            acceptedColor: '#2ecc71 !important',
-            rejectedColor: '#e74c3c !important',
-            customColor: '#3498db !important'
+            height: '20px',
+            borderRadius: '10px',
+            background: '#ecf0f1',
+            acceptedColor: '#2ecc71',
+            rejectedColor: '#e74c3c',
+            customColor: '#3498db'
         }
     }
 };
@@ -294,8 +292,11 @@ const config = {
 // Initialize dataLayer for Google Tag Manager
 window.dataLayer = window.dataLayer || [];
 // Initialize UET queue if not already exists (Microsoft Consent Mode)
-if (typeof window.uetq === 'undefined') window.uetq = [];
+if (typeof window.uetq === 'undefined') window.uetq = [];  // <-- ADD THIS LINE
 function gtag() { dataLayer.push(arguments); }
+
+// Initialize UET queue if not already exists
+window.uetq = window.uetq || [];
 
 // Set default consent (deny all except security)
 gtag('consent', 'default', {
@@ -311,12 +312,15 @@ gtag('consent', 'default', {
 // Set default UET consent
 function setDefaultUetConsent() {
     if (!config.uetConfig.enabled) return;
+     // Redundant safeguard
+  if (typeof window.uetq === 'undefined') window.uetq = [];  // <-- ADD THIS LINE
     const consentState = config.uetConfig.defaultConsent === 'granted' ? 'granted' : 'denied';
     
     window.uetq.push('consent', 'default', {
         'ad_storage': consentState
     });
     
+    // Push to dataLayer
     window.dataLayer.push({
         'event': 'uet_consent_default',
         'consent_mode': {
@@ -328,6 +332,7 @@ function setDefaultUetConsent() {
 
 // Enhanced cookie database with detailed descriptions
 const cookieDatabase = {
+    // Existing cookies
     '_gcl': { category: 'advertising', duration: '90 days', description: 'Google Click Identifier - Tracks ad clicks and conversions' },
     '_gcl_au': { category: 'advertising', duration: '90 days', description: 'Google Ads conversion tracking' },
     'gclid': { category: 'advertising', duration: '30 days', description: 'Google Click ID - Tracks PPC ad clicks' },
@@ -380,6 +385,8 @@ const cookieDatabase = {
     '_gat': { category: 'analytics', duration: '1 minute', description: 'Google Analytics throttle' },
     'PHPSESSID': { category: 'functional', duration: 'Session', description: 'PHP session' },
     'cookie_consent': { category: 'functional', duration: '365 days', description: 'Consent preferences' },
+
+    // New Facebook cookies from your list
     'lu': { category: 'advertising', duration: '2 years', description: 'Used to record whether the person chose to remain logged in (User ID and miscellaneous log in information)' },
     'xs': { category: 'advertising', duration: '90 days', description: 'Used with c_user cookie to authenticate identity to Facebook (Session ID, creation time, authentication value)' },
     'c_user': { category: 'advertising', duration: '90 days', description: 'Used with xs cookie to authenticate identity to Facebook (User ID)' },
@@ -401,11 +408,13 @@ const cookieDatabase = {
     'rc': { category: 'advertising', duration: '7 days', description: 'Used to optimize site performance for advertisers' },
     'campaign_click_url': { category: 'advertising', duration: '30 days', description: 'Records Facebook URL landed on after clicking an ad' },
     'usida': { category: 'advertising', duration: 'Session', description: 'Collects browser and unique identifier for targeted advertising' },
+    
+    // Facebook functional cookies
     'wd': { category: 'functional', duration: 'Session', description: 'Stores browser window dimensions for page rendering optimization' },
     'presence': { category: 'functional', duration: 'Session', description: 'Contains user chat state' }
 };
 
-// Language translations
+// Language translations (keeping only en and fr as requested)
 const translations = {
     en: {
         title: "We value your privacy",
@@ -441,53 +450,72 @@ const translations = {
         dashboardTitle: "Consent Analytics Dashboard",
         seeAnalytics: "See Consent Analytics"
     },
-    fr: {
-        title: "Nous respectons votre vie privée",
-        description: "Nous utilisons des cookies pour améliorer votre expérience de navigation, fournir des publicités ou du contenu personnalisé et analyser notre trafic. En cliquant sur \"Tout accepter\", vous consentez à l'utilisation de cookies.",
-        privacy: "Politique de confidentialité",
-        customize: "Ajuster",
-        reject: "Tout refuser",
-        accept: "Tout accepter",
-        essential: "Cookies essentiels",
-        essentialDesc: "Nécessaires au fonctionnement du site",
-        analytics: "Cookies d'analyse",
-        analyticsDesc: "Aident à comprendre les interactions des visiteurs",
-        performance: "Cookies de performance",
-        performanceDesc: "Améliorent les performances du site",
-        advertising: "Cookies publicitaires",
-        advertisingDesc: "Diffusent des publicités pertinentes",
-        other: "Autres cookies",
-        otherDesc: "Cookies non catégorisés",
-        save: "Enregistrer les préférences",
-        language: "Français",
-        statsTitle: "Statistiques de consentement",
-        statsAccepted: "Accepté",
-        statsRejected: "Rejeté",
-        statsCustom: "Personnalisé",
-        statsTotal: "Total",
-        statsPercentage: "Pourcentage",
-        statsLast1Day: "Dernier jour",
-        statsLast7Days: "7 derniers jours",
-        statsLast30Days: "30 derniers jours",
-        passwordPrompt: "Entrez le mot de passe pour voir les analyses",
-        passwordSubmit: "Soumettre",
-        passwordIncorrect: "Mot de passe incorrect",
-        dashboardTitle: "Tableau de bord des analyses de consentement",
-        seeAnalytics: "Voir les analyses de consentement"
-    }
+    
+ // ... (keep all other language translations the same)
 };
 
-// Country to language mapping
+// Country to language mapping for auto-translation (keeping all mappings)
 const countryLanguageMap = {
-    'AT': 'de', 'BE': 'nl', 'BG': 'bg', 'HR': 'hr', 'CY': 'el', 'CZ': 'cs',
-    'DK': 'da', 'EE': 'et', 'FI': 'fi', 'FR': 'fr', 'DE': 'de', 'GR': 'el',
-    'HU': 'hu', 'IE': 'en', 'IT': 'it', 'LV': 'lv', 'LT': 'lt', 'LU': 'fr',
-    'MT': 'mt', 'NL': 'nl', 'PL': 'pl', 'PT': 'pt', 'RO': 'ro', 'SK': 'sk',
-    'SI': 'sl', 'ES': 'es', 'SE': 'sv', 'AL': 'en', 'BA': 'en', 'IS': 'en',
-    'LI': 'de', 'MK': 'en', 'NO': 'en', 'RS': 'en', 'CH': 'de', 'UA': 'uk',
-    'GB': 'en', 'US': 'en', 'CA': 'en', 'AU': 'en', 'NZ': 'en', 'ZA': 'en',
-    'IN': 'en', 'CN': 'zh', 'JP': 'ja', 'KR': 'ko', 'BR': 'pt', 'MX': 'es',
-    'AR': 'es', 'RU': 'ru'
+    // EU Countries
+    'AT': 'de',     // Austria
+    'BE': 'nl',     // Belgium (Dutch)
+    'BE': 'fr',     // Belgium (French)
+    'BG': 'bg',     // Bulgaria
+    'HR': 'hr',     // Croatia
+    'CY': 'el',     // Cyprus
+    'CZ': 'cs',     // Czech Republic
+    'DK': 'da',     // Denmark
+    'EE': 'et',     // Estonia
+    'FI': 'fi',     // Finland
+    'FR': 'fr',     // France
+    'DE': 'de',     // Germany
+    'GR': 'el',     // Greece
+    'HU': 'hu',     // Hungary
+    'IE': 'en',     // Ireland
+    'IT': 'it',     // Italy
+    'LV': 'lv',     // Latvia
+    'LT': 'lt',     // Lithuania
+    'LU': 'fr',     // Luxembourg
+    'LU': 'de',     // Luxembourg
+    'MT': 'mt',     // Malta
+    'NL': 'nl',     // Netherlands
+    'PL': 'pl',     // Poland
+    'PT': 'pt',     // Portugal
+    'RO': 'ro',     // Romania
+    'SK': 'sk',     // Slovakia
+    'SI': 'sl',     // Slovenia
+    'ES': 'es',     // Spain
+    'SE': 'sv',     // Sweden
+    
+    // Other European countries
+    'AL': 'en',     // Albania
+    'BA': 'en',     // Bosnia and Herzegovina
+    'IS': 'en',     // Iceland
+    'LI': 'de',     // Liechtenstein
+    'MK': 'en',     // North Macedonia
+    'NO': 'en',     // Norway
+    'RS': 'en',     // Serbia
+    'CH': 'de',     // Switzerland
+    'CH': 'fr',     // Switzerland
+    'CH': 'it',     // Switzerland
+    'UA': 'uk',     // Ukraine
+    'GB': 'en',     // United Kingdom
+    
+    // Rest of the world
+    'US': 'en',     // United States
+    'CA': 'en',     // Canada
+    'CA': 'fr',     // Canada (French)
+    'AU': 'en',     // Australia
+    'NZ': 'en',     // New Zealand
+    'ZA': 'en',     // South Africa
+    'IN': 'en',     // India
+    'CN': 'zh',     // China
+    'JP': 'ja',     // Japan
+    'KR': 'ko',     // South Korea
+    'BR': 'pt',     // Brazil
+    'MX': 'es',     // Mexico
+    'AR': 'es',     // Argentina
+    'RU': 'ru'      // Russia
 };
 
 // Analytics data storage
@@ -508,6 +536,7 @@ let bannerTimer = null;
 let bannerShown = false;
 
 // Location data storage
+// Location data storage with immediate initialization
 let locationData = {
     continent: 'Unknown',
     country: 'Unknown',
@@ -542,17 +571,21 @@ if (savedLocation) {
 
 // Function to fetch location data
 async function fetchLocationData() {
+    // Skip if we already have valid location data
     if (locationData.country !== 'Unknown' && locationData.country !== '') {
         return;
     }
 
-    var apiKey = '4c1e5d00e0ac93';
+    var apiKey = '4c1e5d00e0ac93'; // Your API key
     
     try {
         const response = await fetch('https://ipinfo.io/json?token=' + apiKey);
-        if (!response.ok) throw new Error('Failed to fetch location data');
+        if (!response.ok) {
+            throw new Error('Failed to fetch location data');
+        }
         const payload = await response.json();
 
+        // Update locationData
         locationData = {
             continent: getContinentFromCountry(payload.country) || "Unknown",
             country: payload.country || "Unknown",
@@ -566,8 +599,10 @@ async function fetchLocationData() {
             language: (navigator.language || "Unknown").split("-")[0]
         };
 
+        // Save to session storage
         sessionStorage.setItem('locationData', JSON.stringify(locationData));
 
+        // Push to dataLayer
         window.dataLayer.push({
             'event': 'locationRetrieved',
             'location_data': locationData,
@@ -615,6 +650,7 @@ function loadAnalyticsData() {
         consentAnalytics = JSON.parse(savedData);
     }
     
+    // Initialize today's data if not exists
     const today = new Date().toISOString().split('T')[0];
     if (!consentAnalytics.daily[today]) {
         consentAnalytics.daily[today] = {
@@ -624,6 +660,7 @@ function loadAnalyticsData() {
         };
     }
     
+    // Check if dashboard is authenticated
     if (config.analytics.passwordProtect) {
         isDashboardAuthenticated = getCookie('dashboard_auth') === 'true';
     } else {
@@ -640,6 +677,7 @@ function saveAnalyticsData() {
 function updateConsentStats(status) {
     const today = new Date().toISOString().split('T')[0];
     
+    // Update totals
     if (status === 'accepted') {
         consentAnalytics.total.accepted++;
         consentAnalytics.daily[today].accepted++;
@@ -654,10 +692,11 @@ function updateConsentStats(status) {
     saveAnalyticsData();
 }
 
-// Generate analytics dashboard HTML
+// Generate analytics dashboard HTML with 1 day, 7 days, and 30 days sections
 function generateAnalyticsDashboard(language = 'en') {
     const lang = translations[language] || translations.en;
     
+    // Calculate totals
     const total = consentAnalytics.total.accepted + 
                  consentAnalytics.total.rejected + 
                  consentAnalytics.total.custom;
@@ -666,16 +705,19 @@ function generateAnalyticsDashboard(language = 'en') {
     const rejectedPercent = total > 0 ? Math.round((consentAnalytics.total.rejected / total) * 100) : 0;
     const customPercent = total > 0 ? Math.round((consentAnalytics.total.custom / total) * 100) : 0;
     
+    // Get last 1 day data
     const today = new Date().toISOString().split('T')[0];
     const last1Day = {};
     last1Day[today] = consentAnalytics.daily[today] || { accepted: 0, rejected: 0, custom: 0 };
     
+    // Get last 7 days data
     const last7Days = {};
     const dates = Object.keys(consentAnalytics.daily).sort().reverse().slice(0, 7);
     dates.forEach(date => {
         last7Days[date] = consentAnalytics.daily[date];
     });
     
+    // Get last 30 days data
     const last30Days = {};
     const monthlyDates = Object.keys(consentAnalytics.daily).sort().reverse().slice(0, 30);
     monthlyDates.forEach(date => {
@@ -683,39 +725,39 @@ function generateAnalyticsDashboard(language = 'en') {
     });
     
     return `
-    <div class="${uniquePrefix}analytics-dashboard">
+    <div class="analytics-dashboard">
         <h3>${lang.dashboardTitle}</h3>
         
-        <div class="${uniquePrefix}stats-summary">
-            <div class="${uniquePrefix}stat-card ${uniquePrefix}accepted">
+        <div class="stats-summary">
+            <div class="stat-card accepted">
                 <h4>${lang.statsAccepted}</h4>
-                <div class="${uniquePrefix}stat-value">${consentAnalytics.total.accepted}</div>
-                <div class="${uniquePrefix}stat-percentage">${acceptedPercent}%</div>
+                <div class="stat-value">${consentAnalytics.total.accepted}</div>
+                <div class="stat-percentage">${acceptedPercent}%</div>
             </div>
             
-            <div class="${uniquePrefix}stat-card ${uniquePrefix}rejected">
+            <div class="stat-card rejected">
                 <h4>${lang.statsRejected}</h4>
-                <div class="${uniquePrefix}stat-value">${consentAnalytics.total.rejected}</div>
-                <div class="${uniquePrefix}stat-percentage">${rejectedPercent}%</div>
+                <div class="stat-value">${consentAnalytics.total.rejected}</div>
+                <div class="stat-percentage">${rejectedPercent}%</div>
             </div>
             
-            <div class="${uniquePrefix}stat-card ${uniquePrefix}custom">
+            <div class="stat-card custom">
                 <h4>${lang.statsCustom}</h4>
-                <div class="${uniquePrefix}stat-value">${consentAnalytics.total.custom}</div>
-                <div class="${uniquePrefix}stat-percentage">${customPercent}%</div>
+                <div class="stat-value">${consentAnalytics.total.custom}</div>
+                <div class="stat-percentage">${customPercent}%</div>
             </div>
             
-            <div class="${uniquePrefix}stat-card ${uniquePrefix}total">
+            <div class="stat-card total">
                 <h4>${lang.statsTotal}</h4>
-                <div class="${uniquePrefix}stat-value">${total}</div>
-                <div class="${uniquePrefix}stat-percentage">100%</div>
+                <div class="stat-value">${total}</div>
+                <div class="stat-percentage">100%</div>
             </div>
         </div>
         
-        <div class="${uniquePrefix}time-based-stats">
-            <div class="${uniquePrefix}time-stat">
+        <div class="time-based-stats">
+            <div class="time-stat">
                 <h4>${lang.statsLast1Day}</h4>
-                <div class="${uniquePrefix}stat-bars">
+                <div class="stat-bars">
                     ${Object.entries(last1Day).map(([date, data]) => {
                         const dayTotal = data.accepted + data.rejected + data.custom;
                         const dayAcceptedPercent = dayTotal > 0 ? (data.accepted / dayTotal) * 100 : 0;
@@ -723,14 +765,14 @@ function generateAnalyticsDashboard(language = 'en') {
                         const dayCustomPercent = dayTotal > 0 ? (data.custom / dayTotal) * 100 : 0;
                         
                         return `
-                        <div class="${uniquePrefix}stat-bar-container">
-                            <div class="${uniquePrefix}stat-bar-label">${date}</div>
-                            <div class="${uniquePrefix}stat-bar">
-                                <div class="${uniquePrefix}stat-bar-segment ${uniquePrefix}accepted" style="width: ${dayAcceptedPercent}%"></div>
-                                <div class="${uniquePrefix}stat-bar-segment ${uniquePrefix}custom" style="width: ${dayCustomPercent}%"></div>
-                                <div class="${uniquePrefix}stat-bar-segment ${uniquePrefix}rejected" style="width: ${dayRejectedPercent}%"></div>
+                        <div class="stat-bar-container">
+                            <div class="stat-bar-label">${date}</div>
+                            <div class="stat-bar">
+                                <div class="stat-bar-segment accepted" style="width: ${dayAcceptedPercent}%"></div>
+                                <div class="stat-bar-segment custom" style="width: ${dayCustomPercent}%"></div>
+                                <div class="stat-bar-segment rejected" style="width: ${dayRejectedPercent}%"></div>
                             </div>
-                            <div class="${uniquePrefix}stat-bar-legend">
+                            <div class="stat-bar-legend">
                                 <span>${data.accepted} ${lang.statsAccepted}</span>
                                 <span>${data.custom} ${lang.statsCustom}</span>
                                 <span>${data.rejected} ${lang.statsRejected}</span>
@@ -740,9 +782,9 @@ function generateAnalyticsDashboard(language = 'en') {
                 </div>
             </div>
             
-            <div class="${uniquePrefix}time-stat">
+            <div class="time-stat">
                 <h4>${lang.statsLast7Days}</h4>
-                <div class="${uniquePrefix}stat-bars">
+                <div class="stat-bars">
                     ${Object.entries(last7Days).map(([date, data]) => {
                         const dayTotal = data.accepted + data.rejected + data.custom;
                         const dayAcceptedPercent = dayTotal > 0 ? (data.accepted / dayTotal) * 100 : 0;
@@ -750,14 +792,14 @@ function generateAnalyticsDashboard(language = 'en') {
                         const dayCustomPercent = dayTotal > 0 ? (data.custom / dayTotal) * 100 : 0;
                         
                         return `
-                        <div class="${uniquePrefix}stat-bar-container">
-                            <div class="${uniquePrefix}stat-bar-label">${date}</div>
-                            <div class="${uniquePrefix}stat-bar">
-                                <div class="${uniquePrefix}stat-bar-segment ${uniquePrefix}accepted" style="width: ${dayAcceptedPercent}%"></div>
-                                <div class="${uniquePrefix}stat-bar-segment ${uniquePrefix}custom" style="width: ${dayCustomPercent}%"></div>
-                                <div class="${uniquePrefix}stat-bar-segment ${uniquePrefix}rejected" style="width: ${dayRejectedPercent}%"></div>
+                        <div class="stat-bar-container">
+                            <div class="stat-bar-label">${date}</div>
+                            <div class="stat-bar">
+                                <div class="stat-bar-segment accepted" style="width: ${dayAcceptedPercent}%"></div>
+                                <div class="stat-bar-segment custom" style="width: ${dayCustomPercent}%"></div>
+                                <div class="stat-bar-segment rejected" style="width: ${dayRejectedPercent}%"></div>
                             </div>
-                            <div class="${uniquePrefix}stat-bar-legend">
+                            <div class="stat-bar-legend">
                                 <span>${data.accepted} ${lang.statsAccepted}</span>
                                 <span>${data.custom} ${lang.statsCustom}</span>
                                 <span>${data.rejected} ${lang.statsRejected}</span>
@@ -767,9 +809,9 @@ function generateAnalyticsDashboard(language = 'en') {
                 </div>
             </div>
             
-            <div class="${uniquePrefix}time-stat">
+            <div class="time-stat">
                 <h4>${lang.statsLast30Days}</h4>
-                <div class="${uniquePrefix}stat-bars">
+                <div class="stat-bars">
                     ${Object.entries(last30Days).map(([date, data]) => {
                         const dayTotal = data.accepted + data.rejected + data.custom;
                         const dayAcceptedPercent = dayTotal > 0 ? (data.accepted / dayTotal) * 100 : 0;
@@ -777,14 +819,14 @@ function generateAnalyticsDashboard(language = 'en') {
                         const dayCustomPercent = dayTotal > 0 ? (data.custom / dayTotal) * 100 : 0;
                         
                         return `
-                        <div class="${uniquePrefix}stat-bar-container">
-                            <div class="${uniquePrefix}stat-bar-label">${date}</div>
-                            <div class="${uniquePrefix}stat-bar">
-                                <div class="${uniquePrefix}stat-bar-segment ${uniquePrefix}accepted" style="width: ${dayAcceptedPercent}%"></div>
-                                <div class="${uniquePrefix}stat-bar-segment ${uniquePrefix}custom" style="width: ${dayCustomPercent}%"></div>
-                                <div class="${uniquePrefix}stat-bar-segment ${uniquePrefix}rejected" style="width: ${dayRejectedPercent}%"></div>
+                        <div class="stat-bar-container">
+                            <div class="stat-bar-label">${date}</div>
+                            <div class="stat-bar">
+                                <div class="stat-bar-segment accepted" style="width: ${dayAcceptedPercent}%"></div>
+                                <div class="stat-bar-segment custom" style="width: ${dayCustomPercent}%"></div>
+                                <div class="stat-bar-segment rejected" style="width: ${dayRejectedPercent}%"></div>
                             </div>
-                            <div class="${uniquePrefix}stat-bar-legend">
+                            <div class="stat-bar-legend">
                                 <span>${data.accepted} ${lang.statsAccepted}</span>
                                 <span>${data.custom} ${lang.statsCustom}</span>
                                 <span>${data.rejected} ${lang.statsRejected}</span>
@@ -802,11 +844,11 @@ function generatePasswordPrompt(language = 'en') {
     const lang = translations[language] || translations.en;
     
     return `
-    <div class="${uniquePrefix}password-prompt">
+    <div class="password-prompt">
         <h3>${lang.passwordPrompt}</h3>
-        <input type="password" id="${uniquePrefix}dashboardPasswordInput" placeholder="Password">
-        <button id="${uniquePrefix}dashboardPasswordSubmit">${lang.passwordSubmit}</button>
-        <p id="${uniquePrefix}passwordError" class="${uniquePrefix}error-message"></p>
+        <input type="password" id="dashboardPasswordInput" placeholder="Password">
+        <button id="dashboardPasswordSubmit">${lang.passwordSubmit}</button>
+        <p id="passwordError" class="error-message"></p>
     </div>`;
 }
 
@@ -825,6 +867,7 @@ function isDomainAllowed() {
 
 // Check geo-targeting restrictions
 function checkGeoTargeting(geoData) {
+    // Check blocked locations first
     if (config.geoConfig.blockedCountries.length > 0 && 
         config.geoConfig.blockedCountries.includes(geoData.country)) {
         return false;
@@ -840,6 +883,7 @@ function checkGeoTargeting(geoData) {
         return false;
     }
     
+    // Check allowed locations (if any restrictions are set)
     if (config.geoConfig.allowedCountries.length > 0 && 
         !config.geoConfig.allowedCountries.includes(geoData.country)) {
         return false;
@@ -860,6 +904,7 @@ function checkGeoTargeting(geoData) {
 
 // Detect user language based on country and browser settings
 function detectUserLanguage(geoData) {
+    // First check if language is stored in cookie
     if (config.behavior.rememberLanguage) {
         const preferredLanguage = getCookie('preferred_language');
         if (preferredLanguage && translations[preferredLanguage]) {
@@ -867,6 +912,7 @@ function detectUserLanguage(geoData) {
         }
     }
     
+    // Then try to get language from country if auto-detection is enabled
     if (config.languageConfig.autoDetectLanguage && geoData && geoData.country) {
         const countryLang = countryLanguageMap[geoData.country];
         if (countryLang && translations[countryLang]) {
@@ -874,11 +920,13 @@ function detectUserLanguage(geoData) {
         }
     }
     
+    // Fallback to browser language
     const browserLang = (navigator.language || 'en').split('-')[0];
     if (translations[browserLang]) {
         return browserLang;
     }
     
+    // Final fallback to configured default language
     return config.languageConfig.defaultLanguage || 'en';
 }
 
@@ -894,17 +942,19 @@ function getAvailableLanguages() {
 function changeLanguage(languageCode) {
     const lang = translations[languageCode] || translations.en;
     
-    const banner = document.getElementById(uniquePrefix + 'cookieConsentBanner');
+    // Update banner text
+    const banner = document.getElementById('cookieConsentBanner');
     if (banner) {
         banner.querySelector('h2').textContent = lang.title;
         banner.querySelector('p').textContent = lang.description;
-        banner.querySelector('.' + uniquePrefix + 'privacy-policy-link').textContent = lang.privacy;
-        banner.querySelector('#' + uniquePrefix + 'acceptAllBtn').textContent = lang.accept;
-        banner.querySelector('#' + uniquePrefix + 'adjustConsentBtn').textContent = lang.customize;
-        banner.querySelector('#' + uniquePrefix + 'rejectAllBtn').textContent = lang.reject;
+        banner.querySelector('.privacy-policy-link').textContent = lang.privacy;
+        banner.querySelector('#acceptAllBtn').textContent = lang.accept;
+        banner.querySelector('#adjustConsentBtn').textContent = lang.customize;
+        banner.querySelector('#rejectAllBtn').textContent = lang.reject;
     }
     
-    const modal = document.getElementById(uniquePrefix + 'cookieSettingsModal');
+    // Update modal text
+    const modal = document.getElementById('cookieSettingsModal');
     if (modal) {
         modal.querySelector('h2').textContent = lang.title;
         
@@ -919,57 +969,63 @@ function changeLanguage(languageCode) {
         for (const [category, key] of Object.entries(categories)) {
             const categoryElement = document.querySelector(`input[data-category="${category}"]`);
             if (categoryElement) {
-                const container = categoryElement.closest('.' + uniquePrefix + 'cookie-category');
+                const container = categoryElement.closest('.cookie-category');
                 container.querySelector('h3').textContent = lang[key];
                 container.querySelector('p').textContent = lang[`${key}Desc`];
             }
         }
         
-        modal.querySelector('#' + uniquePrefix + 'rejectAllSettingsBtn').textContent = lang.reject;
-        modal.querySelector('#' + uniquePrefix + 'saveSettingsBtn').textContent = lang.save;
-        modal.querySelector('#' + uniquePrefix + 'acceptAllSettingsBtn').textContent = lang.accept;
+        modal.querySelector('#rejectAllSettingsBtn').textContent = lang.reject;
+        modal.querySelector('#saveSettingsBtn').textContent = lang.save;
+        modal.querySelector('#acceptAllSettingsBtn').textContent = lang.accept;
         
-        const seeAnalyticsLink = modal.querySelector('.' + uniquePrefix + 'see-analytics-link');
+        // Update "See Consent Analytics" link
+        const seeAnalyticsLink = modal.querySelector('.see-analytics-link');
         if (seeAnalyticsLink) {
             seeAnalyticsLink.textContent = lang.seeAnalytics;
         }
     }
     
-    const floatingButton = document.getElementById(uniquePrefix + 'cookieFloatingButton');
+    // Update floating button title
+    const floatingButton = document.getElementById('cookieFloatingButton');
     if (floatingButton) {
         floatingButton.title = lang.title;
     }
     
-    const dashboardModal = document.getElementById(uniquePrefix + 'cookieAnalyticsModal');
+    // Update analytics dashboard if visible
+    const dashboardModal = document.getElementById('cookieAnalyticsModal');
     if (dashboardModal && dashboardModal.style.display === 'flex') {
         if (config.analytics.passwordProtect && !isDashboardAuthenticated) {
-            dashboardModal.querySelector('.' + uniquePrefix + 'cookie-analytics-body').innerHTML = generatePasswordPrompt(languageCode);
+            dashboardModal.querySelector('.cookie-analytics-body').innerHTML = generatePasswordPrompt(languageCode);
             setupPasswordPromptEvents();
         } else {
-            dashboardModal.querySelector('.' + uniquePrefix + 'cookie-analytics-body').innerHTML = generateAnalyticsDashboard(languageCode);
+            dashboardModal.querySelector('.cookie-analytics-body').innerHTML = generateAnalyticsDashboard(languageCode);
         }
     }
 
-    const dashboardTitle = document.querySelector('.' + uniquePrefix + 'cookie-analytics-header h2');
+    // Update analytics dashboard title if visible
+    const dashboardTitle = document.querySelector('.cookie-analytics-header h2');
     if (dashboardTitle) {
         dashboardTitle.textContent = lang.dashboardTitle;
     }
 
-    const passwordPrompt = document.querySelector('.' + uniquePrefix + 'password-prompt h3');
-    const passwordSubmit = document.getElementById(uniquePrefix + 'dashboardPasswordSubmit');
-    const passwordError = document.getElementById(uniquePrefix + 'passwordError');
+    // Update password prompt if visible
+    const passwordPrompt = document.querySelector('.password-prompt h3');
+    const passwordSubmit = document.getElementById('dashboardPasswordSubmit');
+    const passwordError = document.getElementById('passwordError');
     if (passwordPrompt) passwordPrompt.textContent = lang.passwordPrompt;
     if (passwordSubmit) passwordSubmit.textContent = lang.passwordSubmit;
     if (passwordError && passwordError.textContent) {
         passwordError.textContent = translations[languageCode].passwordIncorrect;
     }
     
+    // Store selected language in cookie
     if (config.behavior.rememberLanguage) {
         setCookie('preferred_language', languageCode, 365);
     }
 }
 
-// Enhanced cookie scanning function
+// Enhanced cookie scanning function with better matching
 function scanAndCategorizeCookies() {
     const cookies = document.cookie.split(';');
     const result = {
@@ -981,18 +1037,18 @@ function scanAndCategorizeCookies() {
     };
 
     cookies.forEach(cookie => {
-        const [nameValue] = cookie.trim().split('=');
-        const name = nameValue.trim();
+        const [name, value] = cookie.trim().split('=');
         if (!name) return;
         
         let categorized = false;
         
+        // Check against known cookie patterns
         for (const pattern in cookieDatabase) {
             if (name.startsWith(pattern) || name === pattern) {
                 const cookieInfo = cookieDatabase[pattern];
                 result[cookieInfo.category].push({
                     name: name,
-                    value: nameValue.substring(name.length + 1) || '',
+                    value: value || '',
                     duration: cookieInfo.duration || getCookieDuration(name),
                     description: cookieInfo.description || 'Unknown purpose'
                 });
@@ -1004,7 +1060,7 @@ function scanAndCategorizeCookies() {
         if (!categorized && name !== 'cookie_consent') {
             result.uncategorized.push({
                 name: name,
-                value: nameValue.substring(name.length + 1) || '',
+                value: value || '',
                 duration: getCookieDuration(name),
                 description: 'Unknown cookie purpose'
             });
@@ -1032,7 +1088,7 @@ function getCookieDuration(name) {
 // Generate cookie table with mobile-friendly display
 function generateCookieTable(cookies) {
     return `
-    <table class="${uniquePrefix}cookie-details-table">
+    <table class="cookie-details-table">
         <thead>
             <tr>
                 <th>Cookie Name</th>
@@ -1045,10 +1101,10 @@ function generateCookieTable(cookies) {
             ${cookies.map(cookie => `
             <tr>
                 <td><code>${cookie.name}</code></td>
-                <td class="${uniquePrefix}cookie-value-cell">
-                    <span class="${uniquePrefix}cookie-value-full" style="display:none;">${cookie.value}</span>
-                    <span class="${uniquePrefix}cookie-value-truncated">${cookie.value.substring(0, 20)}${cookie.value.length > 20 ? '...' : ''}</span>
-                    ${cookie.value.length > 20 ? `<button class="${uniquePrefix}toggle-cookie-value" data-state="truncated">Show full</button>` : ''}
+                <td class="cookie-value-cell">
+                    <span class="cookie-value-full" style="display:none;">${cookie.value}</span>
+                    <span class="cookie-value-truncated">${cookie.value.substring(0, 20)}${cookie.value.length > 20 ? '...' : ''}</span>
+                    ${cookie.value.length > 20 ? '<button class="toggle-cookie-value" data-state="truncated">Show full</button>' : ''}
                 </td>
                 <td>${cookie.duration}</td>
                 <td>${cookie.description}</td>
@@ -1057,7 +1113,7 @@ function generateCookieTable(cookies) {
     </table>`;
 }
 
-// Inject all HTML elements into the page with shadow DOM for isolation
+// Inject all HTML elements into the page
 function injectConsentHTML(detectedCookies, language = 'en') {
     const lang = translations[language] || translations.en;
     const availableLanguages = getAvailableLanguages();
@@ -1069,24 +1125,24 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         const isEssential = category === 'functional';
         
         return `
-        <div class="${uniquePrefix}cookie-category">
-            <div class="${uniquePrefix}toggle-container">
+        <div class="cookie-category">
+            <div class="toggle-container">
                 <h3>${lang[categoryKey]}</h3>
-                <label class="${uniquePrefix}toggle-switch" data-ms-consent="ad_storage">
+                <label class="toggle-switch" data-ms-consent="ad_storage">
                     <input type="checkbox" data-category="${category}" ${isEssential ? 'checked disabled' : ''}>
-                    <span class="${uniquePrefix}toggle-slider"></span>
+                    <span class="toggle-slider"></span>
                 </label>
             </div>
             <p>${lang[`${categoryKey}Desc`]}</p>
-            <div class="${uniquePrefix}cookie-details-container">
-                <div class="${uniquePrefix}cookie-details-header">
+            <div class="cookie-details-container">
+                <div class="cookie-details-header">
                     <span>Cookie Details</span>
-                    <span class="${uniquePrefix}toggle-details">+</span>
+                    <span class="toggle-details">+</span>
                 </div>
-                <div class="${uniquePrefix}cookie-details-content" style="display: none;">
+                <div class="cookie-details-content" style="display: none;">
                     ${cookies.length > 0 ? 
                         generateCookieTable(cookies) : 
-                        `<p class="${uniquePrefix}no-cookies-message">No cookies in this category detected.</p>`}
+                        `<p class="no-cookies-message">No cookies in this category detected.</p>`}
                 </div>
             </div>
         </div>`;
@@ -1094,8 +1150,8 @@ function injectConsentHTML(detectedCookies, language = 'en') {
     
     // Generate language selector dropdown if enabled
     const languageSelector = config.languageConfig.showLanguageSelector ? `
-    <div class="${uniquePrefix}language-selector">
-        <select id="${uniquePrefix}cookieLanguageSelect">
+    <div class="language-selector">
+        <select id="cookieLanguageSelect">
             ${availableLanguages.map(code => `
                 <option value="${code}" ${code === language ? 'selected' : ''}>${translations[code].language}</option>
             `).join('')}
@@ -1104,7 +1160,7 @@ function injectConsentHTML(detectedCookies, language = 'en') {
     
     // Generate admin dashboard button if analytics enabled
     const adminButton = config.analytics.enabled && config.analytics.showDashboard && config.behavior.showAdminButton ? `
-    <div id="${uniquePrefix}cookieAdminButton" class="${uniquePrefix}cookie-admin-button" title="${lang.dashboardTitle}">
+    <div id="cookieAdminButton" class="cookie-admin-button" title="${lang.dashboardTitle}">
         <svg viewBox="0 0 24 24" width="28" height="28" xmlns="http://www.w3.org/2000/svg" fill="currentColor" stroke="none">
             <title>Admin Dashboard</title>
             <path d="M4.75,20.75A.25.25,0,0,0,5,20.5v-2a1,1,0,0,0-1-1H2a1,1,0,0,0-1,1v2a.25.25,0,0,0,.25.25Z"/>
@@ -1118,52 +1174,52 @@ function injectConsentHTML(detectedCookies, language = 'en') {
     
     const html = `
     <!-- Main Consent Banner -->
-    <div id="${uniquePrefix}cookieConsentBanner" class="${uniquePrefix}cookie-consent-banner">
-        <div class="${uniquePrefix}cookie-consent-container">
+    <div id="cookieConsentBanner" class="cookie-consent-banner">
+        <div class="cookie-consent-container">
             ${languageSelector}
-            <div class="${uniquePrefix}cookie-consent-content">
+            <div class="cookie-consent-content">
                 <h2>${lang.title}</h2>
                 <p>${lang.description}</p>
-                <a href="${config.privacyPolicyUrl}" class="${uniquePrefix}privacy-policy-link">${lang.privacy}</a>
+                <a href="${config.privacyPolicyUrl}" class="privacy-policy-link">${lang.privacy}</a>
             </div>
-            <div class="${uniquePrefix}cookie-consent-buttons">
-                <button id="${uniquePrefix}acceptAllBtn" class="${uniquePrefix}cookie-btn ${uniquePrefix}accept-btn">${lang.accept}</button>
-                <button id="${uniquePrefix}adjustConsentBtn" class="${uniquePrefix}cookie-btn ${uniquePrefix}adjust-btn">${lang.customize}</button>
-                <button id="${uniquePrefix}rejectAllBtn" class="${uniquePrefix}cookie-btn ${uniquePrefix}reject-btn">${lang.reject}</button>
+            <div class="cookie-consent-buttons">
+                <button id="acceptAllBtn" class="cookie-btn accept-btn">${lang.accept}</button>
+                <button id="adjustConsentBtn" class="cookie-btn adjust-btn">${lang.customize}</button>
+                <button id="rejectAllBtn" class="cookie-btn reject-btn">${lang.reject}</button>
             </div>
         </div>
     </div>
 
     <!-- Settings Modal -->
-    <div id="${uniquePrefix}cookieSettingsModal" class="${uniquePrefix}cookie-settings-modal">
-        <div class="${uniquePrefix}cookie-settings-content">
-            <div class="${uniquePrefix}cookie-settings-header">
+    <div id="cookieSettingsModal" class="cookie-settings-modal">
+        <div class="cookie-settings-content">
+            <div class="cookie-settings-header">
                 <h2>${lang.title}</h2>
-                <span class="${uniquePrefix}close-modal">&times;</span>
+                <span class="close-modal">&times;</span>
             </div>
-            <div class="${uniquePrefix}cookie-settings-body">
+            <div class="cookie-settings-body">
                 ${generateCategorySection('functional')}
                 ${generateCategorySection('analytics')}
                 ${generateCategorySection('performance')}
                 ${generateCategorySection('advertising')}
                 ${detectedCookies.uncategorized.length > 0 ? generateCategorySection('uncategorized') : ''}
             </div>
-            <div class="${uniquePrefix}cookie-settings-footer">
+            <div class="cookie-settings-footer">
                 ${config.analytics.enabled ? `
-                <div class="${uniquePrefix}see-analytics-container">
-                    <a href="#" class="${uniquePrefix}see-analytics-link">${lang.seeAnalytics}</a>
+                <div class="see-analytics-container">
+                    <a href="#" class="see-analytics-link">${lang.seeAnalytics}</a>
                 </div>` : ''}
-                <div class="${uniquePrefix}modal-buttons-container">
-                    <button id="${uniquePrefix}acceptAllSettingsBtn" class="${uniquePrefix}cookie-btn ${uniquePrefix}accept-btn">${lang.accept}</button>
-                    <button id="${uniquePrefix}saveSettingsBtn" class="${uniquePrefix}cookie-btn ${uniquePrefix}save-btn">${lang.save}</button>
-                    <button id="${uniquePrefix}rejectAllSettingsBtn" class="${uniquePrefix}cookie-btn ${uniquePrefix}reject-btn">${lang.reject}</button>
+                <div class="modal-buttons-container">
+                    <button id="acceptAllSettingsBtn" class="cookie-btn accept-btn">${lang.accept}</button>
+                    <button id="saveSettingsBtn" class="cookie-btn save-btn">${lang.save}</button>
+                    <button id="rejectAllSettingsBtn" class="cookie-btn reject-btn">${lang.reject}</button>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Floating Settings Button -->
-    <div id="${uniquePrefix}cookieFloatingButton" class="${uniquePrefix}cookie-settings-button" title="${lang.title}">
+   <!-- Floating Settings Button -->
+    <div id="cookieFloatingButton" class="cookie-settings-button" title="${lang.title}">
         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="none">
             <path d="M6 8H8.01V10H6V8Z" fill="currentColor"/>
             <path d="M11 11H13.01V13H11V11Z" fill="currentColor"/>
@@ -1176,84 +1232,67 @@ function injectConsentHTML(detectedCookies, language = 'en') {
     ${adminButton}
     
     <!-- Analytics Dashboard -->
-    <div id="${uniquePrefix}cookieAnalyticsModal" class="${uniquePrefix}cookie-analytics-modal">
-        <div class="${uniquePrefix}cookie-analytics-content">
-            <div class="${uniquePrefix}cookie-analytics-header">
+    <div id="cookieAnalyticsModal" class="cookie-analytics-modal">
+        <div class="cookie-analytics-content">
+            <div class="cookie-analytics-header">
                 <h2>${lang.dashboardTitle}</h2>
-                <span class="${uniquePrefix}close-analytics-modal">&times;</span>
+                <span class="close-analytics-modal">&times;</span>
             </div>
-            <div class="${uniquePrefix}cookie-analytics-body">
+            <div class="cookie-analytics-body">
                 ${config.analytics.passwordProtect && !isDashboardAuthenticated ? 
                     generatePasswordPrompt(language) : 
                     generateAnalyticsDashboard(language)}
             </div>
         </div>
-    </div>`;
+    </div>
     
-    // Create a style element with all our CSS
-    const style = document.createElement('style');
-    style.textContent = `
-    /* Reset styles to prevent interference */
-    .${uniquePrefix}cookie-consent-banner *,
-    .${uniquePrefix}cookie-consent-banner *::before,
-    .${uniquePrefix}cookie-consent-banner *::after {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-        line-height: 1.5;
-    }
-    
+    <style>
     /* Main Banner Styles */
-    .${uniquePrefix}cookie-consent-banner {
+    #cookieConsentBanner.cookie-consent-banner {
         position: fixed !important;
         bottom: 20px !important;
         ${config.behavior.bannerPosition === 'left' ? 'left: 20px !important;' : 'right: 20px !important;'}
-        width: ${config.bannerStyle.width};
-        background: ${config.bannerStyle.background};
-        border-radius: ${config.bannerStyle.borderRadius};
-        box-shadow: ${config.bannerStyle.boxShadow};
+        width: ${config.bannerStyle.width} !important;
+        background: ${config.bannerStyle.background} !important;
+        border-radius: ${config.bannerStyle.borderRadius} !important;
+        box-shadow: ${config.bannerStyle.boxShadow} !important;
         z-index: 9999 !important;
-        padding: ${config.bannerStyle.padding};
+        padding: ${config.bannerStyle.padding} !important;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
         display: none !important;
         transform: translateY(20px) !important;
         opacity: 0 !important;
         transition: all ${config.behavior.bannerAnimation.duration}s ${config.behavior.bannerAnimation.easing} !important;
         ${config.bannerStyle.border.enabled ? 
-            `border: ${config.bannerStyle.border.width} ${config.bannerStyle.border.style} ${config.bannerStyle.border.color};` : 
+            `border: ${config.bannerStyle.border.width} ${config.bannerStyle.border.style} ${config.bannerStyle.border.color} !important;` : 
             'border: none !important;'}
         overflow: hidden !important;
     }
 
-    .${uniquePrefix}cookie-consent-banner.${uniquePrefix}show {
+    #cookieConsentBanner.cookie-consent-banner.show {
         transform: translateY(0) !important;
         opacity: 1 !important;
         display: block !important;
     }
 
-    .${uniquePrefix}cookie-consent-container {
-        display: flex !important;
-        flex-direction: column !important;
-    }
-
-    .${uniquePrefix}cookie-consent-content h2 {
+    #cookieConsentBanner .cookie-consent-content h2 {
         margin: 0 0 16px 0 !important;
-        font-size: ${config.bannerStyle.title.fontSize};
-        color: ${config.bannerStyle.title.color};
-        font-weight: ${config.bannerStyle.title.fontWeight};
+        font-size: ${config.bannerStyle.title.fontSize} !important;
+        color: ${config.bannerStyle.title.color} !important;
+        font-weight: ${config.bannerStyle.title.fontWeight} !important;
         line-height: 1.4 !important;
         letter-spacing: -0.2px !important;
     }
 
-    .${uniquePrefix}cookie-consent-content p {
+    #cookieConsentBanner .cookie-consent-content p {
         margin: 0 0 10px 0 !important;
-        font-size: ${config.bannerStyle.description.fontSize};
-        color: ${config.bannerStyle.description.color};
-        line-height: ${config.bannerStyle.description.lineHeight};
+        font-size: ${config.bannerStyle.description.fontSize} !important;
+        color: ${config.bannerStyle.description.color} !important;
+        line-height: ${config.bannerStyle.description.lineHeight} !important;
     }
 
-    .${uniquePrefix}privacy-policy-link {
-        color: ${config.bannerStyle.linkColor};
+    #cookieConsentBanner .privacy-policy-link {
+        color: ${config.bannerStyle.linkColor} !important;
         text-decoration: none !important;
         font-size: 13px !important;
         font-weight: 500 !important;
@@ -1262,102 +1301,102 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         transition: color 0.2s ease !important;
     }
 
-    .${uniquePrefix}privacy-policy-link:hover {
-        color: ${config.bannerStyle.linkHoverColor};
+    #cookieConsentBanner .privacy-policy-link:hover {
+        color: ${config.bannerStyle.linkHoverColor} !important;
     }
 
-    .${uniquePrefix}cookie-consent-buttons {
+    #cookieConsentBanner .cookie-consent-buttons {
         display: flex !important;
         flex-direction: column !important;
         gap: 12px !important;
         margin-top: 8px !important;
     }
 
-    .${uniquePrefix}cookie-btn {
-        padding: ${config.buttonStyle.padding};
-        border-radius: ${config.buttonStyle.borderRadius};
+    #cookieConsentBanner .cookie-btn {
+        padding: ${config.buttonStyle.padding} !important;
+        border-radius: ${config.buttonStyle.borderRadius} !important;
         cursor: pointer !important;
-        font-weight: ${config.buttonStyle.fontWeight};
-        font-size: ${config.buttonStyle.fontSize};
-        transition: ${config.buttonStyle.transition};
+        font-weight: ${config.buttonStyle.fontWeight} !important;
+        font-size: ${config.buttonStyle.fontSize} !important;
+        transition: ${config.buttonStyle.transition} !important;
         text-align: center !important;
         border: none !important;
         flex: 1 !important;
         letter-spacing: 0.2px !important;
     }
 
-    .${uniquePrefix}adjust-btn {
-        background-color: ${config.buttonStyle.adjust.background};
-        color: ${config.buttonStyle.adjust.color};
-        border: ${config.buttonStyle.adjust.border};
+    #cookieConsentBanner .adjust-btn {
+        background-color: ${config.buttonStyle.adjust.background} !important;
+        color: ${config.buttonStyle.adjust.color} !important;
+        border: ${config.buttonStyle.adjust.border} !important;
     }
 
-    .${uniquePrefix}adjust-btn:hover {
-        background-color: ${config.buttonStyle.adjust.hover.background};
-        color: ${config.buttonStyle.adjust.hover.color};
-        transform: ${config.buttonStyle.adjust.hover.transform};
+    #cookieConsentBanner .adjust-btn:hover {
+        background-color: ${config.buttonStyle.adjust.hover.background} !important;
+        color: ${config.buttonStyle.adjust.hover.color} !important;
+        transform: ${config.buttonStyle.adjust.hover.transform} !important;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
     }
 
-    .${uniquePrefix}reject-btn {
-        background-color: ${config.buttonStyle.reject.background};
-        color: ${config.buttonStyle.reject.color};
-        border: ${config.buttonStyle.reject.border};
+    #cookieConsentBanner .reject-btn {
+        background-color: ${config.buttonStyle.reject.background} !important;
+        color: ${config.buttonStyle.reject.color} !important;
+        border: ${config.buttonStyle.reject.border} !important;
     }
 
-    .${uniquePrefix}reject-btn:hover {
-        background-color: ${config.buttonStyle.reject.hover.background};
-        color: ${config.buttonStyle.reject.hover.color};
-        transform: ${config.buttonStyle.reject.hover.transform};
+    #cookieConsentBanner .reject-btn:hover {
+        background-color: ${config.buttonStyle.reject.hover.background} !important;
+        color: ${config.buttonStyle.reject.hover.color} !important;
+        transform: ${config.buttonStyle.reject.hover.transform} !important;
         box-shadow: 0 2px 8px rgba(231, 76, 60, 0.15) !important;
     }
 
-    .${uniquePrefix}accept-btn {
-        background-color: ${config.buttonStyle.accept.background};
-        color: ${config.buttonStyle.accept.color};
-        border: ${config.buttonStyle.accept.border};
+    #cookieConsentBanner .accept-btn {
+        background-color: ${config.buttonStyle.accept.background} !important;
+        color: ${config.buttonStyle.accept.color} !important;
+        border: ${config.buttonStyle.accept.border} !important;
         box-shadow: 0 2px 12px rgba(46, 204, 113, 0.3) !important;
     }
 
-    .${uniquePrefix}accept-btn:hover {
-        background-color: ${config.buttonStyle.accept.hover.background};
-        color: ${config.buttonStyle.accept.hover.color};
-        transform: ${config.buttonStyle.accept.hover.transform};
+    #cookieConsentBanner .accept-btn:hover {
+        background-color: ${config.buttonStyle.accept.hover.background} !important;
+        color: ${config.buttonStyle.accept.hover.color} !important;
+        transform: ${config.buttonStyle.accept.hover.transform} !important;
         box-shadow: 0 4px 16px rgba(46, 204, 113, 0.4) !important;
     }
 
-    .${uniquePrefix}save-btn {
-        background-color: ${config.buttonStyle.save.background};
-        color: ${config.buttonStyle.save.color};
-        border: ${config.buttonStyle.save.border};
+    #cookieConsentBanner .save-btn {
+        background-color: ${config.buttonStyle.save.background} !important;
+        color: ${config.buttonStyle.save.color} !important;
+        border: ${config.buttonStyle.save.border} !important;
     }
 
-    .${uniquePrefix}save-btn:hover {
-        background-color: ${config.buttonStyle.save.hover.background};
-        color: ${config.buttonStyle.save.hover.color};
-        transform: ${config.buttonStyle.save.hover.transform};
+    #cookieConsentBanner .save-btn:hover {
+        background-color: ${config.buttonStyle.save.hover.background} !important;
+        color: ${config.buttonStyle.save.hover.color} !important;
+        transform: ${config.buttonStyle.save.hover.transform} !important;
         box-shadow: 0 5px 10px rgba(0,0,0,0.15) !important;
     }
 
     /* Modal Footer Buttons */
-    .${uniquePrefix}modal-buttons-container {
+    #cookieSettingsModal .modal-buttons-container {
         display: flex !important;
         gap: 12px !important;
         margin-top: 15px !important;
     }
 
-    .${uniquePrefix}modal-buttons-container .${uniquePrefix}cookie-btn {
+    #cookieSettingsModal .modal-buttons-container .cookie-btn {
         flex: 1 !important;
     }
 
     /* Language Selector Styles */
-    .${uniquePrefix}language-selector {
+    #cookieConsentBanner .language-selector {
         position: absolute !important;
         top: 15px !important;
         right: 15px !important;
     }
 
-    .${uniquePrefix}language-selector select {
+    #cookieConsentBanner .language-selector select {
         padding: 6px 10px !important;
         border-radius: 6px !important;
         border: 1px solid #e0e0e0 !important;
@@ -1368,19 +1407,19 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         transition: all 0.2s ease !important;
     }
 
-    .${uniquePrefix}language-selector select:hover {
+    #cookieConsentBanner .language-selector select:hover {
         border-color: ${config.bannerStyle.linkColor} !important;
         background-color: #fff !important;
     }
 
-    .${uniquePrefix}language-selector select:focus {
+    #cookieConsentBanner .language-selector select:focus {
         outline: none !important;
         border-color: ${config.bannerStyle.linkColor} !important;
         box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2) !important;
     }
 
     /* Settings Modal */
-    .${uniquePrefix}cookie-settings-modal {
+    #cookieSettingsModal.cookie-settings-modal {
         display: none !important;
         position: fixed !important;
         top: 0 !important;
@@ -1395,19 +1434,19 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         transition: opacity ${config.behavior.modalAnimation.duration}s ${config.behavior.modalAnimation.easing} !important;
     }
 
-    .${uniquePrefix}cookie-settings-modal.${uniquePrefix}show {
+    #cookieSettingsModal.cookie-settings-modal.show {
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
         opacity: 1 !important;
     }
 
-    .${uniquePrefix}cookie-settings-content {
-        background-color: ${config.modalStyle.background};
+    #cookieSettingsModal .cookie-settings-content {
+        background-color: ${config.modalStyle.background} !important;
         margin: 0 auto !important;
-        width: ${config.modalStyle.width};
-        max-height: ${config.modalStyle.maxHeight};
-        border-radius: ${config.modalStyle.borderRadius};
+        width: ${config.modalStyle.width} !important;
+        max-height: ${config.modalStyle.maxHeight} !important;
+        border-radius: ${config.modalStyle.borderRadius} !important;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
         overflow: hidden !important;
         transform: translateY(20px) !important;
@@ -1416,114 +1455,114 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         flex-direction: column !important;
     }
 
-    .${uniquePrefix}cookie-settings-modal.${uniquePrefix}show .${uniquePrefix}cookie-settings-content {
+    #cookieSettingsModal.cookie-settings-modal.show .cookie-settings-content {
         transform: translateY(0) !important;
     }
 
-    .${uniquePrefix}cookie-settings-header {
+    #cookieSettingsModal .cookie-settings-header {
         padding: 20px 30px !important;
         border-bottom: 1px solid #ecf0f1 !important;
         display: flex !important;
         justify-content: space-between !important;
         align-items: center !important;
-        background-color: ${config.modalStyle.header.background};
+        background-color: ${config.modalStyle.header.background} !important;
     }
 
-    .${uniquePrefix}cookie-settings-header h2 {
+    #cookieSettingsModal .cookie-settings-header h2 {
         margin: 0 !important;
-        color: ${config.modalStyle.header.textColor};
-        font-size: ${config.modalStyle.header.fontSize};
-        font-weight: ${config.modalStyle.header.fontWeight};
+        color: ${config.modalStyle.header.textColor} !important;
+        font-size: ${config.modalStyle.header.fontSize} !important;
+        font-weight: ${config.modalStyle.header.fontWeight} !important;
     }
 
-    .${uniquePrefix}close-modal {
+    #cookieSettingsModal .close-modal {
         font-size: 28px !important;
         font-weight: bold !important;
         cursor: pointer !important;
-        color: ${config.modalStyle.closeButton.color};
+        color: ${config.modalStyle.closeButton.color} !important;
         background: none !important;
         border: none !important;
         padding: 0 10px !important;
         transition: color 0.2s ease !important;
     }
 
-    .${uniquePrefix}close-modal:hover {
-        color: ${config.modalStyle.closeButton.hoverColor};
+    #cookieSettingsModal .close-modal:hover {
+        color: ${config.modalStyle.closeButton.hoverColor} !important;
     }
 
-    .${uniquePrefix}cookie-settings-body {
+    #cookieSettingsModal .cookie-settings-body {
         padding: 25px 30px !important;
-        background-color: ${config.modalStyle.body.background};
+        background-color: ${config.modalStyle.body.background} !important;
         overflow-y: auto !important;
         flex: 1 !important;
     }
 
-    .${uniquePrefix}cookie-category {
+    #cookieSettingsModal .cookie-category {
         margin-bottom: 25px !important;
         padding-bottom: 20px !important;
         border-bottom: 1px solid #ecf0f1 !important;
         transition: all 0.3s ease !important;
     }
 
-    .${uniquePrefix}cookie-category:hover {
-        background-color: ${config.categoryStyle.background};
-        border-radius: ${config.categoryStyle.borderRadius};
+    #cookieSettingsModal .cookie-category:hover {
+        background-color: ${config.categoryStyle.background} !important;
+        border-radius: ${config.categoryStyle.borderRadius} !important;
         padding: 20px !important;
         margin-bottom: 20px !important;
-        border: ${config.categoryStyle.border};
+        border: ${config.categoryStyle.border} !important;
     }
 
-    .${uniquePrefix}cookie-category:last-child {
+    #cookieSettingsModal .cookie-category:last-child {
         border-bottom: none !important;
         margin-bottom: 0 !important;
         padding-bottom: 0 !important;
     }
 
     /* Toggle Switch Styles */
-    .${uniquePrefix}toggle-container {
+    #cookieSettingsModal .toggle-container {
         display: flex !important;
         align-items: center !important;
         justify-content: space-between !important;
         margin-bottom: 12px !important;
     }
 
-    .${uniquePrefix}toggle-container h3 {
+    #cookieSettingsModal .toggle-container h3 {
         margin: 0 !important;
-        font-size: ${config.categoryStyle.title.fontSize};
-        color: ${config.categoryStyle.title.color};
-        font-weight: ${config.categoryStyle.title.fontWeight};
+        font-size: ${config.categoryStyle.title.fontSize} !important;
+        color: ${config.categoryStyle.title.color} !important;
+        font-weight: ${config.categoryStyle.title.fontWeight} !important;
     }
 
-    .${uniquePrefix}toggle-switch {
+    #cookieSettingsModal .toggle-switch {
         position: relative !important;
         display: inline-block !important;
-        width: ${config.toggleStyle.size};
-        height: ${config.toggleStyle.height};
+        width: ${config.toggleStyle.size} !important;
+        height: ${config.toggleStyle.height} !important;
     }
 
-    .${uniquePrefix}toggle-switch input {
+    #cookieSettingsModal .toggle-switch input {
         opacity: 0 !important;
         width: 0 !important;
         height: 0 !important;
     }
 
-    .${uniquePrefix}toggle-slider {
+    #cookieSettingsModal .toggle-slider {
         position: absolute !important;
         cursor: pointer !important;
         top: 0 !important;
         left: 0 !important;
         right: 0 !important;
         bottom: 0 !important;
-        background-color: ${config.toggleStyle.inactiveColor};
+        background-color: ${config.toggleStyle.inactiveColor} !important;
         transition: .4s !important;
         border-radius: 34px !important;
     }
 
-    .${uniquePrefix}toggle-slider:before {
+    #cookieSettingsModal .toggle-slider:before {
         position: absolute !important;
         content: "" !important;
-        height: ${config.toggleStyle.sliderSize};
-        width: ${config.toggleStyle.sliderSize};
+        height: ${config.toggleStyle.sliderSize} !important;
+        width: ${config.toggleStyle.sliderSize} !important;
         left: 3px !important;
         bottom: 3px !important;
         background-color: white !important;
@@ -1532,21 +1571,21 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         box-shadow: 0 2px 5px rgba(0,0,0,0.2) !important;
     }
 
-    input:checked + .${uniquePrefix}toggle-slider {
-        background-color: ${config.toggleStyle.activeColor};
+    #cookieSettingsModal input:checked + .toggle-slider {
+        background-color: ${config.toggleStyle.activeColor} !important;
     }
 
-    input:checked + .${uniquePrefix}toggle-slider:before {
+    #cookieSettingsModal input:checked + .toggle-slider:before {
         transform: translateX(24px) !important;
     }
 
-    input:disabled + .${uniquePrefix}toggle-slider {
+    #cookieSettingsModal input:disabled + .toggle-slider {
         background-color: #95a5a6 !important;
         cursor: not-allowed !important;
     }
 
     /* Cookie Details */
-    .${uniquePrefix}cookie-details-container {
+    #cookieSettingsModal .cookie-details-container {
         margin-top: 15px !important;
         border: 1px solid #e0e0e0 !important;
         border-radius: 8px !important;
@@ -1554,12 +1593,12 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         transition: all 0.3s ease !important;
     }
 
-    .${uniquePrefix}cookie-details-container:hover {
+    #cookieSettingsModal .cookie-details-container:hover {
         box-shadow: 0 3px 12px rgba(0,0,0,0.1) !important;
         border-color: ${config.buttonStyle.accept.background} !important;
     }
 
-    .${uniquePrefix}cookie-details-header {
+    #cookieSettingsModal .cookie-details-header {
         background-color: #f5f5f5 !important;
         padding: 12px 18px !important;
         font-weight: 600 !important;
@@ -1570,68 +1609,68 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         transition: all 0.2s ease !important;
     }
 
-    .${uniquePrefix}cookie-details-header:hover {
+    #cookieSettingsModal .cookie-details-header:hover {
         background-color: #eeeeee !important;
     }
 
-    .${uniquePrefix}cookie-details-content {
+    #cookieSettingsModal .cookie-details-content {
         padding: 18px !important;
         background-color: #fafafa !important;
         border-top: 1px solid #e0e0e0 !important;
         display: none !important;
-        animation: ${uniquePrefix}fadeIn 0.3s ease !important;
+        animation: fadeIn 0.3s ease !important;
     }
 
-    @keyframes ${uniquePrefix}fadeIn {
+    @keyframes fadeIn {
         from { opacity: 0; transform: translateY(-10px); }
         to { opacity: 1; transform: translateY(0); }
     }
 
-    .${uniquePrefix}cookie-details-table {
+    #cookieSettingsModal .cookie-details-table {
         width: 100% !important;
         border-collapse: collapse !important;
         font-size: 13px !important;
     }
 
-    .${uniquePrefix}cookie-details-table th {
+    #cookieSettingsModal .cookie-details-table th {
         text-align: left !important;
         padding: 10px 12px !important;
         background-color: #f0f0f0 !important;
         font-weight: 600 !important;
         border-bottom: 2px solid #e0e0e0 !important;
-        color: ${config.bannerStyle.title.color};
+        color: ${config.bannerStyle.title.color} !important;
     }
 
-    .${uniquePrefix}cookie-details-table td {
+    #cookieSettingsModal .cookie-details-table td {
         padding: 10px 12px !important;
         border-bottom: 1px solid #e0e0e0 !important;
-        color: ${config.bannerStyle.description.color};
+        color: ${config.bannerStyle.description.color} !important;
     }
 
-    .${uniquePrefix}cookie-details-table tr:last-child td {
+    #cookieSettingsModal .cookie-details-table tr:last-child td {
         border-bottom: none !important;
     }
 
-    .${uniquePrefix}cookie-details-table tr:hover {
+    #cookieSettingsModal .cookie-details-table tr:hover {
         background-color: #f5f5f5 !important;
     }
 
-    .${uniquePrefix}cookie-details-table code {
+    #cookieSettingsModal .cookie-details-table code {
         background-color: #f0f0f0 !important;
         padding: 2px 5px !important;
         border-radius: 3px !important;
         font-family: monospace !important;
-        color: ${config.bannerStyle.title.color};
+        color: ${config.bannerStyle.title.color} !important;
     }
 
     /* See Analytics Link */
-    .${uniquePrefix}see-analytics-container {
+    #cookieSettingsModal .see-analytics-container {
         margin-bottom: 15px !important;
         text-align: center !important;
     }
 
-    .${uniquePrefix}see-analytics-link {
-        color: ${config.bannerStyle.linkColor};
+    #cookieSettingsModal .see-analytics-link {
+        color: ${config.bannerStyle.linkColor} !important;
         text-decoration: none !important;
         font-size: 13px !important;
         font-weight: 500 !important;
@@ -1639,24 +1678,24 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         transition: color 0.2s ease !important;
     }
 
-    .${uniquePrefix}see-analytics-link:hover {
-        color: ${config.bannerStyle.linkHoverColor};
+    #cookieSettingsModal .see-analytics-link:hover {
+        color: ${config.bannerStyle.linkHoverColor} !important;
         text-decoration: underline !important;
     }
 
     /* Mobile-friendly cookie value display */
-    .${uniquePrefix}cookie-value-cell {
+    #cookieSettingsModal .cookie-value-cell {
         position: relative !important;
     }
 
-    .${uniquePrefix}cookie-value-full {
+    #cookieSettingsModal .cookie-value-full {
         word-break: break-all !important;
     }
 
-    .${uniquePrefix}toggle-cookie-value {
+    #cookieSettingsModal .toggle-cookie-value {
         background: none !important;
         border: none !important;
-        color: ${config.bannerStyle.linkColor};
+        color: ${config.bannerStyle.linkColor} !important;
         text-decoration: underline !important;
         cursor: pointer !important;
         font-size: 12px !important;
@@ -1665,11 +1704,11 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         display: block !important;
     }
 
-    .${uniquePrefix}toggle-cookie-value:hover {
-        color: ${config.bannerStyle.linkHoverColor};
+    #cookieSettingsModal .toggle-cookie-value:hover {
+        color: ${config.bannerStyle.linkHoverColor} !important;
     }
 
-    .${uniquePrefix}no-cookies-message {
+    #cookieSettingsModal .no-cookies-message {
         padding: 15px !important;
         text-align: center !important;
         color: #666 !important;
@@ -1677,39 +1716,39 @@ function injectConsentHTML(detectedCookies, language = 'en') {
     }
 
     /* Floating Settings Button */
-    .${uniquePrefix}cookie-settings-button {
+    #cookieFloatingButton.cookie-settings-button {
         position: fixed !important;
         bottom: 30px !important;
         ${config.behavior.floatingButtonPosition === 'left' ? 'left: 30px !important;' : 'right: 30px !important;'}
-        width: ${config.floatingButtonStyle.size};
-        height: ${config.floatingButtonStyle.size};
-        background-color: ${config.floatingButtonStyle.background};
-        border-radius: ${config.floatingButtonStyle.borderRadius};
+        width: ${config.floatingButtonStyle.size} !important;
+        height: ${config.floatingButtonStyle.size} !important;
+        background-color: ${config.floatingButtonStyle.background} !important;
+        border-radius: ${config.floatingButtonStyle.borderRadius} !important;
         display: none !important;
         align-items: center !important;
         justify-content: center !important;
         cursor: pointer !important;
-        box-shadow: ${config.floatingButtonStyle.boxShadow};
+        box-shadow: ${config.floatingButtonStyle.boxShadow} !important;
         z-index: 9998 !important;
         transition: all 0.3s ease !important;
         opacity: 0 !important;
         transform: translateY(20px) !important;
-        border: ${config.floatingButtonStyle.border};
+        border: ${config.floatingButtonStyle.border} !important;
     }
 
-    .${uniquePrefix}cookie-settings-button.${uniquePrefix}show {
+    #cookieFloatingButton.cookie-settings-button.show {
         opacity: 1 !important;
         transform: translateY(0) !important;
     }
 
-    .${uniquePrefix}cookie-settings-button:hover {
-        background-color: ${config.floatingButtonStyle.hover.background};
-        transform: ${config.floatingButtonStyle.hover.transform};
-        box-shadow: ${config.floatingButtonStyle.hover.boxShadow};
+    #cookieFloatingButton.cookie-settings-button:hover {
+        background-color: ${config.floatingButtonStyle.hover.background} !important;
+        transform: ${config.floatingButtonStyle.hover.transform} !important;
+        box-shadow: ${config.floatingButtonStyle.hover.boxShadow} !important;
     }
 
-    #${uniquePrefix}cookieFloatingButton.${uniquePrefix}cookie-settings-button svg,
-    #${uniquePrefix}cookieFloatingButton.${uniquePrefix}cookie-settings-button svg path {
+    #cookieFloatingButton.cookie-settings-button svg,
+    #cookieFloatingButton.cookie-settings-button svg path {
         width: 40px !important;
         height: 40px !important;
         fill: ${config.floatingButtonStyle.iconColor} !important;
@@ -1717,56 +1756,56 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         transition: transform 0.3s ease !important;
         margin-top: 0px !important; 
     }
-    .${uniquePrefix}cookie-settings-button:hover svg {
+    #cookieFloatingButton.cookie-settings-button:hover svg {
         transform: rotate(15deg) !important;
     }
 
     /* Admin Button */
-    .${uniquePrefix}cookie-admin-button {
+    #cookieAdminButton.cookie-admin-button {
         position: fixed !important;
         ${config.behavior.adminButtonPosition === 'left' ? 
           'left: 30px !important; bottom: 100px !important;' : 
           'right: 30px !important; bottom: 100px !important;'}
-        width: ${config.adminButtonStyle.size};
-        height: ${config.adminButtonStyle.size};
-        background-color: ${config.adminButtonStyle.background};
-        border-radius: ${config.adminButtonStyle.borderRadius};
+        width: ${config.adminButtonStyle.size} !important;
+        height: ${config.adminButtonStyle.size} !important;
+        background-color: ${config.adminButtonStyle.background} !important;
+        border-radius: ${config.adminButtonStyle.borderRadius} !important;
         display: none !important;
         align-items: center !important;
         justify-content: center !important;
         cursor: pointer !important;
-        box-shadow: ${config.adminButtonStyle.boxShadow};
+        box-shadow: ${config.adminButtonStyle.boxShadow} !important;
         z-index: 9997 !important;
         transition: all 0.3s ease !important;
         opacity: 0 !important;
         transform: translateY(20px) !important;
-        border: ${config.adminButtonStyle.border};
+        border: ${config.adminButtonStyle.border} !important;
     }
 
-    .${uniquePrefix}cookie-admin-button.${uniquePrefix}show {
+    #cookieAdminButton.cookie-admin-button.show {
         opacity: 1 !important;
         transform: translateY(0) !important;
     }
 
-    .${uniquePrefix}cookie-admin-button:hover {
-        background-color: ${config.adminButtonStyle.hover.background};
-        transform: ${config.adminButtonStyle.hover.transform};
-        box-shadow: ${config.adminButtonStyle.hover.boxShadow};
+    #cookieAdminButton.cookie-admin-button:hover {
+        background-color: ${config.adminButtonStyle.hover.background} !important;
+        transform: ${config.adminButtonStyle.hover.transform} !important;
+        box-shadow: ${config.adminButtonStyle.hover.boxShadow} !important;
     }
 
-    .${uniquePrefix}cookie-admin-button svg {
+    #cookieAdminButton.cookie-admin-button svg {
         width: 28px !important;
         height: 28px !important;
         fill: ${config.adminButtonStyle.iconColor} !important;
         transition: transform 0.3s ease !important;
     }
 
-    .${uniquePrefix}cookie-admin-button:hover svg {
+    #cookieAdminButton.cookie-admin-button:hover svg {
         transform: rotate(15deg) !important;
     }
 
     /* Analytics Dashboard */
-    .${uniquePrefix}cookie-analytics-modal {
+    #cookieAnalyticsModal.cookie-analytics-modal {
         display: none !important;
         position: fixed !important;
         top: 0 !important;
@@ -1781,19 +1820,19 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         transition: opacity ${config.behavior.dashboardAnimation.duration}s ${config.behavior.dashboardAnimation.easing} !important;
     }
 
-    .${uniquePrefix}cookie-analytics-modal.${uniquePrefix}show {
+    #cookieAnalyticsModal.cookie-analytics-modal.show {
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
         opacity: 1 !important;
     }
 
-    .${uniquePrefix}cookie-analytics-content {
-        background-color: ${config.dashboardStyle.background};
+    #cookieAnalyticsModal .cookie-analytics-content {
+        background-color: ${config.dashboardStyle.background} !important;
         margin: 0 auto !important;
-        width: ${config.dashboardStyle.width};
-        max-height: ${config.dashboardStyle.maxHeight};
-        border-radius: ${config.dashboardStyle.borderRadius};
+        width: ${config.dashboardStyle.width} !important;
+        max-height: ${config.dashboardStyle.maxHeight} !important;
+        border-radius: ${config.dashboardStyle.borderRadius} !important;
         box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2) !important;
         overflow: hidden !important;
         transform: translateY(20px) !important;
@@ -1802,199 +1841,199 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         flex-direction: column !important;
     }
 
-    .${uniquePrefix}cookie-analytics-modal.${uniquePrefix}show .${uniquePrefix}cookie-analytics-content {
+    #cookieAnalyticsModal.cookie-analytics-modal.show .cookie-analytics-content {
         transform: translateY(0) !important;
     }
 
-    .${uniquePrefix}cookie-analytics-header {
+    #cookieAnalyticsModal .cookie-analytics-header {
         padding: 20px 30px !important;
         border-bottom: 1px solid #ecf0f1 !important;
         display: flex !important;
         justify-content: space-between !important;
         align-items: center !important;
-        background-color: ${config.dashboardStyle.header.background};
+        background-color: ${config.dashboardStyle.header.background} !important;
     }
 
-    .${uniquePrefix}cookie-analytics-header h2 {
+    #cookieAnalyticsModal .cookie-analytics-header h2 {
         margin: 0 !important;
-        color: ${config.dashboardStyle.header.textColor};
-        font-size: ${config.dashboardStyle.header.fontSize};
-        font-weight: ${config.dashboardStyle.header.fontWeight};
+        color: ${config.dashboardStyle.header.textColor} !important;
+        font-size: ${config.dashboardStyle.header.fontSize} !important;
+        font-weight: ${config.dashboardStyle.header.fontWeight} !important;
     }
 
-    .${uniquePrefix}close-analytics-modal {
+    #cookieAnalyticsModal .close-analytics-modal {
         font-size: 28px !important;
         font-weight: bold !important;
         cursor: pointer !important;
-        color: ${config.modalStyle.closeButton.color};
+        color: ${config.modalStyle.closeButton.color} !important;
         background: none !important;
         border: none !important;
         padding: 0 10px !important;
         transition: color 0.2s ease !important;
     }
 
-    .${uniquePrefix}close-analytics-modal:hover {
-        color: ${config.modalStyle.closeButton.hoverColor};
+    #cookieAnalyticsModal .close-analytics-modal:hover {
+        color: ${config.modalStyle.closeButton.hoverColor} !important;
     }
 
-    .${uniquePrefix}cookie-analytics-body {
+    #cookieAnalyticsModal .cookie-analytics-body {
         padding: 25px 30px !important;
-        background-color: ${config.dashboardStyle.body.background};
+        background-color: ${config.dashboardStyle.body.background} !important;
         overflow-y: auto !important;
         flex: 1 !important;
     }
 
     /* Stats Dashboard */
-    .${uniquePrefix}analytics-dashboard {
+    #cookieAnalyticsModal .analytics-dashboard {
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
     }
 
-    .${uniquePrefix}analytics-dashboard h3 {
-        color: ${config.bannerStyle.title.color};
+    #cookieAnalyticsModal .analytics-dashboard h3 {
+        color: ${config.bannerStyle.title.color} !important;
         margin-top: 0 !important;
         margin-bottom: 20px !important;
         font-size: 1.3rem !important;
     }
 
-    .${uniquePrefix}stats-summary {
+    #cookieAnalyticsModal .stats-summary {
         display: grid !important;
         grid-template-columns: repeat(4, 1fr) !important;
         gap: 15px !important;
         margin-bottom: 30px !important;
     }
 
-    .${uniquePrefix}stat-card {
-        background-color: ${config.dashboardStyle.statCards.background};
-        border-radius: ${config.dashboardStyle.statCards.borderRadius};
+    #cookieAnalyticsModal .stat-card {
+        background-color: ${config.dashboardStyle.statCards.background} !important;
+        border-radius: ${config.dashboardStyle.statCards.borderRadius} !important;
         padding: 15px !important;
         text-align: center !important;
         transition: all 0.3s ease !important;
     }
 
-    .${uniquePrefix}stat-card:hover {
+    #cookieAnalyticsModal .stat-card:hover {
         transform: translateY(-3px) !important;
         box-shadow: 0 5px 15px rgba(0,0,0,0.1) !important;
     }
 
-    .${uniquePrefix}stat-card.${uniquePrefix}accepted {
+    #cookieAnalyticsModal .stat-card.accepted {
         border-top: 4px solid ${config.dashboardStyle.statCards.acceptedColor} !important;
     }
 
-    .${uniquePrefix}stat-card.${uniquePrefix}rejected {
+    #cookieAnalyticsModal .stat-card.rejected {
         border-top: 4px solid ${config.dashboardStyle.statCards.rejectedColor} !important;
     }
 
-    .${uniquePrefix}stat-card.${uniquePrefix}custom {
+    #cookieAnalyticsModal .stat-card.custom {
         border-top: 4px solid ${config.dashboardStyle.statCards.customColor} !important;
     }
 
-    .${uniquePrefix}stat-card.${uniquePrefix}total {
+    #cookieAnalyticsModal .stat-card.total {
         border-top: 4px solid ${config.dashboardStyle.statCards.totalColor} !important;
     }
 
-    .${uniquePrefix}stat-card h4 {
+    #cookieAnalyticsModal .stat-card h4 {
         margin: 0 0 10px 0 !important;
         font-size: 1rem !important;
-        color: ${config.bannerStyle.description.color};
+        color: ${config.bannerStyle.description.color} !important;
     }
 
-    .${uniquePrefix}stat-value {
+    #cookieAnalyticsModal .stat-value {
         font-size: 1.8rem !important;
         font-weight: 700 !important;
-        color: ${config.bannerStyle.title.color};
+        color: ${config.bannerStyle.title.color} !important;
         margin-bottom: 5px !important;
     }
 
-    .${uniquePrefix}stat-percentage {
+    #cookieAnalyticsModal .stat-percentage {
         font-size: 1rem !important;
-        color: ${config.bannerStyle.description.color};
+        color: ${config.bannerStyle.description.color} !important;
     }
 
-    .${uniquePrefix}time-based-stats {
+    #cookieAnalyticsModal .time-based-stats {
         display: grid !important;
         grid-template-columns: 1fr !important;
         gap: 30px !important;
     }
 
-    .${uniquePrefix}time-stat {
-        background-color: ${config.dashboardStyle.statCards.background};
-        border-radius: ${config.dashboardStyle.statCards.borderRadius};
+    #cookieAnalyticsModal .time-stat {
+        background-color: ${config.dashboardStyle.statCards.background} !important;
+        border-radius: ${config.dashboardStyle.statCards.borderRadius} !important;
         padding: 20px !important;
     }
 
-    .${uniquePrefix}time-stat h4 {
+    #cookieAnalyticsModal .time-stat h4 {
         margin: 0 0 15px 0 !important;
         font-size: 1.1rem !important;
-        color: ${config.bannerStyle.title.color};
+        color: ${config.bannerStyle.title.color} !important;
     }
 
-    .${uniquePrefix}stat-bars {
+    #cookieAnalyticsModal .stat-bars {
         display: grid !important;
         grid-template-columns: 1fr !important;
         gap: 10px !important;
     }
 
-    .${uniquePrefix}stat-bar-container {
+    #cookieAnalyticsModal .stat-bar-container {
         margin-bottom: 15px !important;
     }
 
-    .${uniquePrefix}stat-bar-label {
+    #cookieAnalyticsModal .stat-bar-label {
         font-size: 0.85rem !important;
-        color: ${config.bannerStyle.description.color};
+        color: ${config.bannerStyle.description.color} !important;
         margin-bottom: 5px !important;
     }
 
-    .${uniquePrefix}stat-bar {
-        height: ${config.dashboardStyle.barChart.height};
-        background-color: ${config.dashboardStyle.barChart.background};
-        border-radius: ${config.dashboardStyle.barChart.borderRadius};
+    #cookieAnalyticsModal .stat-bar {
+        height: ${config.dashboardStyle.barChart.height} !important;
+        background-color: ${config.dashboardStyle.barChart.background} !important;
+        border-radius: ${config.dashboardStyle.barChart.borderRadius} !important;
         overflow: hidden !important;
         display: flex !important;
     }
 
-    .${uniquePrefix}stat-bar-segment {
+    #cookieAnalyticsModal .stat-bar-segment {
         height: 100% !important;
     }
 
-    .${uniquePrefix}stat-bar-segment.${uniquePrefix}accepted {
-        background-color: ${config.dashboardStyle.barChart.acceptedColor};
+    #cookieAnalyticsModal .stat-bar-segment.accepted {
+        background-color: ${config.dashboardStyle.barChart.acceptedColor} !important;
     }
 
-    .${uniquePrefix}stat-bar-segment.${uniquePrefix}rejected {
-        background-color: ${config.dashboardStyle.barChart.rejectedColor};
+    #cookieAnalyticsModal .stat-bar-segment.rejected {
+        background-color: ${config.dashboardStyle.barChart.rejectedColor} !important;
     }
 
-    .${uniquePrefix}stat-bar-segment.${uniquePrefix}custom {
-        background-color: ${config.dashboardStyle.barChart.customColor};
+    #cookieAnalyticsModal .stat-bar-segment.custom {
+        background-color: ${config.dashboardStyle.barChart.customColor} !important;
     }
 
-    .${uniquePrefix}stat-bar-legend {
+    #cookieAnalyticsModal .stat-bar-legend {
         display: flex !important;
         justify-content: space-between !important;
         font-size: 0.75rem !important;
-        color: ${config.bannerStyle.description.color};
+        color: ${config.bannerStyle.description.color} !important;
         margin-top: 5px !important;
     }
 
     /* Footer Buttons */
-    .${uniquePrefix}cookie-settings-footer {
+    #cookieSettingsModal .cookie-settings-footer {
         padding: 20px 30px !important;
-        background-color: ${config.modalStyle.footer.background};
-        border-top: ${config.modalStyle.footer.borderTop};
+        background-color: ${config.modalStyle.footer.background} !important;
+        border-top: ${config.modalStyle.footer.borderTop} !important;
     }
 
     /* Password Prompt */
-    .${uniquePrefix}password-prompt {
+    #cookieAnalyticsModal .password-prompt {
         text-align: center !important;
         padding: 30px !important;
     }
 
-    .${uniquePrefix}password-prompt h3 {
-        color: ${config.bannerStyle.title.color};
+    #cookieAnalyticsModal .password-prompt h3 {
+        color: ${config.bannerStyle.title.color} !important;
         margin-bottom: 20px !important;
     }
 
-    .${uniquePrefix}password-prompt input {
+    #cookieAnalyticsModal .password-prompt input {
         padding: 12px 15px !important;
         border-radius: 6px !important;
         border: 1px solid #e0e0e0 !important;
@@ -2004,9 +2043,9 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         font-size: 14px !important;
     }
 
-    .${uniquePrefix}password-prompt button {
+    #cookieAnalyticsModal .password-prompt button {
         padding: 12px 25px !important;
-        background-color: ${config.buttonStyle.accept.background};
+        background-color: ${config.buttonStyle.accept.background} !important;
         color: white !important;
         border: none !important;
         border-radius: 6px !important;
@@ -2015,44 +2054,42 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         transition: all 0.2s ease !important;
     }
 
-    .${uniquePrefix}password-prompt button:hover {
-        background-color: ${config.buttonStyle.accept.hover.background};
+    #cookieAnalyticsModal .password-prompt button:hover {
+        background-color: ${config.buttonStyle.accept.hover.background} !important;
     }
 
-    .${uniquePrefix}error-message {
-        color: ${config.buttonStyle.reject.color};
+    #cookieAnalyticsModal .error-message {
+        color: ${config.buttonStyle.reject.color} !important;
         margin-top: 10px !important;
         font-size: 14px !important;
     }
 
     /* Responsive Styles */
     @media (max-width: 900px) {
-        .${uniquePrefix}cookie-settings-content {
+        #cookieSettingsModal .cookie-settings-content {
             width: 90% !important;
             max-height: 80vh !important;
         }
         
-        .${uniquePrefix}cookie-analytics-content {
+        #cookieAnalyticsModal .cookie-analytics-content {
             width: 90% !important;
             max-height: 80vh !important;
         }
         
-        .${uniquePrefix}stats-summary {
+        #cookieAnalyticsModal .stats-summary {
             grid-template-columns: repeat(2, 1fr) !important;
         }
     }
-
     @media (min-width: 768px) {
-        .${uniquePrefix}cookie-consent-buttons {
+        #cookieConsentBanner .cookie-consent-buttons {
             flex-direction: row !important;
         }
-        .${uniquePrefix}cookie-btn {
+        #cookieConsentBanner .cookie-btn {
             flex: 1 !important;
         }
     }
-
     @media (max-width: 768px) {
-        .${uniquePrefix}cookie-consent-banner {
+        #cookieConsentBanner.cookie-consent-banner {
             width: 90% !important;
             ${config.behavior.bannerPosition === 'left' ? 'left: 5% !important;' : 'right: 5% !important;'}
             bottom: 10px !important;
@@ -2060,94 +2097,94 @@ function injectConsentHTML(detectedCookies, language = 'en') {
             flex-direction: column !important;
         }
         
-        .${uniquePrefix}cookie-btn {
+        #cookieConsentBanner .cookie-btn {
             flex: 1 !important;
             min-width: 120px !important;
         }
         
-        .${uniquePrefix}cookie-btn:last-child {
+        #cookieConsentBanner .cookie-btn:last-child {
             margin-bottom: 0 !important;
         }
         
-        .${uniquePrefix}cookie-settings-header {
+        #cookieSettingsModal .cookie-settings-header {
             padding: 15px 20px !important;
         }
         
-        .${uniquePrefix}cookie-settings-body {
+        #cookieSettingsModal .cookie-settings-body {
             padding: 15px 20px !important;
         }
         
-        .${uniquePrefix}cookie-settings-footer {
+        #cookieSettingsModal .cookie-settings-footer {
             padding: 15px 20px !important;
         }
         
-        .${uniquePrefix}modal-buttons-container {
+        #cookieSettingsModal .modal-buttons-container {
             flex-direction: column !important;
         }
         
-        .${uniquePrefix}modal-buttons-container .${uniquePrefix}cookie-btn {
+        #cookieSettingsModal .modal-buttons-container .cookie-btn {
             width: 100% !important;
             margin-bottom: 8px !important;
         }
         
-        .${uniquePrefix}modal-buttons-container .${uniquePrefix}cookie-btn:last-child {
+        #cookieSettingsModal .modal-buttons-container .cookie-btn:last-child {
             margin-bottom: 0 !important;
         }
         
-        .${uniquePrefix}stats-summary {
+        #cookieAnalyticsModal .stats-summary {
             grid-template-columns: 1fr !important;
         }
         
         /* Mobile cookie details */
-        .${uniquePrefix}cookie-details-table {
+        #cookieSettingsModal .cookie-details-table {
             display: block !important;
             overflow-x: auto !important;
             white-space: nowrap !important;
         }
         
-        .${uniquePrefix}cookie-details-table td {
+        #cookieSettingsModal .cookie-details-table td {
             white-space: normal !important;
         }
         
-        .${uniquePrefix}cookie-value-cell {
+        #cookieSettingsModal .cookie-value-cell {
             min-width: 120px !important;
         }
     }
 
     @media (max-width: 480px) {
-        .${uniquePrefix}cookie-consent-banner {
+        #cookieConsentBanner.cookie-consent-banner {
             padding: 15px !important;
             flex-direction: column !important;
             width: calc(100% - 30px) !important;
             ${config.behavior.bannerPosition === 'left' ? 'left: 15px !important;' : 'right: 15px !important;'}
         }
         
-        .${uniquePrefix}cookie-consent-content h2 {
+        #cookieConsentBanner .cookie-consent-content h2 {
             font-size: 1.1rem !important;
         }
         
-        .${uniquePrefix}cookie-consent-content p {
+        #cookieConsentBanner .cookie-consent-content p {
             font-size: 0.85rem !important;
             margin-bottom: 15px !important;
         }
         
-        .${uniquePrefix}privacy-policy-link {
+        #cookieConsentBanner .privacy-policy-link {
             margin-bottom: 15px !important;
         }
         
-        .${uniquePrefix}cookie-btn {
+        #cookieConsentBanner .cookie-btn {
             padding: 10px !important;
             font-size: 0.85rem !important;
         }
         
-        .${uniquePrefix}cookie-settings-button {
+        #cookieFloatingButton.cookie-settings-button {
             width: 50px !important;
             height: 50px !important;
             bottom: 15px !important;
             ${config.behavior.floatingButtonPosition === 'left' ? 'left: 15px !important;' : 'right: 15px !important;'}
         }
         
-        .${uniquePrefix}cookie-admin-button {
+        #cookieAdminButton.cookie-admin-button {
             width: 50px !important;
             height: 50px !important;
             ${config.behavior.adminButtonPosition === 'left' ? 
@@ -2155,44 +2192,36 @@ function injectConsentHTML(detectedCookies, language = 'en') {
               'right: 15px !important; bottom: 80px !important;'}
         }
         
-        .${uniquePrefix}cookie-settings-button svg {
+        #cookieFloatingButton.cookie-settings-button svg {
             width: 22px !important;
             height: 22px !important;
         }
         
-        .${uniquePrefix}cookie-admin-button svg {
+        #cookieAdminButton.cookie-admin-button svg {
             width: 22px !important;
             height: 22px !important;
         }
         
-        .${uniquePrefix}cookie-settings-header h2 {
+        #cookieSettingsModal .cookie-settings-header h2 {
             font-size: 1.2rem !important;
         }
         
-        .${uniquePrefix}toggle-container h3 {
+        #cookieSettingsModal .toggle-container h3 {
             font-size: 1rem !important;
         }
         
-        .${uniquePrefix}cookie-details-table {
+        #cookieSettingsModal .cookie-details-table {
             font-size: 0.8rem !important;
         }
         
-        .${uniquePrefix}cookie-details-table th, 
-        .${uniquePrefix}cookie-details-table td {
+        #cookieSettingsModal .cookie-details-table th, 
+        #cookieSettingsModal .cookie-details-table td {
             padding: 8px 10px !important;
         }
-    }`;
+    }
+    </style>`;
     
-    // Create a container for our elements
-    const container = document.createElement('div');
-    container.id = uniquePrefix + 'cookieConsentContainer';
-    container.innerHTML = html;
-    
-    // Add the style element first
-    container.insertBefore(style, container.firstChild);
-    
-    // Add the container to the body
-    document.body.appendChild(container);
+    document.body.insertAdjacentHTML('beforeend', html);
 }
 
 // Check if banner should be shown based on schedule
@@ -2204,8 +2233,9 @@ function shouldShowBanner() {
     const now = new Date();
     const currentDate = now.toISOString().split('T')[0];
     const currentTime = now.getHours() * 100 + now.getMinutes();
-    const currentDay = now.getDay();
+    const currentDay = now.getDay(); // 0 = Sunday, 1 = Monday, etc.
 
+    // Check if we're using duration-based settings
     if (config.behavior.bannerSchedule.durationDays) {
         const firstVisit = getCookie('first_visit_date');
         if (!firstVisit) {
@@ -2223,7 +2253,7 @@ function shouldShowBanner() {
     if (config.behavior.bannerSchedule.durationMinutes) {
         const sessionStart = getCookie('session_start_time');
         if (!sessionStart) {
-            setCookie('session_start_time', now.getTime().toString(), 0.5);
+            setCookie('session_start_time', now.getTime().toString(), 0.5); // Expires in 30 minutes
             return true;
         }
         
@@ -2233,6 +2263,7 @@ function shouldShowBanner() {
         return now.getTime() <= endTime;
     }
 
+    // Check date range
     const startDate = new Date(config.behavior.bannerSchedule.startDate);
     const endDate = new Date(config.behavior.bannerSchedule.endDate);
     
@@ -2240,6 +2271,7 @@ function shouldShowBanner() {
         return false;
     }
 
+    // Check time range
     const startTime = parseInt(config.behavior.bannerSchedule.startTime.split(':')[0]) * 100 + 
                       parseInt(config.behavior.bannerSchedule.startTime.split(':')[1]);
     const endTime = parseInt(config.behavior.bannerSchedule.endTime.split(':')[0]) * 100 + 
@@ -2249,6 +2281,7 @@ function shouldShowBanner() {
         return false;
     }
 
+    // Check days of week
     if (config.behavior.bannerSchedule.daysOfWeek.length > 0 && 
         !config.behavior.bannerSchedule.daysOfWeek.includes(currentDay)) {
         return false;
@@ -2261,6 +2294,7 @@ function shouldShowBanner() {
 function initializeCookieConsent(detectedCookies, language) {
     const consentGiven = getCookie('cookie_consent');
     
+    // Check if banner should be shown based on schedule
     const bannerShouldBeShown = shouldShowBanner();
     
     if (!consentGiven && config.behavior.autoShow && bannerShouldBeShown) {
@@ -2276,22 +2310,27 @@ function initializeCookieConsent(detectedCookies, language) {
         }
     }
     
+    // Explicitly apply the default language from config
     changeLanguage(config.languageConfig.defaultLanguage);
     
-    const languageSelect = document.getElementById(uniquePrefix + 'cookieLanguageSelect');
+    // Set the dropdown to the default language
+    const languageSelect = document.getElementById('cookieLanguageSelect');
     if (languageSelect) {
         languageSelect.value = config.languageConfig.defaultLanguage;
+        // Ensure the change event listener is correctly set up
         languageSelect.addEventListener('change', function() {
             changeLanguage(this.value);
         });
     }
     
+    // Set up event listeners
     setupEventListeners();
     
-    document.querySelectorAll('.' + uniquePrefix + 'cookie-details-header').forEach(header => {
+    // Setup cookie details toggles
+    document.querySelectorAll('.cookie-details-header').forEach(header => {
         header.addEventListener('click', function() {
             const content = this.nextElementSibling;
-            const toggle = this.querySelector('.' + uniquePrefix + 'toggle-details');
+            const toggle = this.querySelector('.toggle-details');
             if (content.style.display === 'none') {
                 content.style.display = 'block';
                 toggle.textContent = '−';
@@ -2302,11 +2341,12 @@ function initializeCookieConsent(detectedCookies, language) {
         });
     });
     
+    // Setup cookie value toggles for mobile
     document.addEventListener('click', function(e) {
-        if (e.target.classList.contains(uniquePrefix + 'toggle-cookie-value')) {
-            const cell = e.target.closest('.' + uniquePrefix + 'cookie-value-cell');
-            const full = cell.querySelector('.' + uniquePrefix + 'cookie-value-full');
-            const truncated = cell.querySelector('.' + uniquePrefix + 'cookie-value-truncated');
+        if (e.target.classList.contains('toggle-cookie-value')) {
+            const cell = e.target.closest('.cookie-value-cell');
+            const full = cell.querySelector('.cookie-value-full');
+            const truncated = cell.querySelector('.cookie-value-truncated');
             
             if (e.target.dataset.state === 'truncated') {
                 full.style.display = 'inline';
@@ -2322,22 +2362,25 @@ function initializeCookieConsent(detectedCookies, language) {
         }
     });
     
+    // Setup admin button if enabled
     if (config.analytics.enabled && config.analytics.showDashboard && config.behavior.showAdminButton) {
-        const adminButton = document.getElementById(uniquePrefix + 'cookieAdminButton');
+        const adminButton = document.getElementById('cookieAdminButton');
         if (adminButton) {
             adminButton.addEventListener('click', showAnalyticsDashboard);
             setTimeout(() => {
                 adminButton.style.display = 'flex';
-                adminButton.classList.add(uniquePrefix + 'show');
+                adminButton.classList.add('show');
             }, 100);
         }
     }
     
+    // Setup password prompt events if needed
     if (config.analytics.passwordProtect && !isDashboardAuthenticated) {
         setupPasswordPromptEvents();
     }
     
-    const seeAnalyticsLink = document.querySelector('.' + uniquePrefix + 'see-analytics-link');
+    // Setup "See Consent Analytics" link in the modal footer
+    const seeAnalyticsLink = document.querySelector('.see-analytics-link');
     if (seeAnalyticsLink) {
         seeAnalyticsLink.addEventListener('click', function(e) {
             e.preventDefault();
@@ -2345,7 +2388,9 @@ function initializeCookieConsent(detectedCookies, language) {
         });
     }
     
+    // Setup timer for durationMinutes if enabled
     if (config.behavior.bannerSchedule.enabled && config.behavior.bannerSchedule.durationMinutes) {
+        // Clear any existing timer
         if (bannerTimer) {
             clearTimeout(bannerTimer);
         }
@@ -2360,19 +2405,20 @@ function initializeCookieConsent(detectedCookies, language) {
 
 // Setup password prompt events
 function setupPasswordPromptEvents() {
-    const passwordSubmit = document.getElementById(uniquePrefix + 'dashboardPasswordSubmit');
+    const passwordSubmit = document.getElementById('dashboardPasswordSubmit');
     if (passwordSubmit) {
         passwordSubmit.addEventListener('click', function() {
-            const passwordInput = document.getElementById(uniquePrefix + 'dashboardPasswordInput');
-            const errorMessage = document.getElementById(uniquePrefix + 'passwordError');
-            const lang = document.getElementById(uniquePrefix + 'cookieLanguageSelect') ? 
-                document.getElementById(uniquePrefix + 'cookieLanguageSelect').value : 'en';
+            const passwordInput = document.getElementById('dashboardPasswordInput');
+            const errorMessage = document.getElementById('passwordError');
+            const lang = document.getElementById('cookieLanguageSelect') ? 
+                document.getElementById('cookieLanguageSelect').value : 'en';
             
             if (passwordInput.value === config.analytics.dashboardPassword) {
                 isDashboardAuthenticated = true;
                 setCookie('dashboard_auth', 'true', config.analytics.passwordCookieDuration);
                 
-                document.querySelector('.' + uniquePrefix + 'cookie-analytics-body').innerHTML = generateAnalyticsDashboard(lang);
+                // Update the dashboard content
+                document.querySelector('.cookie-analytics-body').innerHTML = generateAnalyticsDashboard(lang);
             } else {
                 errorMessage.textContent = translations[lang].passwordIncorrect;
             }
@@ -2382,7 +2428,7 @@ function setupPasswordPromptEvents() {
 
 // Setup all event listeners
 function setupEventListeners() {
-    document.getElementById(uniquePrefix + 'acceptAllBtn').addEventListener('click', function() {
+    document.getElementById('acceptAllBtn').addEventListener('click', function() {
         acceptAllCookies();
         hideCookieBanner();
         if (config.behavior.showFloatingButton) {
@@ -2390,7 +2436,7 @@ function setupEventListeners() {
         }
     });
     
-    document.getElementById(uniquePrefix + 'rejectAllBtn').addEventListener('click', function() {
+    document.getElementById('rejectAllBtn').addEventListener('click', function() {
         rejectAllCookies();
         hideCookieBanner();
         if (config.behavior.showFloatingButton) {
@@ -2398,12 +2444,12 @@ function setupEventListeners() {
         }
     });
     
-    document.getElementById(uniquePrefix + 'adjustConsentBtn').addEventListener('click', function() {
+    document.getElementById('adjustConsentBtn').addEventListener('click', function() {
         showCookieSettings();
         hideCookieBanner();
     });
     
-    document.getElementById(uniquePrefix + 'acceptAllSettingsBtn').addEventListener('click', function() {
+    document.getElementById('acceptAllSettingsBtn').addEventListener('click', function() {
         acceptAllCookies();
         hideCookieSettings();
         if (config.behavior.showFloatingButton) {
@@ -2411,7 +2457,7 @@ function setupEventListeners() {
         }
     });
     
-    document.getElementById(uniquePrefix + 'rejectAllSettingsBtn').addEventListener('click', function() {
+    document.getElementById('rejectAllSettingsBtn').addEventListener('click', function() {
         rejectAllCookies();
         hideCookieSettings();
         if (config.behavior.showFloatingButton) {
@@ -2419,7 +2465,7 @@ function setupEventListeners() {
         }
     });
     
-    document.getElementById(uniquePrefix + 'saveSettingsBtn').addEventListener('click', function() {
+    document.getElementById('saveSettingsBtn').addEventListener('click', function() {
         saveCustomSettings();
         hideCookieSettings();
         if (config.behavior.showFloatingButton) {
@@ -2427,19 +2473,19 @@ function setupEventListeners() {
         }
     });
     
-    document.querySelector('.' + uniquePrefix + 'close-modal').addEventListener('click', function() {
+    document.querySelector('.close-modal').addEventListener('click', function() {
         hideCookieSettings();
         if (!getCookie('cookie_consent')) {
             showCookieBanner();
         }
     });
     
-    document.querySelector('.' + uniquePrefix + 'close-analytics-modal').addEventListener('click', function() {
+    document.querySelector('.close-analytics-modal').addEventListener('click', function() {
         hideAnalyticsDashboard();
     });
     
-    document.getElementById(uniquePrefix + 'cookieFloatingButton').addEventListener('click', function() {
-        if (!document.getElementById(uniquePrefix + 'cookieConsentBanner').classList.contains(uniquePrefix + 'show')) {
+    document.getElementById('cookieFloatingButton').addEventListener('click', function() {
+        if (!document.getElementById('cookieConsentBanner').classList.contains('show')) {
             showCookieBanner();
         } else {
             hideCookieBanner();
@@ -2449,17 +2495,17 @@ function setupEventListeners() {
 
 // Show/hide functions with animations
 function showCookieBanner() {
-    const banner = document.getElementById(uniquePrefix + 'cookieConsentBanner');
+    const banner = document.getElementById('cookieConsentBanner');
     banner.style.display = 'block';
     setTimeout(() => {
-        banner.classList.add(uniquePrefix + 'show');
+        banner.classList.add('show');
     }, 10);
     bannerShown = true;
 }
 
 function hideCookieBanner() {
-    const banner = document.getElementById(uniquePrefix + 'cookieConsentBanner');
-    banner.classList.remove(uniquePrefix + 'show');
+    const banner = document.getElementById('cookieConsentBanner');
+    banner.classList.remove('show');
     setTimeout(() => {
         banner.style.display = 'none';
     }, 400);
@@ -2467,61 +2513,61 @@ function hideCookieBanner() {
 }
 
 function showCookieSettings() {
-    const modal = document.getElementById(uniquePrefix + 'cookieSettingsModal');
+    const modal = document.getElementById('cookieSettingsModal');
     modal.style.display = 'flex';
     setTimeout(() => {
-        modal.classList.add(uniquePrefix + 'show');
+        modal.classList.add('show');
     }, 10);
     hideCookieBanner();
 }
 
 function hideCookieSettings() {
-    const modal = document.getElementById(uniquePrefix + 'cookieSettingsModal');
-    modal.classList.remove(uniquePrefix + 'show');
+    const modal = document.getElementById('cookieSettingsModal');
+    modal.classList.remove('show');
     setTimeout(() => {
         modal.style.display = 'none';
     }, 300);
 }
 
 function showAnalyticsDashboard() {
-    const lang = document.getElementById(uniquePrefix + 'cookieLanguageSelect') ? 
-        document.getElementById(uniquePrefix + 'cookieLanguageSelect').value : 'en';
+    const lang = document.getElementById('cookieLanguageSelect') ? 
+        document.getElementById('cookieLanguageSelect').value : 'en';
     
     if (config.analytics.passwordProtect && !isDashboardAuthenticated) {
-        const modal = document.getElementById(uniquePrefix + 'cookieAnalyticsModal');
+        const modal = document.getElementById('cookieAnalyticsModal');
         modal.style.display = 'flex';
         setTimeout(() => {
-            modal.classList.add(uniquePrefix + 'show');
+            modal.classList.add('show');
         }, 10);
     } else {
-        const modal = document.getElementById(uniquePrefix + 'cookieAnalyticsModal');
-        document.querySelector('.' + uniquePrefix + 'cookie-analytics-body').innerHTML = generateAnalyticsDashboard(lang);
+        const modal = document.getElementById('cookieAnalyticsModal');
+        document.querySelector('.cookie-analytics-body').innerHTML = generateAnalyticsDashboard(lang);
         modal.style.display = 'flex';
         setTimeout(() => {
-            modal.classList.add(uniquePrefix + 'show');
+            modal.classList.add('show');
         }, 10);
     }
 }
 
 function hideAnalyticsDashboard() {
-    const modal = document.getElementById(uniquePrefix + 'cookieAnalyticsModal');
-    modal.classList.remove(uniquePrefix + 'show');
+    const modal = document.getElementById('cookieAnalyticsModal');
+    modal.classList.remove('show');
     setTimeout(() => {
         modal.style.display = 'none';
     }, 300);
 }
 
 function showFloatingButton() {
-    const button = document.getElementById(uniquePrefix + 'cookieFloatingButton');
+    const button = document.getElementById('cookieFloatingButton');
     button.style.display = 'flex';
     setTimeout(() => {
-        button.classList.add(uniquePrefix + 'show');
+        button.classList.add('show');
     }, 100);
 }
 
 function hideFloatingButton() {
-    const button = document.getElementById(uniquePrefix + 'cookieFloatingButton');
-    button.classList.remove(uniquePrefix + 'show');
+    const button = document.getElementById('cookieFloatingButton');
+    button.classList.remove('show');
     setTimeout(() => {
         button.style.display = 'none';
     }, 300);
@@ -2550,23 +2596,24 @@ function acceptAllCookies() {
         updateConsentStats('accepted');
     }
     
-    window.dataLayer.push({
-        'event': 'cookie_consent_accepted',
-        'consent_mode': {
-            'ad_storage': 'granted',
-            'analytics_storage': 'granted',
-            'ad_user_data': 'granted',
-            'ad_personalization': 'granted',
-            'personalization_storage': 'granted',
-            'functionality_storage': 'granted',
-            'security_storage': 'granted'
-        },
-        'gcs': 'G111',
-        'consent_status': 'accepted',
-        'consent_categories': consentData.categories,
-        'timestamp': new Date().toISOString(),
-        'location_data': locationData
-    });
+    // Push dataLayer event for consent acceptance with location data
+window.dataLayer.push({
+    'event': 'cookie_consent_accepted',
+    'consent_mode': {
+        'ad_storage': 'granted',
+        'analytics_storage': 'granted',
+        'ad_user_data': 'granted',
+        'ad_personalization': 'granted',
+        'personalization_storage': 'granted',
+        'functionality_storage': 'granted',
+        'security_storage': 'granted'
+    },
+    'gcs': 'G111',
+    'consent_status': 'accepted',
+    'consent_categories': consentData.categories,
+    'timestamp': new Date().toISOString(),
+    'location_data': locationData
+});
 }
 
 function rejectAllCookies() {
@@ -2591,23 +2638,24 @@ function rejectAllCookies() {
         updateConsentStats('rejected');
     }
     
-    window.dataLayer.push({
-        'event': 'cookie_consent_rejected',
-        'consent_mode': {
-            'ad_storage': 'denied',
-            'analytics_storage': 'denied',
-            'ad_user_data': 'denied',
-            'ad_personalization': 'denied',
-            'personalization_storage': 'denied',
-            'functionality_storage': 'denied',
-            'security_storage': 'granted'
-        },
-        'gcs': 'G100',
-        'consent_status': 'rejected',
-        'consent_categories': consentData.categories,
-        'timestamp': new Date().toISOString(),
-        'location_data': locationData
-    });
+    // Push dataLayer event for consent rejection with location data
+ window.dataLayer.push({
+    'event': 'cookie_consent_rejected',
+    'consent_mode': {
+        'ad_storage': 'denied',
+        'analytics_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied',
+        'personalization_storage': 'denied',
+        'functionality_storage': 'denied',
+        'security_storage': 'granted'
+    },
+    'gcs': 'G100',
+    'consent_status': 'rejected',
+    'consent_categories': consentData.categories,
+    'timestamp': new Date().toISOString(),
+    'location_data': locationData
+});
 }
 
 function saveCustomSettings() {
@@ -2652,6 +2700,7 @@ function saveCustomSettings() {
         updateConsentStats('custom');
     }
     
+    // Push dataLayer event for custom consent settings with location data
     const consentStates = {
         'ad_storage': consentData.categories.advertising ? 'granted' : 'denied',
         'analytics_storage': consentData.categories.analytics ? 'granted' : 'denied',
@@ -2662,15 +2711,15 @@ function saveCustomSettings() {
         'security_storage': 'granted'
     };
     
-    window.dataLayer.push({
-        'event': 'cookie_consent_custom',
-        'consent_mode': consentStates,
-        'gcs': gcsSignal,
-        'consent_status': 'custom',
-        'consent_categories': consentData.categories,
-        'timestamp': new Date().toISOString(),
-        'location_data': locationData
-    });
+ window.dataLayer.push({
+    'event': 'cookie_consent_custom',
+    'consent_mode': consentStates,
+    'gcs': gcsSignal,
+    'consent_status': 'custom',
+    'consent_categories': consentData.categories,
+    'timestamp': new Date().toISOString(),
+    'location_data': locationData
+});
 }
 
 // Helper functions
@@ -2727,52 +2776,57 @@ function updateConsentMode(consentData) {
         'security_storage': 'granted'
     };
 
-    let gcsSignal = 'G100';
+    // Determine GCS signal based on consent status and categories
+    let gcsSignal = 'G100'; // Default to all denied
     
     if (consentData.status === 'accepted') {
-        gcsSignal = 'G111';
+        gcsSignal = 'G111'; // All granted
     } else if (consentData.status === 'custom') {
         if (consentData.categories.analytics && !consentData.categories.advertising) {
-            gcsSignal = 'G101';
+            gcsSignal = 'G101'; // Analytics granted, ads denied
         } else if (consentData.categories.advertising && !consentData.categories.analytics) {
-            gcsSignal = 'G110';
+            gcsSignal = 'G110'; // Ads granted, analytics denied
         } else if (consentData.categories.analytics && consentData.categories.advertising) {
-            gcsSignal = 'G111';
+            gcsSignal = 'G111'; // Both granted (same as accept all)
         } else {
-            gcsSignal = '';
+            gcsSignal = ''; // Both denied (same as reject all)
         }
     }
 
+    // Update Google consent
     gtag('consent', 'update', consentStates);
     
+    // Update Microsoft UET consent if enabled
     if (config.uetConfig.enabled) {
         const uetConsentState = consentData.categories.advertising ? 'granted' : 'denied';
         window.uetq.push('consent', 'update', {
             'ad_storage': uetConsentState
         });
         
-        window.dataLayer.push({
-            'event': 'uet_consent_update',
-            'uet_consent': {
-                'ad_storage': uetConsentState,
-                'status': consentData.status,
-                'src': 'update',
-                'asc': uetConsentState === 'granted' ? 'G' : 'D',
-                'timestamp': new Date().toISOString()
-            },
-            'location_data': locationData
-        });
+        // Push UET consent event to dataLayer with the exact requested format
+      window.dataLayer.push({
+    'event': 'uet_consent_update',
+    'uet_consent': {
+        'ad_storage': uetConsentState,
+        'status': consentData.status,
+        'src': 'update',
+        'asc': uetConsentState === 'granted' ? 'G' : 'D',
+        'timestamp': new Date().toISOString()
+    },
+    'location_data': locationData
+});
     }
     
-    window.dataLayer.push({
-        'event': 'cookie_consent_update',
-        'consent_mode': consentStates,
-        'gcs': gcsSignal,
-        'consent_status': consentData.status,
-        'consent_categories': consentData.categories,
-        'timestamp': new Date().toISOString(),
-        'location_data': locationData
-    });
+    // Push general consent update to dataLayer
+ window.dataLayer.push({
+    'event': 'cookie_consent_update',
+    'consent_mode': consentStates,
+    'gcs': gcsSignal,
+    'consent_status': consentData.status,
+    'consent_categories': consentData.categories,
+    'timestamp': new Date().toISOString(),
+    'location_data': locationData
+});
 }
 
 // Cookie management functions
@@ -2805,40 +2859,54 @@ function loadAnalyticsCookies() {
         gtag('config', 'YOUR_GA4_MEASUREMENT_ID');
     }
 }
-
+// Load analytics cookies function
 function loadAdvertisingCookies() {
     console.log('Loading advertising cookies');
+    // This would typically load advertising scripts like Facebook Pixel, etc.
+    // Implementation depends on your specific advertising setup
 }
 
+// Load performance cookies function
 function loadPerformanceCookies() {
     console.log('Loading performance cookies');
+    // This would typically load performance optimization scripts
 }
 
 // Main execution flow
 document.addEventListener('DOMContentLoaded', async function() {
-    fetchLocationData();
+       // Add this line first:
+    fetchLocationData(); // Start loading location data immediately
 
+ // Check if domain is allowed
     if (!isDomainAllowed()) {
         console.log('Cookie consent banner not shown - domain not allowed');
         return;
     }
 
+    // Load analytics data from storage
     if (config.analytics.enabled) {
         loadAnalyticsData();
     }
 
+    // Set default UET consent
     setDefaultUetConsent();
 
+    // Fetch location data asynchronously
     await fetchLocationData();
 
+    // Scan and categorize existing cookies
     const detectedCookies = scanAndCategorizeCookies();
 
+    // Detect user language
     const userLanguage = detectUserLanguage(locationData);
 
+    // Inject HTML elements
     injectConsentHTML(detectedCookies, userLanguage);
 
+    // Initialize cookie consent
     initializeCookieConsent(detectedCookies, userLanguage);
 
+    // Handle scroll acceptance if enabled
     if (config.behavior.acceptOnScroll) {
         let scrollTimeout;
         window.addEventListener('scroll', function() {
@@ -2858,11 +2926,12 @@ document.addEventListener('DOMContentLoaded', async function() {
         });
     }
 
+    // Handle continue button acceptance if enabled
     if (config.behavior.acceptOnContinue) {
         document.addEventListener('click', function(e) {
             if (!getCookie('cookie_consent') && bannerShown && 
-                !e.target.closest('#' + uniquePrefix + 'cookieConsentBanner') && 
-                !e.target.closest('#' + uniquePrefix + 'cookieSettingsModal')) {
+                !e.target.closest('#cookieConsentBanner') && 
+                !e.target.closest('#cookieSettingsModal')) {
                 acceptAllCookies();
                 hideCookieBanner();
                 if (config.behavior.showFloatingButton) {
