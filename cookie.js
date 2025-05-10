@@ -725,39 +725,39 @@ function generateAnalyticsDashboard(language = 'en') {
     });
     
     return `
-    <div class="analytics-dashboard">
-        <h3>${lang.dashboardTitle}</h3>
+    <div class="cc-analytics-dashboard">
+        <h3 class="cc-dashboard-title">${lang.dashboardTitle}</h3>
         
-        <div class="stats-summary">
-            <div class="stat-card accepted">
-                <h4>${lang.statsAccepted}</h4>
-                <div class="stat-value">${consentAnalytics.total.accepted}</div>
-                <div class="stat-percentage">${acceptedPercent}%</div>
+        <div class="cc-stats-summary">
+            <div class="cc-stat-card cc-accepted">
+                <h4 class="cc-stat-title">${lang.statsAccepted}</h4>
+                <div class="cc-stat-value">${consentAnalytics.total.accepted}</div>
+                <div class="cc-stat-percentage">${acceptedPercent}%</div>
             </div>
             
-            <div class="stat-card rejected">
-                <h4>${lang.statsRejected}</h4>
-                <div class="stat-value">${consentAnalytics.total.rejected}</div>
-                <div class="stat-percentage">${rejectedPercent}%</div>
+            <div class="cc-stat-card cc-rejected">
+                <h4 class="cc-stat-title">${lang.statsRejected}</h4>
+                <div class="cc-stat-value">${consentAnalytics.total.rejected}</div>
+                <div class="cc-stat-percentage">${rejectedPercent}%</div>
             </div>
             
-            <div class="stat-card custom">
-                <h4>${lang.statsCustom}</h4>
-                <div class="stat-value">${consentAnalytics.total.custom}</div>
-                <div class="stat-percentage">${customPercent}%</div>
+            <div class="cc-stat-card cc-custom">
+                <h4 class="cc-stat-title">${lang.statsCustom}</h4>
+                <div class="cc-stat-value">${consentAnalytics.total.custom}</div>
+                <div class="cc-stat-percentage">${customPercent}%</div>
             </div>
             
-            <div class="stat-card total">
-                <h4>${lang.statsTotal}</h4>
-                <div class="stat-value">${total}</div>
-                <div class="stat-percentage">100%</div>
+            <div class="cc-stat-card cc-total">
+                <h4 class="cc-stat-title">${lang.statsTotal}</h4>
+                <div class="cc-stat-value">${total}</div>
+                <div class="cc-stat-percentage">100%</div>
             </div>
         </div>
         
-        <div class="time-based-stats">
-            <div class="time-stat">
-                <h4>${lang.statsLast1Day}</h4>
-                <div class="stat-bars">
+        <div class="cc-time-based-stats">
+            <div class="cc-time-stat">
+                <h4 class="cc-time-title">${lang.statsLast1Day}</h4>
+                <div class="cc-stat-bars">
                     ${Object.entries(last1Day).map(([date, data]) => {
                         const dayTotal = data.accepted + data.rejected + data.custom;
                         const dayAcceptedPercent = dayTotal > 0 ? (data.accepted / dayTotal) * 100 : 0;
@@ -765,14 +765,14 @@ function generateAnalyticsDashboard(language = 'en') {
                         const dayCustomPercent = dayTotal > 0 ? (data.custom / dayTotal) * 100 : 0;
                         
                         return `
-                        <div class="stat-bar-container">
-                            <div class="stat-bar-label">${date}</div>
-                            <div class="stat-bar">
-                                <div class="stat-bar-segment accepted" style="width: ${dayAcceptedPercent}%"></div>
-                                <div class="stat-bar-segment custom" style="width: ${dayCustomPercent}%"></div>
-                                <div class="stat-bar-segment rejected" style="width: ${dayRejectedPercent}%"></div>
+                        <div class="cc-stat-bar-container">
+                            <div class="cc-stat-bar-label">${date}</div>
+                            <div class="cc-stat-bar">
+                                <div class="cc-stat-bar-segment cc-accepted" style="width: ${dayAcceptedPercent}%"></div>
+                                <div class="cc-stat-bar-segment cc-custom" style="width: ${dayCustomPercent}%"></div>
+                                <div class="cc-stat-bar-segment cc-rejected" style="width: ${dayRejectedPercent}%"></div>
                             </div>
-                            <div class="stat-bar-legend">
+                            <div class="cc-stat-bar-legend">
                                 <span>${data.accepted} ${lang.statsAccepted}</span>
                                 <span>${data.custom} ${lang.statsCustom}</span>
                                 <span>${data.rejected} ${lang.statsRejected}</span>
@@ -782,9 +782,9 @@ function generateAnalyticsDashboard(language = 'en') {
                 </div>
             </div>
             
-            <div class="time-stat">
-                <h4>${lang.statsLast7Days}</h4>
-                <div class="stat-bars">
+            <div class="cc-time-stat">
+                <h4 class="cc-time-title">${lang.statsLast7Days}</h4>
+                <div class="cc-stat-bars">
                     ${Object.entries(last7Days).map(([date, data]) => {
                         const dayTotal = data.accepted + data.rejected + data.custom;
                         const dayAcceptedPercent = dayTotal > 0 ? (data.accepted / dayTotal) * 100 : 0;
@@ -792,14 +792,14 @@ function generateAnalyticsDashboard(language = 'en') {
                         const dayCustomPercent = dayTotal > 0 ? (data.custom / dayTotal) * 100 : 0;
                         
                         return `
-                        <div class="stat-bar-container">
-                            <div class="stat-bar-label">${date}</div>
-                            <div class="stat-bar">
-                                <div class="stat-bar-segment accepted" style="width: ${dayAcceptedPercent}%"></div>
-                                <div class="stat-bar-segment custom" style="width: ${dayCustomPercent}%"></div>
-                                <div class="stat-bar-segment rejected" style="width: ${dayRejectedPercent}%"></div>
+                        <div class="cc-stat-bar-container">
+                            <div class="cc-stat-bar-label">${date}</div>
+                            <div class="cc-stat-bar">
+                                <div class="cc-stat-bar-segment cc-accepted" style="width: ${dayAcceptedPercent}%"></div>
+                                <div class="cc-stat-bar-segment cc-custom" style="width: ${dayCustomPercent}%"></div>
+                                <div class="cc-stat-bar-segment cc-rejected" style="width: ${dayRejectedPercent}%"></div>
                             </div>
-                            <div class="stat-bar-legend">
+                            <div class="cc-stat-bar-legend">
                                 <span>${data.accepted} ${lang.statsAccepted}</span>
                                 <span>${data.custom} ${lang.statsCustom}</span>
                                 <span>${data.rejected} ${lang.statsRejected}</span>
@@ -809,9 +809,9 @@ function generateAnalyticsDashboard(language = 'en') {
                 </div>
             </div>
             
-            <div class="time-stat">
-                <h4>${lang.statsLast30Days}</h4>
-                <div class="stat-bars">
+            <div class="cc-time-stat">
+                <h4 class="cc-time-title">${lang.statsLast30Days}</h4>
+                <div class="cc-stat-bars">
                     ${Object.entries(last30Days).map(([date, data]) => {
                         const dayTotal = data.accepted + data.rejected + data.custom;
                         const dayAcceptedPercent = dayTotal > 0 ? (data.accepted / dayTotal) * 100 : 0;
@@ -819,14 +819,14 @@ function generateAnalyticsDashboard(language = 'en') {
                         const dayCustomPercent = dayTotal > 0 ? (data.custom / dayTotal) * 100 : 0;
                         
                         return `
-                        <div class="stat-bar-container">
-                            <div class="stat-bar-label">${date}</div>
-                            <div class="stat-bar">
-                                <div class="stat-bar-segment accepted" style="width: ${dayAcceptedPercent}%"></div>
-                                <div class="stat-bar-segment custom" style="width: ${dayCustomPercent}%"></div>
-                                <div class="stat-bar-segment rejected" style="width: ${dayRejectedPercent}%"></div>
+                        <div class="cc-stat-bar-container">
+                            <div class="cc-stat-bar-label">${date}</div>
+                            <div class="cc-stat-bar">
+                                <div class="cc-stat-bar-segment cc-accepted" style="width: ${dayAcceptedPercent}%"></div>
+                                <div class="cc-stat-bar-segment cc-custom" style="width: ${dayCustomPercent}%"></div>
+                                <div class="cc-stat-bar-segment cc-rejected" style="width: ${dayRejectedPercent}%"></div>
                             </div>
-                            <div class="stat-bar-legend">
+                            <div class="cc-stat-bar-legend">
                                 <span>${data.accepted} ${lang.statsAccepted}</span>
                                 <span>${data.custom} ${lang.statsCustom}</span>
                                 <span>${data.rejected} ${lang.statsRejected}</span>
@@ -844,11 +844,11 @@ function generatePasswordPrompt(language = 'en') {
     const lang = translations[language] || translations.en;
     
     return `
-    <div class="password-prompt">
-        <h3>${lang.passwordPrompt}</h3>
-        <input type="password" id="dashboardPasswordInput" placeholder="Password">
-        <button id="dashboardPasswordSubmit">${lang.passwordSubmit}</button>
-        <p id="passwordError" class="error-message"></p>
+    <div class="cc-password-prompt">
+        <h3 class="cc-prompt-title">${lang.passwordPrompt}</h3>
+        <input type="password" id="dashboardPasswordInput" class="cc-password-input" placeholder="Password">
+        <button id="dashboardPasswordSubmit" class="cc-password-submit">${lang.passwordSubmit}</button>
+        <p id="passwordError" class="cc-error-message"></p>
     </div>`;
 }
 
@@ -947,7 +947,7 @@ function changeLanguage(languageCode) {
     if (banner) {
         banner.querySelector('h2').textContent = lang.title;
         banner.querySelector('p').textContent = lang.description;
-        banner.querySelector('.privacy-policy-link').textContent = lang.privacy;
+        banner.querySelector('.cc-privacy-policy-link').textContent = lang.privacy;
         banner.querySelector('#acceptAllBtn').textContent = lang.accept;
         banner.querySelector('#adjustConsentBtn').textContent = lang.customize;
         banner.querySelector('#rejectAllBtn').textContent = lang.reject;
@@ -969,7 +969,7 @@ function changeLanguage(languageCode) {
         for (const [category, key] of Object.entries(categories)) {
             const categoryElement = document.querySelector(`input[data-category="${category}"]`);
             if (categoryElement) {
-                const container = categoryElement.closest('.cookie-category');
+                const container = categoryElement.closest('.cc-cookie-category');
                 container.querySelector('h3').textContent = lang[key];
                 container.querySelector('p').textContent = lang[`${key}Desc`];
             }
@@ -980,7 +980,7 @@ function changeLanguage(languageCode) {
         modal.querySelector('#acceptAllSettingsBtn').textContent = lang.accept;
         
         // Update "See Consent Analytics" link
-        const seeAnalyticsLink = modal.querySelector('.see-analytics-link');
+        const seeAnalyticsLink = modal.querySelector('.cc-see-analytics-link');
         if (seeAnalyticsLink) {
             seeAnalyticsLink.textContent = lang.seeAnalytics;
         }
@@ -996,21 +996,21 @@ function changeLanguage(languageCode) {
     const dashboardModal = document.getElementById('cookieAnalyticsModal');
     if (dashboardModal && dashboardModal.style.display === 'flex') {
         if (config.analytics.passwordProtect && !isDashboardAuthenticated) {
-            dashboardModal.querySelector('.cookie-analytics-body').innerHTML = generatePasswordPrompt(languageCode);
+            dashboardModal.querySelector('.cc-cookie-analytics-body').innerHTML = generatePasswordPrompt(languageCode);
             setupPasswordPromptEvents();
         } else {
-            dashboardModal.querySelector('.cookie-analytics-body').innerHTML = generateAnalyticsDashboard(languageCode);
+            dashboardModal.querySelector('.cc-cookie-analytics-body').innerHTML = generateAnalyticsDashboard(languageCode);
         }
     }
 
     // Update analytics dashboard title if visible
-    const dashboardTitle = document.querySelector('.cookie-analytics-header h2');
+    const dashboardTitle = document.querySelector('.cc-cookie-analytics-header h2');
     if (dashboardTitle) {
         dashboardTitle.textContent = lang.dashboardTitle;
     }
 
     // Update password prompt if visible
-    const passwordPrompt = document.querySelector('.password-prompt h3');
+    const passwordPrompt = document.querySelector('.cc-password-prompt h3');
     const passwordSubmit = document.getElementById('dashboardPasswordSubmit');
     const passwordError = document.getElementById('passwordError');
     if (passwordPrompt) passwordPrompt.textContent = lang.passwordPrompt;
@@ -1088,26 +1088,26 @@ function getCookieDuration(name) {
 // Generate cookie table with mobile-friendly display
 function generateCookieTable(cookies) {
     return `
-    <table class="cookie-details-table">
+    <table class="cc-cookie-details-table">
         <thead>
             <tr>
-                <th>Cookie Name</th>
-                <th>Value</th>
-                <th>Duration</th>
-                <th>Description</th>
+                <th class="cc-table-header">Cookie Name</th>
+                <th class="cc-table-header">Value</th>
+                <th class="cc-table-header">Duration</th>
+                <th class="cc-table-header">Description</th>
             </tr>
         </thead>
         <tbody>
             ${cookies.map(cookie => `
-            <tr>
-                <td><code>${cookie.name}</code></td>
-                <td class="cookie-value-cell">
-                    <span class="cookie-value-full" style="display:none;">${cookie.value}</span>
-                    <span class="cookie-value-truncated">${cookie.value.substring(0, 20)}${cookie.value.length > 20 ? '...' : ''}</span>
-                    ${cookie.value.length > 20 ? '<button class="toggle-cookie-value" data-state="truncated">Show full</button>' : ''}
+            <tr class="cc-table-row">
+                <td class="cc-table-cell"><code class="cc-cookie-name">${cookie.name}</code></td>
+                <td class="cc-table-cell cc-cookie-value-cell">
+                    <span class="cc-cookie-value-full" style="display:none;">${cookie.value}</span>
+                    <span class="cc-cookie-value-truncated">${cookie.value.substring(0, 20)}${cookie.value.length > 20 ? '...' : ''}</span>
+                    ${cookie.value.length > 20 ? '<button class="cc-toggle-cookie-value" data-state="truncated">Show full</button>' : ''}
                 </td>
-                <td>${cookie.duration}</td>
-                <td>${cookie.description}</td>
+                <td class="cc-table-cell">${cookie.duration}</td>
+                <td class="cc-table-cell">${cookie.description}</td>
             </tr>`).join('')}
         </tbody>
     </table>`;
@@ -1125,24 +1125,24 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         const isEssential = category === 'functional';
         
         return `
-        <div class="cookie-category">
-            <div class="toggle-container">
-                <h3>${lang[categoryKey]}</h3>
-                <label class="toggle-switch" data-ms-consent="ad_storage">
-                    <input type="checkbox" data-category="${category}" ${isEssential ? 'checked disabled' : ''}>
-                    <span class="toggle-slider"></span>
+        <div class="cc-cookie-category">
+            <div class="cc-toggle-container">
+                <h3 class="cc-category-title">${lang[categoryKey]}</h3>
+                <label class="cc-toggle-switch" data-ms-consent="ad_storage">
+                    <input type="checkbox" data-category="${category}" ${isEssential ? 'checked disabled' : ''} class="cc-category-toggle">
+                    <span class="cc-toggle-slider"></span>
                 </label>
             </div>
-            <p>${lang[`${categoryKey}Desc`]}</p>
-            <div class="cookie-details-container">
-                <div class="">
-                    <span>Cookie Details</span>
-                    <span class="toggle-details">+</span>
+            <p class="cc-category-desc">${lang[`${categoryKey}Desc`]}</p>
+            <div class="cc-cookie-details-container">
+                <div class="cc-cookie-details-header">
+                    <span class="cc-details-title">Cookie Details</span>
+                    <span class="cc-toggle-details">+</span>
                 </div>
-                <div class="cookie-details-content" style="display: none;">
+                <div class="cc-cookie-details-content" style="display: none;">
                     ${cookies.length > 0 ? 
                         generateCookieTable(cookies) : 
-                        `<p class="no-cookies-message">No cookies in this category detected.</p>`}
+                        `<p class="cc-no-cookies-message">No cookies in this category detected.</p>`}
                 </div>
             </div>
         </div>`;
@@ -1150,8 +1150,8 @@ function injectConsentHTML(detectedCookies, language = 'en') {
     
     // Generate language selector dropdown if enabled
     const languageSelector = config.languageConfig.showLanguageSelector ? `
-    <div class="language-selector">
-        <select id="cookieLanguageSelect">
+    <div class="cc-language-selector">
+        <select id="cookieLanguageSelect" class="cc-language-select">
             ${availableLanguages.map(code => `
                 <option value="${code}" ${code === language ? 'selected' : ''}>${translations[code].language}</option>
             `).join('')}
@@ -1160,7 +1160,7 @@ function injectConsentHTML(detectedCookies, language = 'en') {
     
     // Generate admin dashboard button if analytics enabled
     const adminButton = config.analytics.enabled && config.analytics.showDashboard && config.behavior.showAdminButton ? `
-    <div id="cookieAdminButton" class="cookie-admin-button" title="${lang.dashboardTitle}">
+    <div id="cookieAdminButton" class="cc-cookie-admin-button" title="${lang.dashboardTitle}">
         <svg viewBox="0 0 24 24" width="28" height="28" xmlns="http://www.w3.org/2000/svg" fill="currentColor" stroke="none">
             <title>Admin Dashboard</title>
             <path d="M4.75,20.75A.25.25,0,0,0,5,20.5v-2a1,1,0,0,0-1-1H2a1,1,0,0,0-1,1v2a.25.25,0,0,0,.25.25Z"/>
@@ -1174,52 +1174,52 @@ function injectConsentHTML(detectedCookies, language = 'en') {
     
     const html = `
     <!-- Main Consent Banner -->
-    <div id="cookieConsentBanner" class="cookie-consent-banner">
-        <div class="cookie-consent-container">
+    <div id="cookieConsentBanner" class="cc-cookie-consent-banner">
+        <div class="cc-cookie-consent-container">
             ${languageSelector}
-            <div class="cookie-consent-content">
-                <h2>${lang.title}</h2>
-                <p>${lang.description}</p>
-                <a href="${config.privacyPolicyUrl}" class="privacy-policy-link">${lang.privacy}</a>
+            <div class="cc-cookie-consent-content">
+                <h2 class="cc-banner-title">${lang.title}</h2>
+                <p class="cc-banner-desc">${lang.description}</p>
+                <a href="${config.privacyPolicyUrl}" class="cc-privacy-policy-link">${lang.privacy}</a>
             </div>
-            <div class="cookie-consent-buttons">
-                <button id="acceptAllBtn" class="cookie-btn accept-btn">${lang.accept}</button>
-                <button id="adjustConsentBtn" class="cookie-btn adjust-btn">${lang.customize}</button>
-                <button id="rejectAllBtn" class="cookie-btn reject-btn">${lang.reject}</button>
+            <div class="cc-cookie-consent-buttons">
+                <button id="acceptAllBtn" class="cc-cookie-btn cc-accept-btn">${lang.accept}</button>
+                <button id="adjustConsentBtn" class="cc-cookie-btn cc-adjust-btn">${lang.customize}</button>
+                <button id="rejectAllBtn" class="cc-cookie-btn cc-reject-btn">${lang.reject}</button>
             </div>
         </div>
     </div>
 
     <!-- Settings Modal -->
-    <div id="cookieSettingsModal" class="cookie-settings-modal">
-        <div class="cookie-settings-content">
-            <div class="cookie-settings-header">
-                <h2>${lang.title}</h2>
-                <span class="close-modal">&times;</span>
+    <div id="cookieSettingsModal" class="cc-cookie-settings-modal">
+        <div class="cc-cookie-settings-content">
+            <div class="cc-cookie-settings-header">
+                <h2 class="cc-modal-title">${lang.title}</h2>
+                <span class="cc-close-modal">&times;</span>
             </div>
-            <div class="cookie-settings-body">
+            <div class="cc-cookie-settings-body">
                 ${generateCategorySection('functional')}
                 ${generateCategorySection('analytics')}
                 ${generateCategorySection('performance')}
                 ${generateCategorySection('advertising')}
                 ${detectedCookies.uncategorized.length > 0 ? generateCategorySection('uncategorized') : ''}
             </div>
-            <div class="cookie-settings-footer">
+            <div class="cc-cookie-settings-footer">
                 ${config.analytics.enabled ? `
-                <div class="see-analytics-container">
-                    <a href="#" class="see-analytics-link">${lang.seeAnalytics}</a>
+                <div class="cc-see-analytics-container">
+                    <a href="#" class="cc-see-analytics-link">${lang.seeAnalytics}</a>
                 </div>` : ''}
-                <div class="modal-buttons-container">
-                    <button id="acceptAllSettingsBtn" class="cookie-btn accept-btn">${lang.accept}</button>
-                    <button id="saveSettingsBtn" class="cookie-btn save-btn">${lang.save}</button>
-                    <button id="rejectAllSettingsBtn" class="cookie-btn reject-btn">${lang.reject}</button>
+                <div class="cc-modal-buttons-container">
+                    <button id="acceptAllSettingsBtn" class="cc-cookie-btn cc-accept-btn">${lang.accept}</button>
+                    <button id="saveSettingsBtn" class="cc-cookie-btn cc-save-btn">${lang.save}</button>
+                    <button id="rejectAllSettingsBtn" class="cc-cookie-btn cc-reject-btn">${lang.reject}</button>
                 </div>
             </div>
         </div>
     </div>
 
    <!-- Floating Settings Button -->
-    <div id="cookieFloatingButton" class="cookie-settings-button" title="${lang.title}">
+    <div id="cookieFloatingButton" class="cc-cookie-settings-button" title="${lang.title}">
         <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="none">
             <path d="M6 8H8.01V10H6V8Z" fill="currentColor"/>
             <path d="M11 11H13.01V13H11V11Z" fill="currentColor"/>
@@ -1232,13 +1232,13 @@ function injectConsentHTML(detectedCookies, language = 'en') {
     ${adminButton}
     
     <!-- Analytics Dashboard -->
-    <div id="cookieAnalyticsModal" class="cookie-analytics-modal">
-        <div class="cookie-analytics-content">
-            <div class="cookie-analytics-header">
-                <h2>${lang.dashboardTitle}</h2>
-                <span class="close-analytics-modal">&times;</span>
+    <div id="cookieAnalyticsModal" class="cc-cookie-analytics-modal">
+        <div class="cc-cookie-analytics-content">
+            <div class="cc-cookie-analytics-header">
+                <h2 class="cc-dashboard-title">${lang.dashboardTitle}</h2>
+                <span class="cc-close-analytics-modal">&times;</span>
             </div>
-            <div class="cookie-analytics-body">
+            <div class="cc-cookie-analytics-body">
                 ${config.analytics.passwordProtect && !isDashboardAuthenticated ? 
                     generatePasswordPrompt(language) : 
                     generateAnalyticsDashboard(language)}
@@ -1247,8 +1247,18 @@ function injectConsentHTML(detectedCookies, language = 'en') {
     </div>
     
     <style>
+    /* Reset all styles for our elements */
+    .cc-cookie-consent-banner *,
+    .cc-cookie-settings-modal *,
+    .cc-cookie-analytics-modal *,
+    .cc-cookie-settings-button *,
+    .cc-cookie-admin-button * {
+        all: initial;
+        font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
+    }
+    
     /* Main Banner Styles */
-    #cookieConsentBanner.cookie-consent-banner {
+    .cc-cookie-consent-banner {
         position: fixed !important;
         bottom: 20px !important;
         ${config.behavior.bannerPosition === 'left' ? 'left: 20px !important;' : 'right: 20px !important;'}
@@ -1269,13 +1279,13 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         overflow: hidden !important;
     }
 
-    #cookieConsentBanner.cookie-consent-banner.show {
+    .cc-cookie-consent-banner.show {
         transform: translateY(0) !important;
         opacity: 1 !important;
         display: block !important;
     }
 
-    #cookieConsentBanner .cookie-consent-content h2 {
+    .cc-cookie-consent-content h2 {
         margin: 0 0 16px 0 !important;
         font-size: ${config.bannerStyle.title.fontSize} !important;
         color: ${config.bannerStyle.title.color} !important;
@@ -1284,14 +1294,14 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         letter-spacing: -0.2px !important;
     }
 
-    #cookieConsentBanner .cookie-consent-content p {
+    .cc-cookie-consent-content p {
         margin: 0 0 10px 0 !important;
         font-size: ${config.bannerStyle.description.fontSize} !important;
         color: ${config.bannerStyle.description.color} !important;
         line-height: ${config.bannerStyle.description.lineHeight} !important;
     }
 
-    #cookieConsentBanner .privacy-policy-link {
+    .cc-privacy-policy-link {
         color: ${config.bannerStyle.linkColor} !important;
         text-decoration: none !important;
         font-size: 13px !important;
@@ -1301,18 +1311,18 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         transition: color 0.2s ease !important;
     }
 
-    #cookieConsentBanner .privacy-policy-link:hover {
+    .cc-privacy-policy-link:hover {
         color: ${config.bannerStyle.linkHoverColor} !important;
     }
 
-    #cookieConsentBanner .cookie-consent-buttons {
+    .cc-cookie-consent-buttons {
         display: flex !important;
         flex-direction: column !important;
         gap: 12px !important;
         margin-top: 8px !important;
     }
 
-    #cookieConsentBanner .cookie-btn {
+    .cc-cookie-btn {
         padding: ${config.buttonStyle.padding} !important;
         border-radius: ${config.buttonStyle.borderRadius} !important;
         cursor: pointer !important;
@@ -1325,53 +1335,53 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         letter-spacing: 0.2px !important;
     }
 
-    #cookieConsentBanner .adjust-btn {
+    .cc-adjust-btn {
         background-color: ${config.buttonStyle.adjust.background} !important;
         color: ${config.buttonStyle.adjust.color} !important;
         border: ${config.buttonStyle.adjust.border} !important;
     }
 
-    #cookieConsentBanner .adjust-btn:hover {
+    .cc-adjust-btn:hover {
         background-color: ${config.buttonStyle.adjust.hover.background} !important;
         color: ${config.buttonStyle.adjust.hover.color} !important;
         transform: ${config.buttonStyle.adjust.hover.transform} !important;
         box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
     }
 
-    #cookieConsentBanner .reject-btn {
+    .cc-reject-btn {
         background-color: ${config.buttonStyle.reject.background} !important;
         color: ${config.buttonStyle.reject.color} !important;
         border: ${config.buttonStyle.reject.border} !important;
     }
 
-    #cookieConsentBanner .reject-btn:hover {
+    .cc-reject-btn:hover {
         background-color: ${config.buttonStyle.reject.hover.background} !important;
         color: ${config.buttonStyle.reject.hover.color} !important;
         transform: ${config.buttonStyle.reject.hover.transform} !important;
         box-shadow: 0 2px 8px rgba(231, 76, 60, 0.15) !important;
     }
 
-    #cookieConsentBanner .accept-btn {
+    .cc-accept-btn {
         background-color: ${config.buttonStyle.accept.background} !important;
         color: ${config.buttonStyle.accept.color} !important;
         border: ${config.buttonStyle.accept.border} !important;
         box-shadow: 0 2px 12px rgba(46, 204, 113, 0.3) !important;
     }
 
-    #cookieConsentBanner .accept-btn:hover {
+    .cc-accept-btn:hover {
         background-color: ${config.buttonStyle.accept.hover.background} !important;
         color: ${config.buttonStyle.accept.hover.color} !important;
         transform: ${config.buttonStyle.accept.hover.transform} !important;
         box-shadow: 0 4px 16px rgba(46, 204, 113, 0.4) !important;
     }
 
-    #cookieConsentBanner .save-btn {
+    .cc-save-btn {
         background-color: ${config.buttonStyle.save.background} !important;
         color: ${config.buttonStyle.save.color} !important;
         border: ${config.buttonStyle.save.border} !important;
     }
 
-    #cookieConsentBanner .save-btn:hover {
+    .cc-save-btn:hover {
         background-color: ${config.buttonStyle.save.hover.background} !important;
         color: ${config.buttonStyle.save.hover.color} !important;
         transform: ${config.buttonStyle.save.hover.transform} !important;
@@ -1379,24 +1389,24 @@ function injectConsentHTML(detectedCookies, language = 'en') {
     }
 
     /* Modal Footer Buttons */
-    #cookieSettingsModal .modal-buttons-container {
+    .cc-modal-buttons-container {
         display: flex !important;
         gap: 12px !important;
         margin-top: 15px !important;
     }
 
-    #cookieSettingsModal .modal-buttons-container .cookie-btn {
+    .cc-modal-buttons-container .cc-cookie-btn {
         flex: 1 !important;
     }
 
     /* Language Selector Styles */
-    #cookieConsentBanner .language-selector {
+    .cc-language-selector {
         position: absolute !important;
         top: 15px !important;
         right: 15px !important;
     }
 
-    #cookieConsentBanner .language-selector select {
+    .cc-language-selector select {
         padding: 6px 10px !important;
         border-radius: 6px !important;
         border: 1px solid #e0e0e0 !important;
@@ -1407,19 +1417,19 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         transition: all 0.2s ease !important;
     }
 
-    #cookieConsentBanner .language-selector select:hover {
+    .cc-language-selector select:hover {
         border-color: ${config.bannerStyle.linkColor} !important;
         background-color: #fff !important;
     }
 
-    #cookieConsentBanner .language-selector select:focus {
+    .cc-language-selector select:focus {
         outline: none !important;
         border-color: ${config.bannerStyle.linkColor} !important;
         box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2) !important;
     }
 
     /* Settings Modal */
-    #cookieSettingsModal.cookie-settings-modal {
+    .cc-cookie-settings-modal {
         display: none !important;
         position: fixed !important;
         top: 0 !important;
@@ -1434,14 +1444,14 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         transition: opacity ${config.behavior.modalAnimation.duration}s ${config.behavior.modalAnimation.easing} !important;
     }
 
-    #cookieSettingsModal.cookie-settings-modal.show {
+    .cc-cookie-settings-modal.show {
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
         opacity: 1 !important;
     }
 
-    #cookieSettingsModal .cookie-settings-content {
+    .cc-cookie-settings-content {
         background-color: ${config.modalStyle.background} !important;
         margin: 0 auto !important;
         width: ${config.modalStyle.width} !important;
@@ -1455,11 +1465,11 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         flex-direction: column !important;
     }
 
-    #cookieSettingsModal.cookie-settings-modal.show .cookie-settings-content {
+    .cc-cookie-settings-modal.show .cc-cookie-settings-content {
         transform: translateY(0) !important;
     }
 
-    #cookieSettingsModal .cookie-settings-header {
+    .cc-cookie-settings-header {
         padding: 20px 30px !important;
         border-bottom: 1px solid #ecf0f1 !important;
         display: flex !important;
@@ -1468,14 +1478,14 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         background-color: ${config.modalStyle.header.background} !important;
     }
 
-    #cookieSettingsModal .cookie-settings-header h2 {
+    .cc-cookie-settings-header h2 {
         margin: 0 !important;
         color: ${config.modalStyle.header.textColor} !important;
         font-size: ${config.modalStyle.header.fontSize} !important;
         font-weight: ${config.modalStyle.header.fontWeight} !important;
     }
 
-    #cookieSettingsModal .close-modal {
+    .cc-close-modal {
         font-size: 28px !important;
         font-weight: bold !important;
         cursor: pointer !important;
@@ -1486,25 +1496,25 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         transition: color 0.2s ease !important;
     }
 
-    #cookieSettingsModal .close-modal:hover {
+    .cc-close-modal:hover {
         color: ${config.modalStyle.closeButton.hoverColor} !important;
     }
 
-    #cookieSettingsModal .cookie-settings-body {
+    .cc-cookie-settings-body {
         padding: 25px 30px !important;
         background-color: ${config.modalStyle.body.background} !important;
         overflow-y: auto !important;
         flex: 1 !important;
     }
 
-    #cookieSettingsModal .cookie-category {
+    .cc-cookie-category {
         margin-bottom: 25px !important;
         padding-bottom: 20px !important;
         border-bottom: 1px solid #ecf0f1 !important;
         transition: all 0.3s ease !important;
     }
 
-    #cookieSettingsModal .cookie-category:hover {
+    .cc-cookie-category:hover {
         background-color: ${config.categoryStyle.background} !important;
         border-radius: ${config.categoryStyle.borderRadius} !important;
         padding: 20px !important;
@@ -1512,41 +1522,41 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         border: ${config.categoryStyle.border} !important;
     }
 
-    #cookieSettingsModal .cookie-category:last-child {
+    .cc-cookie-category:last-child {
         border-bottom: none !important;
         margin-bottom: 0 !important;
         padding-bottom: 0 !important;
     }
 
     /* Toggle Switch Styles */
-    #cookieSettingsModal .toggle-container {
+    .cc-toggle-container {
         display: flex !important;
         align-items: center !important;
         justify-content: space-between !important;
         margin-bottom: 12px !important;
     }
 
-    #cookieSettingsModal .toggle-container h3 {
+    .cc-toggle-container h3 {
         margin: 0 !important;
         font-size: ${config.categoryStyle.title.fontSize} !important;
         color: ${config.categoryStyle.title.color} !important;
         font-weight: ${config.categoryStyle.title.fontWeight} !important;
     }
 
-    #cookieSettingsModal .toggle-switch {
+    .cc-toggle-switch {
         position: relative !important;
         display: inline-block !important;
         width: ${config.toggleStyle.size} !important;
         height: ${config.toggleStyle.height} !important;
     }
 
-    #cookieSettingsModal .toggle-switch input {
+    .cc-toggle-switch input {
         opacity: 0 !important;
         width: 0 !important;
         height: 0 !important;
     }
 
-    #cookieSettingsModal .toggle-slider {
+    .cc-toggle-slider {
         position: absolute !important;
         cursor: pointer !important;
         top: 0 !important;
@@ -1558,7 +1568,7 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         border-radius: 34px !important;
     }
 
-    #cookieSettingsModal .toggle-slider:before {
+    .cc-toggle-slider:before {
         position: absolute !important;
         content: "" !important;
         height: ${config.toggleStyle.sliderSize} !important;
@@ -1571,21 +1581,21 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         box-shadow: 0 2px 5px rgba(0,0,0,0.2) !important;
     }
 
-    #cookieSettingsModal input:checked + .toggle-slider {
+    input:checked + .cc-toggle-slider {
         background-color: ${config.toggleStyle.activeColor} !important;
     }
 
-    #cookieSettingsModal input:checked + .toggle-slider:before {
+    input:checked + .cc-toggle-slider:before {
         transform: translateX(24px) !important;
     }
 
-    #cookieSettingsModal input:disabled + .toggle-slider {
+    input:disabled + .cc-toggle-slider {
         background-color: #95a5a6 !important;
         cursor: not-allowed !important;
     }
 
     /* Cookie Details */
-    #cookieSettingsModal .cookie-details-container {
+    .cc-cookie-details-container {
         margin-top: 15px !important;
         border: 1px solid #e0e0e0 !important;
         border-radius: 8px !important;
@@ -1593,12 +1603,12 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         transition: all 0.3s ease !important;
     }
 
-    #cookieSettingsModal .cookie-details-container:hover {
+    .cc-cookie-details-container:hover {
         box-shadow: 0 3px 12px rgba(0,0,0,0.1) !important;
         border-color: ${config.buttonStyle.accept.background} !important;
     }
 
-    #cookieSettingsModal .cookie-details-header {
+    .cc-cookie-details-header {
         background-color: #f5f5f5 !important;
         padding: 12px 18px !important;
         font-weight: 600 !important;
@@ -1609,11 +1619,11 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         transition: all 0.2s ease !important;
     }
 
-    #cookieSettingsModal .cookie-details-header:hover {
+    .cc-cookie-details-header:hover {
         background-color: #eeeeee !important;
     }
 
-    #cookieSettingsModal .cookie-details-content {
+    .cc-cookie-details-content {
         padding: 18px !important;
         background-color: #fafafa !important;
         border-top: 1px solid #e0e0e0 !important;
@@ -1626,13 +1636,13 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         to { opacity: 1; transform: translateY(0); }
     }
 
-    #cookieSettingsModal .cookie-details-table {
+    .cc-cookie-details-table {
         width: 100% !important;
         border-collapse: collapse !important;
         font-size: 13px !important;
     }
 
-    #cookieSettingsModal .cookie-details-table th {
+    .cc-cookie-details-table th {
         text-align: left !important;
         padding: 10px 12px !important;
         background-color: #f0f0f0 !important;
@@ -1641,21 +1651,21 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         color: ${config.bannerStyle.title.color} !important;
     }
 
-    #cookieSettingsModal .cookie-details-table td {
+    .cc-cookie-details-table td {
         padding: 10px 12px !important;
         border-bottom: 1px solid #e0e0e0 !important;
         color: ${config.bannerStyle.description.color} !important;
     }
 
-    #cookieSettingsModal .cookie-details-table tr:last-child td {
+    .cc-cookie-details-table tr:last-child td {
         border-bottom: none !important;
     }
 
-    #cookieSettingsModal .cookie-details-table tr:hover {
+    .cc-cookie-details-table tr:hover {
         background-color: #f5f5f5 !important;
     }
 
-    #cookieSettingsModal .cookie-details-table code {
+    .cc-cookie-details-table code {
         background-color: #f0f0f0 !important;
         padding: 2px 5px !important;
         border-radius: 3px !important;
@@ -1664,12 +1674,12 @@ function injectConsentHTML(detectedCookies, language = 'en') {
     }
 
     /* See Analytics Link */
-    #cookieSettingsModal .see-analytics-container {
+    .cc-see-analytics-container {
         margin-bottom: 15px !important;
         text-align: center !important;
     }
 
-    #cookieSettingsModal .see-analytics-link {
+    .cc-see-analytics-link {
         color: ${config.bannerStyle.linkColor} !important;
         text-decoration: none !important;
         font-size: 13px !important;
@@ -1678,21 +1688,21 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         transition: color 0.2s ease !important;
     }
 
-    #cookieSettingsModal .see-analytics-link:hover {
+    .cc-see-analytics-link:hover {
         color: ${config.bannerStyle.linkHoverColor} !important;
         text-decoration: underline !important;
     }
 
     /* Mobile-friendly cookie value display */
-    #cookieSettingsModal .cookie-value-cell {
+    .cc-cookie-value-cell {
         position: relative !important;
     }
 
-    #cookieSettingsModal .cookie-value-full {
+    .cc-cookie-value-full {
         word-break: break-all !important;
     }
 
-    #cookieSettingsModal .toggle-cookie-value {
+    .cc-toggle-cookie-value {
         background: none !important;
         border: none !important;
         color: ${config.bannerStyle.linkColor} !important;
@@ -1704,11 +1714,11 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         display: block !important;
     }
 
-    #cookieSettingsModal .toggle-cookie-value:hover {
+    .cc-toggle-cookie-value:hover {
         color: ${config.bannerStyle.linkHoverColor} !important;
     }
 
-    #cookieSettingsModal .no-cookies-message {
+    .cc-no-cookies-message {
         padding: 15px !important;
         text-align: center !important;
         color: #666 !important;
@@ -1716,7 +1726,7 @@ function injectConsentHTML(detectedCookies, language = 'en') {
     }
 
     /* Floating Settings Button */
-    #cookieFloatingButton.cookie-settings-button {
+    .cc-cookie-settings-button {
         position: fixed !important;
         bottom: 30px !important;
         ${config.behavior.floatingButtonPosition === 'left' ? 'left: 30px !important;' : 'right: 30px !important;'}
@@ -1736,19 +1746,19 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         border: ${config.floatingButtonStyle.border} !important;
     }
 
-    #cookieFloatingButton.cookie-settings-button.show {
+    .cc-cookie-settings-button.show {
         opacity: 1 !important;
         transform: translateY(0) !important;
     }
 
-    #cookieFloatingButton.cookie-settings-button:hover {
+    .cc-cookie-settings-button:hover {
         background-color: ${config.floatingButtonStyle.hover.background} !important;
         transform: ${config.floatingButtonStyle.hover.transform} !important;
         box-shadow: ${config.floatingButtonStyle.hover.boxShadow} !important;
     }
 
-    #cookieFloatingButton.cookie-settings-button svg,
-    #cookieFloatingButton.cookie-settings-button svg path {
+    #cookieFloatingButton.cc-cookie-settings-button svg,
+    #cookieFloatingButton.cc-cookie-settings-button svg path {
         width: 40px !important;
         height: 40px !important;
         fill: ${config.floatingButtonStyle.iconColor} !important;
@@ -1756,12 +1766,12 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         transition: transform 0.3s ease !important;
         margin-top: 0px !important; 
     }
-    #cookieFloatingButton.cookie-settings-button:hover svg {
+    .cc-cookie-settings-button:hover svg {
         transform: rotate(15deg) !important;
     }
 
     /* Admin Button */
-    #cookieAdminButton.cookie-admin-button {
+    .cc-cookie-admin-button {
         position: fixed !important;
         ${config.behavior.adminButtonPosition === 'left' ? 
           'left: 30px !important; bottom: 100px !important;' : 
@@ -1782,30 +1792,30 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         border: ${config.adminButtonStyle.border} !important;
     }
 
-    #cookieAdminButton.cookie-admin-button.show {
+    .cc-cookie-admin-button.show {
         opacity: 1 !important;
         transform: translateY(0) !important;
     }
 
-    #cookieAdminButton.cookie-admin-button:hover {
+    .cc-cookie-admin-button:hover {
         background-color: ${config.adminButtonStyle.hover.background} !important;
         transform: ${config.adminButtonStyle.hover.transform} !important;
         box-shadow: ${config.adminButtonStyle.hover.boxShadow} !important;
     }
 
-    #cookieAdminButton.cookie-admin-button svg {
+    .cc-cookie-admin-button svg {
         width: 28px !important;
         height: 28px !important;
         fill: ${config.adminButtonStyle.iconColor} !important;
         transition: transform 0.3s ease !important;
     }
 
-    #cookieAdminButton.cookie-admin-button:hover svg {
+    .cc-cookie-admin-button:hover svg {
         transform: rotate(15deg) !important;
     }
 
     /* Analytics Dashboard */
-    #cookieAnalyticsModal.cookie-analytics-modal {
+    .cc-cookie-analytics-modal {
         display: none !important;
         position: fixed !important;
         top: 0 !important;
@@ -1820,14 +1830,14 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         transition: opacity ${config.behavior.dashboardAnimation.duration}s ${config.behavior.dashboardAnimation.easing} !important;
     }
 
-    #cookieAnalyticsModal.cookie-analytics-modal.show {
+    .cc-cookie-analytics-modal.show {
         display: flex !important;
         align-items: center !important;
         justify-content: center !important;
         opacity: 1 !important;
     }
 
-    #cookieAnalyticsModal .cookie-analytics-content {
+    .cc-cookie-analytics-content {
         background-color: ${config.dashboardStyle.background} !important;
         margin: 0 auto !important;
         width: ${config.dashboardStyle.width} !important;
@@ -1841,11 +1851,11 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         flex-direction: column !important;
     }
 
-    #cookieAnalyticsModal.cookie-analytics-modal.show .cookie-analytics-content {
+    .cc-cookie-analytics-modal.show .cc-cookie-analytics-content {
         transform: translateY(0) !important;
     }
 
-    #cookieAnalyticsModal .cookie-analytics-header {
+    .cc-cookie-analytics-header {
         padding: 20px 30px !important;
         border-bottom: 1px solid #ecf0f1 !important;
         display: flex !important;
@@ -1854,14 +1864,14 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         background-color: ${config.dashboardStyle.header.background} !important;
     }
 
-    #cookieAnalyticsModal .cookie-analytics-header h2 {
+    .cc-cookie-analytics-header h2 {
         margin: 0 !important;
         color: ${config.dashboardStyle.header.textColor} !important;
         font-size: ${config.dashboardStyle.header.fontSize} !important;
         font-weight: ${config.dashboardStyle.header.fontWeight} !important;
     }
 
-    #cookieAnalyticsModal .close-analytics-modal {
+    .cc-close-analytics-modal {
         font-size: 28px !important;
         font-weight: bold !important;
         cursor: pointer !important;
@@ -1872,11 +1882,11 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         transition: color 0.2s ease !important;
     }
 
-    #cookieAnalyticsModal .close-analytics-modal:hover {
+    .cc-close-analytics-modal:hover {
         color: ${config.modalStyle.closeButton.hoverColor} !important;
     }
 
-    #cookieAnalyticsModal .cookie-analytics-body {
+    .cc-cookie-analytics-body {
         padding: 25px 30px !important;
         background-color: ${config.dashboardStyle.body.background} !important;
         overflow-y: auto !important;
@@ -1884,25 +1894,25 @@ function injectConsentHTML(detectedCookies, language = 'en') {
     }
 
     /* Stats Dashboard */
-    #cookieAnalyticsModal .analytics-dashboard {
+    .cc-analytics-dashboard {
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
     }
 
-    #cookieAnalyticsModal .analytics-dashboard h3 {
+    .cc-analytics-dashboard h3 {
         color: ${config.bannerStyle.title.color} !important;
         margin-top: 0 !important;
         margin-bottom: 20px !important;
         font-size: 1.3rem !important;
     }
 
-    #cookieAnalyticsModal .stats-summary {
+    .cc-stats-summary {
         display: grid !important;
         grid-template-columns: repeat(4, 1fr) !important;
         gap: 15px !important;
         margin-bottom: 30px !important;
     }
 
-    #cookieAnalyticsModal .stat-card {
+    .cc-stat-card {
         background-color: ${config.dashboardStyle.statCards.background} !important;
         border-radius: ${config.dashboardStyle.statCards.borderRadius} !important;
         padding: 15px !important;
@@ -1910,80 +1920,80 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         transition: all 0.3s ease !important;
     }
 
-    #cookieAnalyticsModal .stat-card:hover {
+    .cc-stat-card:hover {
         transform: translateY(-3px) !important;
         box-shadow: 0 5px 15px rgba(0,0,0,0.1) !important;
     }
 
-    #cookieAnalyticsModal .stat-card.accepted {
+    .cc-stat-card.cc-accepted {
         border-top: 4px solid ${config.dashboardStyle.statCards.acceptedColor} !important;
     }
 
-    #cookieAnalyticsModal .stat-card.rejected {
+    .cc-stat-card.cc-rejected {
         border-top: 4px solid ${config.dashboardStyle.statCards.rejectedColor} !important;
     }
 
-    #cookieAnalyticsModal .stat-card.custom {
+    .cc-stat-card.cc-custom {
         border-top: 4px solid ${config.dashboardStyle.statCards.customColor} !important;
     }
 
-    #cookieAnalyticsModal .stat-card.total {
+    .cc-stat-card.cc-total {
         border-top: 4px solid ${config.dashboardStyle.statCards.totalColor} !important;
     }
 
-    #cookieAnalyticsModal .stat-card h4 {
+    .cc-stat-card h4 {
         margin: 0 0 10px 0 !important;
         font-size: 1rem !important;
         color: ${config.bannerStyle.description.color} !important;
     }
 
-    #cookieAnalyticsModal .stat-value {
+    .cc-stat-value {
         font-size: 1.8rem !important;
         font-weight: 700 !important;
         color: ${config.bannerStyle.title.color} !important;
         margin-bottom: 5px !important;
     }
 
-    #cookieAnalyticsModal .stat-percentage {
+    .cc-stat-percentage {
         font-size: 1rem !important;
         color: ${config.bannerStyle.description.color} !important;
     }
 
-    #cookieAnalyticsModal .time-based-stats {
+    .cc-time-based-stats {
         display: grid !important;
         grid-template-columns: 1fr !important;
         gap: 30px !important;
     }
 
-    #cookieAnalyticsModal .time-stat {
+    .cc-time-stat {
         background-color: ${config.dashboardStyle.statCards.background} !important;
         border-radius: ${config.dashboardStyle.statCards.borderRadius} !important;
         padding: 20px !important;
     }
 
-    #cookieAnalyticsModal .time-stat h4 {
+    .cc-time-stat h4 {
         margin: 0 0 15px 0 !important;
         font-size: 1.1rem !important;
         color: ${config.bannerStyle.title.color} !important;
     }
 
-    #cookieAnalyticsModal .stat-bars {
+    .cc-stat-bars {
         display: grid !important;
         grid-template-columns: 1fr !important;
         gap: 10px !important;
     }
 
-    #cookieAnalyticsModal .stat-bar-container {
+    .cc-stat-bar-container {
         margin-bottom: 15px !important;
     }
 
-    #cookieAnalyticsModal .stat-bar-label {
+    .cc-stat-bar-label {
         font-size: 0.85rem !important;
         color: ${config.bannerStyle.description.color} !important;
         margin-bottom: 5px !important;
     }
 
-    #cookieAnalyticsModal .stat-bar {
+    .cc-stat-bar {
         height: ${config.dashboardStyle.barChart.height} !important;
         background-color: ${config.dashboardStyle.barChart.background} !important;
         border-radius: ${config.dashboardStyle.barChart.borderRadius} !important;
@@ -1991,23 +2001,23 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         display: flex !important;
     }
 
-    #cookieAnalyticsModal .stat-bar-segment {
+    .cc-stat-bar-segment {
         height: 100% !important;
     }
 
-    #cookieAnalyticsModal .stat-bar-segment.accepted {
+    .cc-stat-bar-segment.cc-accepted {
         background-color: ${config.dashboardStyle.barChart.acceptedColor} !important;
     }
 
-    #cookieAnalyticsModal .stat-bar-segment.rejected {
+    .cc-stat-bar-segment.cc-rejected {
         background-color: ${config.dashboardStyle.barChart.rejectedColor} !important;
     }
 
-    #cookieAnalyticsModal .stat-bar-segment.custom {
+    .cc-stat-bar-segment.cc-custom {
         background-color: ${config.dashboardStyle.barChart.customColor} !important;
     }
 
-    #cookieAnalyticsModal .stat-bar-legend {
+    .cc-stat-bar-legend {
         display: flex !important;
         justify-content: space-between !important;
         font-size: 0.75rem !important;
@@ -2016,24 +2026,24 @@ function injectConsentHTML(detectedCookies, language = 'en') {
     }
 
     /* Footer Buttons */
-    #cookieSettingsModal .cookie-settings-footer {
+    .cc-cookie-settings-footer {
         padding: 20px 30px !important;
         background-color: ${config.modalStyle.footer.background} !important;
         border-top: ${config.modalStyle.footer.borderTop} !important;
     }
 
     /* Password Prompt */
-    #cookieAnalyticsModal .password-prompt {
+    .cc-password-prompt {
         text-align: center !important;
         padding: 30px !important;
     }
 
-    #cookieAnalyticsModal .password-prompt h3 {
+    .cc-password-prompt h3 {
         color: ${config.bannerStyle.title.color} !important;
         margin-bottom: 20px !important;
     }
 
-    #cookieAnalyticsModal .password-prompt input {
+    .cc-password-prompt input {
         padding: 12px 15px !important;
         border-radius: 6px !important;
         border: 1px solid #e0e0e0 !important;
@@ -2043,7 +2053,7 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         font-size: 14px !important;
     }
 
-    #cookieAnalyticsModal .password-prompt button {
+    .cc-password-prompt button {
         padding: 12px 25px !important;
         background-color: ${config.buttonStyle.accept.background} !important;
         color: white !important;
@@ -2054,11 +2064,11 @@ function injectConsentHTML(detectedCookies, language = 'en') {
         transition: all 0.2s ease !important;
     }
 
-    #cookieAnalyticsModal .password-prompt button:hover {
+    .cc-password-prompt button:hover {
         background-color: ${config.buttonStyle.accept.hover.background} !important;
     }
 
-    #cookieAnalyticsModal .error-message {
+    .cc-error-message {
         color: ${config.buttonStyle.reject.color} !important;
         margin-top: 10px !important;
         font-size: 14px !important;
@@ -2066,30 +2076,30 @@ function injectConsentHTML(detectedCookies, language = 'en') {
 
     /* Responsive Styles */
     @media (max-width: 900px) {
-        #cookieSettingsModal .cookie-settings-content {
+        .cc-cookie-settings-content {
             width: 90% !important;
             max-height: 80vh !important;
         }
         
-        #cookieAnalyticsModal .cookie-analytics-content {
+        .cc-cookie-analytics-content {
             width: 90% !important;
             max-height: 80vh !important;
         }
         
-        #cookieAnalyticsModal .stats-summary {
+        .cc-stats-summary {
             grid-template-columns: repeat(2, 1fr) !important;
         }
     }
     @media (min-width: 768px) {
-        #cookieConsentBanner .cookie-consent-buttons {
+        .cc-cookie-consent-buttons {
             flex-direction: row !important;
         }
-        #cookieConsentBanner .cookie-btn {
+        .cc-cookie-btn {
             flex: 1 !important;
         }
     }
     @media (max-width: 768px) {
-        #cookieConsentBanner.cookie-consent-banner {
+        .cc-cookie-consent-banner {
             width: 90% !important;
             ${config.behavior.bannerPosition === 'left' ? 'left: 5% !important;' : 'right: 5% !important;'}
             bottom: 10px !important;
@@ -2097,94 +2107,94 @@ function injectConsentHTML(detectedCookies, language = 'en') {
             flex-direction: column !important;
         }
         
-        #cookieConsentBanner .cookie-btn {
+        .cc-cookie-btn {
             flex: 1 !important;
             min-width: 120px !important;
         }
         
-        #cookieConsentBanner .cookie-btn:last-child {
+        .cc-cookie-btn:last-child {
             margin-bottom: 0 !important;
         }
         
-        #cookieSettingsModal .cookie-settings-header {
+        .cc-cookie-settings-header {
             padding: 15px 20px !important;
         }
         
-        #cookieSettingsModal .cookie-settings-body {
+        .cc-cookie-settings-body {
             padding: 15px 20px !important;
         }
         
-        #cookieSettingsModal .cookie-settings-footer {
+        .cc-cookie-settings-footer {
             padding: 15px 20px !important;
         }
         
-        #cookieSettingsModal .modal-buttons-container {
+        .cc-modal-buttons-container {
             flex-direction: column !important;
         }
         
-        #cookieSettingsModal .modal-buttons-container .cookie-btn {
+        .cc-modal-buttons-container .cc-cookie-btn {
             width: 100% !important;
             margin-bottom: 8px !important;
         }
         
-        #cookieSettingsModal .modal-buttons-container .cookie-btn:last-child {
+        .cc-modal-buttons-container .cc-cookie-btn:last-child {
             margin-bottom: 0 !important;
         }
         
-        #cookieAnalyticsModal .stats-summary {
+        .cc-stats-summary {
             grid-template-columns: 1fr !important;
         }
         
         /* Mobile cookie details */
-        #cookieSettingsModal .cookie-details-table {
+        .cc-cookie-details-table {
             display: block !important;
             overflow-x: auto !important;
             white-space: nowrap !important;
         }
         
-        #cookieSettingsModal .cookie-details-table td {
+        .cc-cookie-details-table td {
             white-space: normal !important;
         }
         
-        #cookieSettingsModal .cookie-value-cell {
+        .cc-cookie-value-cell {
             min-width: 120px !important;
         }
     }
 
     @media (max-width: 480px) {
-        #cookieConsentBanner.cookie-consent-banner {
+        .cc-cookie-consent-banner {
             padding: 15px !important;
             flex-direction: column !important;
             width: calc(100% - 30px) !important;
             ${config.behavior.bannerPosition === 'left' ? 'left: 15px !important;' : 'right: 15px !important;'}
         }
         
-        #cookieConsentBanner .cookie-consent-content h2 {
+        .cc-cookie-consent-content h2 {
             font-size: 1.1rem !important;
         }
         
-        #cookieConsentBanner .cookie-consent-content p {
+        .cc-cookie-consent-content p {
             font-size: 0.85rem !important;
             margin-bottom: 15px !important;
         }
         
-        #cookieConsentBanner .privacy-policy-link {
+        .cc-privacy-policy-link {
             margin-bottom: 15px !important;
         }
         
-        #cookieConsentBanner .cookie-btn {
+        .cc-cookie-btn {
             padding: 10px !important;
             font-size: 0.85rem !important;
         }
         
-        #cookieFloatingButton.cookie-settings-button {
+        .cc-cookie-settings-button {
             width: 50px !important;
             height: 50px !important;
             bottom: 15px !important;
             ${config.behavior.floatingButtonPosition === 'left' ? 'left: 15px !important;' : 'right: 15px !important;'}
         }
         
-        #cookieAdminButton.cookie-admin-button {
+        .cc-cookie-admin-button {
             width: 50px !important;
             height: 50px !important;
             ${config.behavior.adminButtonPosition === 'left' ? 
@@ -2192,30 +2202,30 @@ function injectConsentHTML(detectedCookies, language = 'en') {
               'right: 15px !important; bottom: 80px !important;'}
         }
         
-        #cookieFloatingButton.cookie-settings-button svg {
+        .cc-cookie-settings-button svg {
             width: 22px !important;
             height: 22px !important;
         }
         
-        #cookieAdminButton.cookie-admin-button svg {
+        .cc-cookie-admin-button svg {
             width: 22px !important;
             height: 22px !important;
         }
         
-        #cookieSettingsModal .cookie-settings-header h2 {
+        .cc-cookie-settings-header h2 {
             font-size: 1.2rem !important;
         }
         
-        #cookieSettingsModal .toggle-container h3 {
+        .cc-toggle-container h3 {
             font-size: 1rem !important;
         }
         
-        #cookieSettingsModal .cookie-details-table {
+        .cc-cookie-details-table {
             font-size: 0.8rem !important;
         }
         
-        #cookieSettingsModal .cookie-details-table th, 
-        #cookieSettingsModal .cookie-details-table td {
+        .cc-cookie-details-table th, 
+        .cc-cookie-details-table td {
             padding: 8px 10px !important;
         }
     }
@@ -2327,26 +2337,26 @@ function initializeCookieConsent(detectedCookies, language) {
     setupEventListeners();
     
     // Setup cookie details toggles
-  // In the initializeCookieConsent function, replace the cookie details toggle setup with:
-document.querySelectorAll('.cookie-details-header').forEach(header => {
-    header.addEventListener('click', function() {
-        const content = this.nextElementSibling;
-        const toggle = this.querySelector('.toggle-details');
-        if (content.style.display === 'none' || !content.style.display) {
-            content.style.display = 'block';
-            toggle.textContent = '−';
-        } else {
-            content.style.display = 'none';
-            toggle.textContent = '+';
-        }
+    document.querySelectorAll('.cc-cookie-details-header').forEach(header => {
+        header.addEventListener('click', function() {
+            const content = this.nextElementSibling;
+            const toggle = this.querySelector('.cc-toggle-details');
+            if (content.style.display === 'none') {
+                content.style.display = 'block';
+                toggle.textContent = '−';
+            } else {
+                content.style.display = 'none';
+                toggle.textContent = '+';
+            }
+        });
     });
-});
+    
     // Setup cookie value toggles for mobile
     document.addEventListener('click', function(e) {
-        if (e.target.classList.contains('toggle-cookie-value')) {
-            const cell = e.target.closest('.cookie-value-cell');
-            const full = cell.querySelector('.cookie-value-full');
-            const truncated = cell.querySelector('.cookie-value-truncated');
+        if (e.target.classList.contains('cc-toggle-cookie-value')) {
+            const cell = e.target.closest('.cc-cookie-value-cell');
+            const full = cell.querySelector('.cc-cookie-value-full');
+            const truncated = cell.querySelector('.cc-cookie-value-truncated');
             
             if (e.target.dataset.state === 'truncated') {
                 full.style.display = 'inline';
@@ -2380,7 +2390,7 @@ document.querySelectorAll('.cookie-details-header').forEach(header => {
     }
     
     // Setup "See Consent Analytics" link in the modal footer
-    const seeAnalyticsLink = document.querySelector('.see-analytics-link');
+    const seeAnalyticsLink = document.querySelector('.cc-see-analytics-link');
     if (seeAnalyticsLink) {
         seeAnalyticsLink.addEventListener('click', function(e) {
             e.preventDefault();
@@ -2418,7 +2428,7 @@ function setupPasswordPromptEvents() {
                 setCookie('dashboard_auth', 'true', config.analytics.passwordCookieDuration);
                 
                 // Update the dashboard content
-                document.querySelector('.cookie-analytics-body').innerHTML = generateAnalyticsDashboard(lang);
+                document.querySelector('.cc-cookie-analytics-body').innerHTML = generateAnalyticsDashboard(lang);
             } else {
                 errorMessage.textContent = translations[lang].passwordIncorrect;
             }
@@ -2427,9 +2437,7 @@ function setupPasswordPromptEvents() {
 }
 
 // Setup all event listeners
-// Update the setupEventListeners function to properly handle cookie details toggles
 function setupEventListeners() {
-    // Existing event listeners
     document.getElementById('acceptAllBtn').addEventListener('click', function() {
         acceptAllCookies();
         hideCookieBanner();
@@ -2449,46 +2457,6 @@ function setupEventListeners() {
     document.getElementById('adjustConsentBtn').addEventListener('click', function() {
         showCookieSettings();
         hideCookieBanner();
-        if (config.behavior.showFloatingButton) {
-            showFloatingButton();
-        }
-    });
-    
-    // Add click event for cookie details headers
-    document.addEventListener('click', function(e) {
-        // Handle cookie details toggle
-        if (e.target.closest('.cookie-details-header')) {
-            const header = e.target.closest('.cookie-details-header');
-            const content = header.nextElementSibling;
-            const toggle = header.querySelector('.toggle-details');
-            
-            if (content.style.display === 'none' || !content.style.display) {
-                content.style.display = 'block';
-                toggle.textContent = '−';
-            } else {
-                content.style.display = 'none';
-                toggle.textContent = '+';
-            }
-        }
-        
-        // Handle cookie value toggle
-        if (e.target.classList.contains('toggle-cookie-value')) {
-            const cell = e.target.closest('.cookie-value-cell');
-            const full = cell.querySelector('.cookie-value-full');
-            const truncated = cell.querySelector('.cookie-value-truncated');
-            
-            if (e.target.dataset.state === 'truncated') {
-                full.style.display = 'inline';
-                truncated.style.display = 'none';
-                e.target.textContent = 'Hide full';
-                e.target.dataset.state = 'full';
-            } else {
-                full.style.display = 'none';
-                truncated.style.display = 'inline';
-                e.target.textContent = 'Show full';
-                e.target.dataset.state = 'truncated';
-            }
-        }
     });
     
     document.getElementById('acceptAllSettingsBtn').addEventListener('click', function() {
@@ -2515,14 +2483,14 @@ function setupEventListeners() {
         }
     });
     
-    document.querySelector('.close-modal').addEventListener('click', function() {
+    document.querySelector('.cc-close-modal').addEventListener('click', function() {
         hideCookieSettings();
         if (!getCookie('cookie_consent')) {
             showCookieBanner();
         }
     });
     
-    document.querySelector('.close-analytics-modal').addEventListener('click', function() {
+    document.querySelector('.cc-close-analytics-modal').addEventListener('click', function() {
         hideAnalyticsDashboard();
     });
     
@@ -2534,84 +2502,6 @@ function setupEventListeners() {
         }
     });
 }
-
-// Update the initializeCookieConsent function to properly initialize the floating button
-function initializeCookieConsent(detectedCookies, language) {
-    const consentGiven = getCookie('cookie_consent');
-    
-    // Check if banner should be shown based on schedule
-    const bannerShouldBeShown = shouldShowBanner();
-    
-    if (!consentGiven && config.behavior.autoShow && bannerShouldBeShown) {
-        setTimeout(() => {
-            showCookieBanner();
-        }, config.behavior.bannerDelay * 1000);
-    } else if (consentGiven) {
-        const consentData = JSON.parse(consentGiven);
-        updateConsentMode(consentData);
-        loadCookiesAccordingToConsent(consentData);
-        if (config.behavior.showFloatingButton) {
-            showFloatingButton();
-        }
-    }
-    
-    // Explicitly apply the default language from config
-    changeLanguage(config.languageConfig.defaultLanguage);
-    
-    // Set the dropdown to the default language
-    const languageSelect = document.getElementById('cookieLanguageSelect');
-    if (languageSelect) {
-        languageSelect.value = config.languageConfig.defaultLanguage;
-        // Ensure the change event listener is correctly set up
-        languageSelect.addEventListener('change', function() {
-            changeLanguage(this.value);
-        });
-    }
-    
-    // Set up event listeners
-    setupEventListeners();
-    
-    // Setup admin button if enabled
-    if (config.analytics.enabled && config.analytics.showDashboard && config.behavior.showAdminButton) {
-        const adminButton = document.getElementById('cookieAdminButton');
-        if (adminButton) {
-            adminButton.addEventListener('click', showAnalyticsDashboard);
-            setTimeout(() => {
-                adminButton.style.display = 'flex';
-                adminButton.classList.add('show');
-            }, 100);
-        }
-    }
-    
-    // Setup password prompt events if needed
-    if (config.analytics.passwordProtect && !isDashboardAuthenticated) {
-        setupPasswordPromptEvents();
-    }
-    
-    // Setup "See Consent Analytics" link in the modal footer
-    const seeAnalyticsLink = document.querySelector('.see-analytics-link');
-    if (seeAnalyticsLink) {
-        seeAnalyticsLink.addEventListener('click', function(e) {
-            e.preventDefault();
-            showAnalyticsDashboard();
-        });
-    }
-    
-    // Setup timer for durationMinutes if enabled
-    if (config.behavior.bannerSchedule.enabled && config.behavior.bannerSchedule.durationMinutes) {
-        // Clear any existing timer
-        if (bannerTimer) {
-            clearTimeout(bannerTimer);
-        }
-        
-        bannerTimer = setTimeout(() => {
-            if (!getCookie('cookie_consent')) {
-                hideCookieBanner();
-            }
-        }, config.behavior.bannerSchedule.durationMinutes * 60 * 1000);
-    }
-}
-
 
 // Show/hide functions with animations
 function showCookieBanner() {
@@ -2661,7 +2551,7 @@ function showAnalyticsDashboard() {
         }, 10);
     } else {
         const modal = document.getElementById('cookieAnalyticsModal');
-        document.querySelector('.cookie-analytics-body').innerHTML = generateAnalyticsDashboard(lang);
+        document.querySelector('.cc-cookie-analytics-body').innerHTML = generateAnalyticsDashboard(lang);
         modal.style.display = 'flex';
         setTimeout(() => {
             modal.classList.add('show');
