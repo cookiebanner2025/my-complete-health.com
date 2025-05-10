@@ -1135,7 +1135,7 @@ function injectConsentHTML(detectedCookies, language = 'en') {
             </div>
             <p>${lang[`${categoryKey}Desc`]}</p>
             <div class="cookie-details-container">
-                <div class="cookie-details-header">
+                <div class="">
                     <span>Cookie Details</span>
                     <span class="toggle-details">+</span>
                 </div>
